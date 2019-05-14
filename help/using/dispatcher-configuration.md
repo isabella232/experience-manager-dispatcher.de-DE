@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: Referenz
 discoiquuid: abrue 8 e-bb 44-42 a 7-9 a 5 e-b 7 d 0 e 848391 a
 translation-type: tm+mt
-source-git-commit: bd8fff69a9c8a32eade60c68fc75c3aa411582af
+source-git-commit: 2f0ca874c23cb7aecbcedc22802c46a295bb4d75
 
 ---
 
@@ -567,20 +567,23 @@ Jedes Element im `/filter` Abschnitt enthält einen Typ und ein Muster, das mit 
 
 * **Element der Anforderungszeile:** Einbeziehen `/method``/url`, `/query`oder `/protocol` ein Muster zum Filtern von Anforderungen gemäß diesen bestimmten Teilen des Anforderungsteil der HTTP-Anforderung. Das Filtern nach Elementen der Anforderungszeile (und nicht nach der gesamten Anforderungszeile) ist die bevorzugte Filtermethode.
 
-* **glob-Eigenschaft**: Die `/glob` Eigenschaft wird mit der gesamten Anforderungs-Zeile der HTTP-Anforderung übereinstimmen.
-
-Weitere Informationen zu /glob-Eigenschaften finden Sie unter [Entwerfen von Mustern für glob-Eigenschaften](#designing-patterns-for-glob-properties). Die Regeln für die Verwendung von Platzhalterzeichen in /glob-Eigenschaften gelten auch für die Muster zum Abgleichen der Elemente der Anforderungszeile.
+* **Erweiterte Elemente der Anforderungszeile:** Ab Dispatcher 4.2.0 stehen vier neue Filterelemente zur Verfügung. Diese neuen `/path`Elemente sind, `/selectors``/extension``/suffix` und. Schließen Sie einen oder mehrere dieser Elemente ein, um die URL-Muster weiter zu steuern.
 
 >[!NOTE]
 >
->Ab Dispatcher Version 4.2.0 wurden verschiedene Verbesserungen für Filterkonfigurationen und Protokollfunktionen hinzugefügt:
->
->* [Unterstützung für reguläre POSIX-Ausdrücke](dispatcher-configuration.md#main-pars-title-1996763852)
->* [Unterstützung für das Filtern von zusätzlichen Elementen der Anforderungs-URL](dispatcher-configuration.md#main-pars-title-694578373)
->* [Ablaufprotokollierung](dispatcher-configuration.md#main-pars-title-1950006642)
->
+>Weitere Informationen darüber, welchen Teil der Anforderungszeile diese Elemente referenzieren, finden Sie auf der [Sling-URL-Dekompositions](https://sling.apache.org/documentation/the-sling-engine/url-decomposition.html) -Wiki-Seite.
 
+* **glob-Eigenschaft**: Die `/glob` Eigenschaft wird mit der gesamten Anforderungs-Zeile der HTTP-Anforderung übereinstimmen.
 
+>[!CAUTION]
+>
+>Die Filterung mit globalen Makros wird im Dispatcher nicht mehr unterstützt. Daher sollten Sie keine Makros in den `/filter` Abschnitten verwenden, da dies zu Sicherheitsproblemen führen kann. Anstatt:
+
+`/glob "* *.css *"`
+
+sollten Sie
+
+`/url "*.css"`
 
 #### Anforderungszeilen von HTTP-Anforderungen {#the-request-line-part-of-http-requests}
 
@@ -593,6 +596,18 @@ Bei den Zeichen &lt; CRLF &gt; wird ein Wagenrücklauf gefolgt von einem Zeilenf
 GET /content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF&gt;
 
 Ihre Muster müssen die Leerzeichen in der Anforderungs-Zeile und die Zeichen &lt; CRLF &gt; berücksichtigen.
+
+#### Doppelte Anführungszeichen im Vergleich zu einfachen Anführungszeichen {#double-quotes-vs-single-quotes}
+
+Verwenden Sie beim Erstellen Ihrer Filterregeln doppelte Anführungszeichen `"pattern"` für einfache Muster. Wenn Sie Dispatcher 4.2.0 oder höher verwenden und Ihr Muster einen regulären Ausdruck enthält, müssen Sie das regex-Muster `'(pattern1|pattern2)'` innerhalb von einfachen Anführungszeichen einschließen.
+
+#### Reguläre Ausdrücke {#regular-expressions}
+
+Nach Dispatcher 4.2.0 können Sie POSIX Extended Regular Ausdrücke in Ihre Filtermuster aufnehmen.
+
+#### Fehlerbehebung für Filter {#troubleshooting-filters}
+
+Wenn Ihre Filter nicht auf die gewünschte Weise ausgelöst werden, aktivieren Sie [die Option Protokollierung](#trace-logging) für den Dispatcher aktivieren, damit Sie sehen können, welcher Filter die Anforderung unterbricht.
 
 #### Beispielfilter: Alle verweigern {#example-filter-deny-all}
 
@@ -659,15 +674,6 @@ Dieser Filter ermöglicht mithilfe dieses regulären Ausdrucks (in einfachen Anf
 ```
 
 #### Beispielfilter: Filtern zusätzlicher Elemente einer Anforderungs-URL {#example-filter-filter-additional-elements-of-a-request-url}
-
-Eine der in dispatcher 4.2.0 eingeführten Erweiterungen besteht darin, zusätzliche Elemente der Anforderungs-URL zu filtern. Diese Elemente sind folgende:
-
-* path
-* selectors
-* extension
-* suffix
-
-Diese können durch Hinzufügen der Eigenschaft desselben Namens zur Filterregel konfiguriert werden: `/path``/selectors``/extension``/suffix` .
 
 Im Folgenden finden Sie ein Regelbeispiel, das Inhalte aus dem `/content` Pfad und der Unterstruktur blockiert und Filter für Pfade, Selektoren und Erweiterungen verwendet:
 
