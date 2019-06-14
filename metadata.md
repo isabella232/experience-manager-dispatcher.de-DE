@@ -9,7 +9,7 @@ tutorials-title: Tutorials
 tutorials-url: https://helpx.adobe.com/experience-manager/kt/index/aem-6-4-videos.html
 git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.en
 index: y
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
