@@ -1,19 +1,19 @@
 ---
 title: Optimierung von Websites für die Cache-Leistung
 seo-title: Optimierung von Websites für die Cache-Leistung
-description: Erfahren Sie, wie Sie Ihre Website entwerfen, um die Vorteile der Zwischenspeicherung zu maximieren.
-seo-description: Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Leistung optimieren können. Erfahren Sie, wie Sie Ihre Website entwerfen, um die Vorteile der Zwischenspeicherung zu maximieren.
-uuid: 2 d 4114 d 1-f 464-4 e 10-b 25 c-a 1 b 9 a 9 c 715 d 1
+description: Sie erfahren, wie Sie Ihre Website einrichten, um die Vorteile der Zwischenspeicherung zu maximieren.
+seo-description: Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Leistung optimieren können. Sie erfahren, wie Sie Ihre Website einrichten, um die Vorteile der Zwischenspeicherung zu maximieren.
+uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: Benutzer
-products: SG_ EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: Dispatcher
 content-type: Referenz
-discoiquuid: ba 323503-1494-4048-941 d-c 1 d 14 f 2 e 85 b 2
+discoiquuid: ba323503-1494-4048-941d-c1d14f2e85b2
 redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
@@ -47,12 +47,12 @@ Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Le
 >
 Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
 
-## Verwenden einer einheitlichen Seitenkodierung {#using-consistent-page-encoding}
+## Verwenden einer einheitlichen Seitencodierung  {#using-consistent-page-encoding}
 
 HTTP-Anforderungs-Header werden nicht zwischengespeichert. Daher können Probleme auftreten, wenn Sie Seitenkodierungsinformationen im Header speichern. Wenn der Dispatcher in diesem Fall eine Seite aus dem Cache bereitstellt, wird die Standardkodierung des Webservers für die Seite verwendet. Es gibt zwei Möglichkeiten, um dieses Problem zu vermeiden:
 
 * Wenn Sie nur eine Kodierung verwenden, achten Sie darauf, dass die auf dem Webserver verwendete Kodierung der Standardkodierung der AEM-Website entspricht.
-* Verwenden Sie ein `<META>` Tag im HTML `head` -Abschnitt, um die Kodierung festzulegen, wie im folgenden Beispiel:
+* Verwenden Sie ein `<META>`-Tag im HTML-Abschnitt `head`, um die Codierung festzulegen. Beispiel:
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
@@ -76,7 +76,7 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 >
 >Diese URL ruft dieselbe Seite und Vorlage auf wie „gallery.html“. In der Vorlagendefinition können Sie angeben, welches Skript die Seite rendern soll, oder Sie können ein Skript für alle Seiten verwenden.
 
-## Anpassen nach URL {#customize-by-url}
+## Anpassen nach URL  {#customize-by-url}
 
 Wenn Sie Benutzern die Möglichkeit geben, die Schriftgröße zu ändern (oder andere Layoutanpassungen vorzunehmen), stellen Sie sicher, dass die verschiedenen Anpassungen in der URL repräsentiert werden.
 
@@ -92,13 +92,13 @@ www.myCompany.com/news/main.large.html
 >
 >Bei den meisten Layoutkomponenten können auch Stylesheets und/oder clientseitige Skripts verwendet werden. Diese funktionieren normalerweise gut mit dem Zwischenspeichern.
 >
->Dies ist auch für eine Druckversion nützlich, in der Sie eine URL verwenden können, z. B.: «
+>Dies ist auch für Druckversionen nützlich, für die Sie eine URL wie in diesem Beispiel erstellen können:
 >
 >`www.myCompany.com/news/main.print.html`
 >
 >Unter Verwendung des Skript-Globbings der Vorlagendefinition können Sie ein anderes Skript festlegen, das die Seiten für das Drucken anzeigt.
 
-## Invalidierung von als Titel verwendeten Bilddateien {#invalidating-image-files-used-as-titles}
+## Invalidierung von als Titel verwendeten Bilddateien  {#invalidating-image-files-used-as-titles}
 
 Wenn Sie Seitentitel oder anderen Text als Grafik rendern, sollten Sie die Dateien speichern, damit sie nach einer Inhaltsaktualisierung auf der Seite gelöscht werden:
 
@@ -113,7 +113,7 @@ Beispielsweise können Sie den Titel der Seite „myPage.html“ in der Datei �
 >
 >Die Bilddatei ist nicht unbedingt tatsächlich in der AEM-Instanz vorhanden. Sie können ein Skript verwenden, das die Bilddatei dynamisch erstellt. Der Dispatcher speichert die Datei dann auf dem Webserver.
 
-## Invalidierung von Bilddateien für die Navigation {#invalidating-image-files-used-for-navigation}
+## Invalidierung von Bilddateien für die Navigation  {#invalidating-image-files-used-for-navigation}
 
 Wenn Sie Bilder als Navigationseinträge verwenden, gehen Sie im Prinzip wie bei Titeln vor, das Verfahren ist nur etwas komplexer. Speichern Sie alle Navigationsgrafiken mit den Zielseiten. Wenn Sie zwei Bilder für den normalen und aktiven Status verwenden, können Sie die folgenden Skripts verwenden:
 
@@ -125,7 +125,7 @@ Sie müssen diese Grafiken mit demselben Namenhandle wie die Seite erstellen, um
 
 Bei Seiten, die nicht geändert werden, bleiben die Bilder im Cache, auch wenn die Seiten selbst normalerweise automatisch ungültig gemacht werden.
 
-## Personalisierung {#personalization}
+## Personalisierung  {#personalization}
 
 Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten die Personalisierung daher nur bei Bedarf verwenden. Dies hat folgende Gründe:
 
@@ -144,11 +144,11 @@ Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten 
 
 
 
-## Sticky-Verbindungen {#sticky-connections}
+## Sticky-Verbindungen  {#sticky-connections}
 
 [Sticky-Verbindungen](dispatcher.md#TheBenefitsofLoadBalancing) stellen sicher, dass alle Dokumente für einen Benutzer auf demselben Server erstellt werden. Wenn ein Benutzer dieses Verzeichnis verlässt und später zurückkehrt, bleibt die Verbindung erhalten. Definieren Sie einen Ordner für alle Dokumente, die Sticky-Verbindungen für die Website benötigen. Speichern Sie möglichst keine anderen Dokumente in diesem Ordner. Dies wirkt sich auf den Lastenausgleich aus, wenn Sie personalisierte Seiten und Sitzungsdaten verwenden.
 
-## MIME-Typen {#mime-types}
+## MIME-Typen  {#mime-types}
 
 Es gibt zwei Möglichkeiten, wie ein Browser den Typ einer Datei bestimmen kann:
 
