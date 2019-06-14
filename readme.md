@@ -1,6 +1,6 @@
 ---
 source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
-translation-type: tm+mt
+translation-type: ht
 
 ---
 # Artikel beitragen
@@ -19,7 +19,7 @@ Wie Sie Beiträge einbringen, hängt davon ab, wer Sie sind und welche Art von �
 
 ### Geringfügige Änderungen
 
-Um kleinere Aktualisierungen einzureichen, klicken Sie in einem Artikel auf den Link **Bearbeiten**, wodurch der Quellartikel in GitHub geöffnet wird. Verwenden Sie die GitHub-Benutzeroberfläche, um Ihre Aktualisierungen vorzunehmen. Weitere Informationen finden Sie im allgemeinen [Adobe Docs-Mitarbeiter-Handbuch](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) .
+Um kleinere Aktualisierungen einzureichen, klicken Sie in einem Artikel auf den Link **Bearbeiten**, wodurch der Quellartikel in GitHub geöffnet wird. Verwenden Sie die GitHub-Benutzeroberfläche, um Ihre Aktualisierungen vorzunehmen. Weitere Informationen finden Sie im allgemeinen [Adobe Docs Contributor Guide](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html).
 
 Kleinere Korrekturen oder Erläuterungen, die Sie für Dokumentation und Codebeispiele in diesem Repo einreichen, werden von den Adobe-Nutzungsbedingungen abgedeckt.
 
@@ -41,14 +41,14 @@ Wenn es zu Ihren Aufgaben als technischer Redakteur, Programmmanager oder Entwic
 
 Communitymitwirkende können die GitHub-UI zur grundlegenden Bearbeitung verwenden oder das Repo zum Beisteuern größerer Beiträge forken.
 
-Weitere Informationen finden Sie im [Adobe Docs Contributor Guide](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) .
+Weitere Informationen finden Sie im [Adobe Docs Contributor Guide](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html).
 
 ## Verwendung von Markdowns zum Formatieren Ihres Themas
 
 Alle Artikel in diesem Repository verwenden GitHub Flavored Markdown. Wenn Sie mit Markdowns nicht vertraut sind, lesen Sie:
 
-* [Grundlegende Markierungen](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
-* [Druckbares Marktierungs-Dropsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+* [Markdown-Grundlagen](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
+* [Ausdruckbares Markdown-Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 ## Beschriftungen
 
