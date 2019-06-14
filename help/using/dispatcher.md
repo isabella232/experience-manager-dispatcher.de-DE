@@ -1,16 +1,16 @@
 ---
-title: Dispatcher-Übersicht
-seo-title: Adobe AEM Dispatcher - Übersicht
-description: Dieser Artikel bietet einen allgemeinen Überblick über Dispatcher.
-seo-description: Dieser Artikel bietet einen allgemeinen Überblick über Adobe Experience Manager Dispatcher.
-uuid: 71766 f 86-5 e 91-446 b-a 078-061 b 179 d 900 d
+title: 'Dispatcher-Übersicht '
+seo-title: Übersicht Adobe AEM Dispatcher
+description: Dieser Artikel bietet eine allgemeine Übersicht über den Dispatcher.
+seo-description: Dieser Artikel bietet eine allgemeine Übersicht über den Adobe Experience Manager Dispatcher.
+uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: '1193211344162'
 contentOwner: Benutzer
-topic-tags: dispatcher
+topic-tags: Dispatcher
 content-type: Referenz
-discoiquuid: 1 d 449 ee 2-4 cdd -4 b 7 a -8 b 4 e -7 e 6 fc 0 a 1 d 7 ee
-translation-type: tm+mt
-source-git-commit: 5fcff5b840e8c7bb79eb96375ff37ccfacc615c9
+discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
+translation-type: ht
+source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
 
@@ -23,30 +23,30 @@ source-git-commit: 5fcff5b840e8c7bb79eb96375ff37ccfacc615c9
 
 Der Dispatcher ist ein Tool von Adobe Experience Manager für das Zwischenspeichern und/oder den Lastenausgleich. Mit dem Dispatcher von AEM können Sie außerdem Ihren AEM-Server vor Angriffen schützen. Daher können Sie die Sicherheit Ihrer AEM-Instanz verbessern, indem Sie den Dispatcher in Verbindung mit einem Webserver der Unternehmensklasse verwenden.
 
-Der Prozess zur Bereitstellung eines Dispatchers ist unabhängig vom Webserver und der ausgewählten Betriebssystem-Plattform:
+Die Bereitstellung des Dispatchers ist unabhängig von Webserver und Betriebssystem:
 
-1. Weitere Informationen zum Dispatcher (diese Seite). Weitere Informationen finden Sie außerdem in den [häufig gestellten Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Installieren Sie einen [unterstützten Webserver](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) gemäß der Webserverdokumentation.
+1. Weitere Informationen zum Dispatcher (diese Seite). Siehe auch: [häufig gestellte Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
+1. Installieren Sie einen [unterstützten Webserver](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) gemäß der Webserver-Dokumentation.
 
-1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver entsprechend.
-1. [Konfigurieren Sie Dispatcher](dispatcher-configuration.md) (die Datei dispatcher. any).
+1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver dementsprechend.
+1. [Konfigurieren Sie den Dispatcher](dispatcher-configuration.md) (Datei „dispatcher.any“).
 
-1. [Konfigurieren Sie AEM](page-invalidate.md) so, dass die Inhaltsaktualisierungen den Cache ungültig machen.
+1. [Konfigurieren Sie AEM](page-invalidate.md), sodass der Cache durch Inhaltsaktualisierungen invalidiert wird.
 
 >[!NOTE]
 >
->Weitere Informationen zur Funktionsweise des Dispatchers mit AEM finden Sie unter [AEM Community Experts für Juli 2017 fragen](https://bit.ly/ATACE0717).
+>Weitere Informationen zur Funktionsweise des Dispatchers mit AEM finden Sie unter [Fragen Sie die AEM Community-Experten Juli 2017](https://bit.ly/ATACE0717).
 
 Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 
 * [Die Dispatcher-Sicherheitscheckliste](security-checklist.md)
-* [Die Dispatcher-Knowledge-Base](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Optimierung von Websites für die Cache-Leistung](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Die Dispatcher-Wissensdatenbank](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
+* [Optimierung von Websites für die Cache-Leistung]( https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Verwenden des Dispatchers mit mehreren Domänen](dispatcher-domains.md)
 * [Verwenden von SSL mit dem Dispatcher](dispatcher-ssl.md)
 * [Implementieren der Zwischenspeicherung unter Berücksichtigung von Berechtigungen](permissions-cache.md)
 * [Beheben von Problemen beim Dispatcher](dispatcher-troubleshooting.md)
-* [Häufig gestellte Fragen zu Dispatcher - Häufige Probleme](dispatcher-faq.md)
+* [Häufig gestellte Fragen zu Problemen beim Dispatcher](dispatcher-faq.md)
 
 >[!NOTE]
 >
@@ -54,7 +54,7 @@ Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 >
 >Mit dem Dispatcher kann jedoch auch die Reaktionsgeschwindigkeit der **Autoreninstanz** gesteigert werden, besonders wenn viele Benutzer Ihre Website bearbeiten und aktualisieren. Weitere Informationen zu diesem speziellen Fall finden Sie unten unter [Verwenden eines Dispatchers mit einem Autorenserver](#using-a-dispatcher-with-an-author-server).
 
-## Gründe für die Verwendung des Dispatchers zum Implementieren der Zwischenspeicherung {#why-use-dispatcher-to-implement-caching}
+## Gründe für die Verwendung des Dispatchers zum Implementieren der Zwischenspeicherung  {#why-use-dispatcher-to-implement-caching}
 
 Es gibt zwei grundlegende Ansätze zum Veröffentlichen im Web:
 
@@ -68,15 +68,15 @@ Mit dem Dispatcher können Sie eine Umgebung realisieren, die gleichzeitig schne
 
 Dies bedeutet:
 
-* **statischer Inhalt** mit exakt derselben Geschwindigkeit und Einfachheit verarbeitet wird wie auf einem statischen Webserver;*darüber hinaus können Sie die Administrations- und Sicherheitstools verwenden*, die für Ihre statischen Webserver verfügbar sind.
+* **Statische Inhalte** werden mit genau derselben Geschwindigkeit und Flexibilität wie auf einem statischen Webserver bearbeitet. *Außerdem können Sie die für Ihren statischen Webserver verfügbaren Administrations- und Sicherheitstools verwenden*.
 
-* **dynamische Inhalte** werden nach Bedarf generiert, ohne dass das System mehr als absolut erforderlich ist.
+* **Dynamische Inhalte** werden nach Bedarf generiert, ohne das System mehr als absolut notwendig zu verlangsamen.
 
 Der Dispatcher umfasst Mechanismen zum Generieren und Aktualisieren von statischem HTML auf Grundlage der Inhalte der dynamischen Website. Sie können detailliert angeben, welche Dokumente als statische Dateien gespeichert werden sollen und welche immer dynamisch generiert werden.
 
 In diesem Abschnitt werden die hierbei zugrunde liegenden Prinzipien beschrieben.
 
-### Statischer Webserver {#static-web-server}
+### Statischer Webserver  {#static-web-server}
 
 ![](assets/chlimage_1-3.png)
 
@@ -84,7 +84,7 @@ Ein statischer Webserver, wie z. B. Apache oder IIS, stellt statische HTML-Datei
 
 Dieser Vorgang ist sehr einfach und daher sehr effizient. Wenn ein Benutzer eine Datei anfordert (z. B. eine HTML-Seite), wird die Datei zumeist auch direkt aus dem Speicher abgerufen und höchstens von der lokalen Festplatte gelesen. Statische Webserver sind bereits seit einiger Zeit verfügbar, sodass eine umfangreiche Auswahl an Werkzeugen für Administration und Sicherheitsverwaltung bereitsteht. Außerdem sind sie sehr gut in Netzwerkinfrastrukturen integriert.
 
-### Inhaltsverwaltungsserver {#content-management-servers}
+### Inhaltsverwaltungsserver  {#content-management-servers}
 
 ![](assets/chlimage_1-4.png)
 
@@ -92,19 +92,19 @@ Wenn Sie einen Inhaltsverwaltungsserver wie AEM verwenden, wird die Anforderung 
 
 So können Sie vielseitigere, dynamische Inhalte erstellen und die Flexibilität und den Funktionsumfang Ihrer Website steigern. Allerdings ist für die Layout-Engine mehr Verarbeitungsleistung als für einen statischen Server erforderlich. Daher ist dieses Setup für Verzögerungen anfällig, wenn viele Besucher das System verwenden.
 
-## Zwischenspeicherung durch den Dispatcher {#how-dispatcher-performs-caching}
+## Zwischenspeicherung durch den Dispatcher  {#how-dispatcher-performs-caching}
 
 ![](assets/chlimage_1-5.png)
 
-**Das Cache-Verzeichnis** Zum Zwischenspeichern nutzt das Dispatcher-Modul die Fähigkeit des Webservers, statische Inhalte bereitzustellen. Der Dispatcher speichert die zwischengespeicherten Dokumente im Dokumentenstamm des Webservers.
+**Das Cache-Verzeichnis** Zum Zwischenspeichern nutzt das Dispatcher-Modul die Fähigkeit des Webservers, statische Inhalte bereitzustellen. Der Dispatcher legt die zwischengespeicherten Dokumente im Basisverzeichnis des Webservers ab.
 
 >[!NOTE]
 >
->Wenn die Konfiguration für die CTTP-Header-Zwischenspeicherung fehlt, speichert der Dispatcher nur den HTML-Code der Seite - die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der CTTP-Header-Zwischenspeicherung finden Sie unter [Dispatcher-Cache konfigurieren.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Wenn die Konfiguration für das Zwischenspeichern von HTTP-Headern fehlt, speichert der Dispatcher nur den HTML-Code der Seite. Die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der HTTP-Header-Zwischenspeicherung finden Sie unter [Konfigurieren des Dispatcher-Cache.](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
->Das Suchen des Dokumentenstamms Ihres Webservers auf NAS-Speichern führt zu einer verringerten Leistung. Wenn außerdem ein Dokumenstamm, der sich auf NAS befindet, zwischen mehreren Webservern freigegeben wird, sperrt die Intermittlungssperre, wenn Replizierungsaktionen durchgeführt werden.
+>Das Suchen des Dokumentenstamms Ihres Webservers auf NAS-Speichern führt zu einer verringerten Leistung. Auch wenn ein Basisverzeichnis auf NAS von mehreren Webservern gemeinsam genutzt wird, können zwischenzeitlich Sperren auftreten, wenn Replikationsaktionen durchgeführt werden.
 
 >[!NOTE]
 >
@@ -116,8 +116,8 @@ So können Sie vielseitigere, dynamische Inhalte erstellen und die Flexibilität
 
 Der Dispatcher verwendet zwei Hauptverfahren zum Aktualisieren des zwischengespeicherten Inhalts, wenn Änderungen an der Website vorgenommen werden.
 
-* **Inhaltsaktualisierungen** entfernen die geänderten Seiten sowie Dateien, die direkt mit ihnen verknüpft sind.
-* **Die automatische Ungültigmachung** ungültig die Teile des Zwischenspeichers, die nach einer Aktualisierung möglicherweise nicht mehr auf dem neuesten Stand sind. Dies bedeutet, dass entsprechende Seiten als veraltet markiert werden, ohne dass Daten gelöscht werden.
+* **Inhaltsaktualisierungen** entfernen die geänderten Seiten sowie die Dateien, die sich direkt auf sie beziehen.
+* **Die automatische Invalidierung** macht automatisch jene Teile des Caches ungültig, die nach einer Aktualisierung möglicherweise veraltet sind. Dies bedeutet, dass entsprechende Seiten als veraltet markiert werden, ohne dass Daten gelöscht werden.
 
 ### Inhaltsaktualisierungen
 
@@ -148,15 +148,15 @@ Auch hier sollten bestimmte Punkte beachtet werden:
 * Die automatische Invalidierung wird normalerweise bei komplexen Wechselbeziehungen verwendet, z. B. für HTML-Seiten. Diese Seiten enthalten Links und Navigationseinträge, sodass sie in der Regel nach einer Inhaltsaktualisierung aktualisiert werden müssen. Wenn Sie automatisch generierte PDF- oder Bilddateien haben, können Sie auch für diese die automatische Invalidierung festlegen.
 * Für die automatische Invalidierung ist bei der Aktualisierung keine Aktion durch den Dispatcher erforderlich, mit Ausnahme der Bearbeitung der Statfile. Durch das Bearbeiten der Statfile ist allerdings automatisch der Inhalt des Zwischenspeichers veraltet, ohne dass er physisch aus dem Cache entfernt wird.
 
-## Zurückgeben von Dokumenten durch den Dispatcher {#how-dispatcher-returns-documents}
+## Zurückgeben von Dokumenten durch den Dispatcher  {#how-dispatcher-returns-documents}
 
 ![](assets/chlimage_1-6.png)
 
 ### Festlegen, ob ein Dokument zwischengespeichert werden soll
 
-Sie können [definieren, welche Dokumente die Dispatcher-Zwischenspeicher in der Konfigurationsdatei enthalten](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
+Sie können [definieren, welche Dokumente der Dispatcher in der Konfigurationsdatei zwischenspeichert](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
 
-Der Dispatcher *fordert das Dokument in* den folgenden Fällen immer direkt von der AEM-Instanz an:
+Der Dispatcher ruft das Dokument in den folgenden Fällen *immer* direkt aus der AEM-Instanz ab:
 
 * Wenn der Anforderungs-URI ein Fragezeichen (?) enthält. Hierdurch wird normalerweise eine dynamische Seite angegeben (z. B. ein Suchergebnis), die nicht zwischengespeichert werden muss.
 * Die Dateierweiterung fehlt. Der Webserver benötigt die Erweiterung, um den Dokumenttyp (den MIME-Typ) zu bestimmen.
@@ -164,7 +164,7 @@ Der Dispatcher *fordert das Dokument in* den folgenden Fällen immer direkt von 
 
 >[!NOTE]
 >
->Die GET- oder HEAD-Methoden (für HTTP-Header) sind vom Dispatcher cache bar. Weitere Informationen zur Zwischenspeicherung der Antwortkopfzeile finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwort-Kopfzeilen](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) .
+>Die Methoden GET oder HEAD (für den HTTP-Header) können vom Dispatcher zwischengespeichert werden. Weitere Informationen zur Zwischenspeicherung von Antwortheadern finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwortheadern](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Bestimmen, ob ein Dokument zwischengespeichert wird 
 
@@ -206,7 +206,7 @@ Vorteile:
 >
 >Während ein einzelner Dispatcher normalerweise in der Lage ist, die Kapazität der verfügbaren Veröffentlichungsinstanzen auszunutzen, kann es bei einigen wenigen Anwendungen sinnvoll sein, zusätzlich einen Lastenausgleich zwischen zwei Dispatcher-Instanzen einzurichten. Konfigurationen mit mehreren Dispatchern müssen sorgfältig durchdacht werden, da ein weiterer Dispatcher die Auslastung der verfügbaren Veröffentlichungsinstanzen erhöht und schnell zu einer Leistungsverringerung bei den meisten Anwendungen führen kann.
 
-## Durchführen des Lastenausgleichs durch den Dispatcher {#how-the-dispatcher-performs-load-balancing}
+## Durchführen des Lastenausgleichs durch den Dispatcher  {#how-the-dispatcher-performs-load-balancing}
 
 ### Leistungsstatistiken
 
@@ -228,7 +228,7 @@ Da durch Sticky-Verbindungen die Fähigkeit des Dispatchers eingeschränkt wird,
 >
 >Bei *einigen* Anwendungen ist es möglich, Sticky-Verbindungen und Zwischenspeichern zu verwenden, zum Beispiel, wenn Sie ein Formular anzeigen, das Daten in die Sitzung schreibt.
 
-## Verwenden mehrerer Dispatcher {#using-multiple-dispatchers}
+## Verwenden mehrerer Dispatcher  {#using-multiple-dispatchers}
 
 In komplexen Umgebungen können Sie mehrere Dispatcher verwenden. Folgende Szenarien sind möglich:
 
@@ -237,7 +237,7 @@ In komplexen Umgebungen können Sie mehrere Dispatcher verwenden. Folgende Szena
 
 In einem solchen Fall müssen Sie sicherstellen, dass jede Anforderung nur einen Dispatcher durchläuft. Ein Dispatcher verarbeitet keine Anforderungen, die von einem anderen Dispatcher stammen. Stellen Sie daher sicher, dass beide Dispatcher direkt auf die AEM-Website zugreifen.
 
-## Verwenden des Dispatchers mit einem CDN {#using-dispatcher-with-a-cdn}
+## Verwenden des Dispatchers mit einem CDN  {#using-dispatcher-with-a-cdn}
 
 Ein CDN (Content Delivery Network) wie Akamai Edge Delivery oder Amazon Cloud Front stellt Inhalte von einem Speicherort in der Nähe des Endbenutzers bereit. Dies hat folgende Vorteile:
 
@@ -257,36 +257,36 @@ Welcher Server der nächstgelegene ist, hängt von Ihrem jeweiligen Setup ab. In
 
 In den meisten Fällen ist der Dispatcher der nächstgelegene Server, der das Dokument aus einem Cache bereitstellen und die Antwort-Header beeinflussen kann, die an den CDN-Server zurückgegeben werden.
 
-## Steuern eines CDN-Caches {#controlling-a-cdn-cache}
+## Steuern eines CDN-Caches  {#controlling-a-cdn-cache}
 
 Es gibt verschiedene Möglichkeiten zu steuern, wie lange ein CDN eine Ressource zwischenspeichert, bevor sie erneut vom Dispatcher abgerufen wird.
 
 1. Explizite Konfiguration\
-   Konfigurieren Sie, wie lange bestimmte Ressourcen im CDN-Cache gespeichert werden, je nach MIME-Typ, Erweiterung, Anforderungstyp usw.
+   Sie können konfigurieren, wie lange bestimmte Ressourcen im Cache des CDNs beibehalten werden, abhängig von MIME-Typ, Erweiterung, Anfragetyp etc.
 
 1. Ablauf- und Cache-Steuerelemente\
-   Die meisten cdns berücksichtigen `Expires:` und `Cache-Control:` HTTP-Header, wenn sie vom Upstream-Server gesendet werden. Dies lässt sich z. B. mit dem Apache-Modul [mod_expires](https://httpd.apache.org/docs/2.2/mod/mod_expires.html) realisieren.
+   Die meisten CDNs berücksichtigen die HTTP-Header `Expires:` und `Cache-Control:`, wenn sie vom Upstream-Server gesendet werden. Dies kann beispielsweise mit dem Apache-Modul [mod_ expires](https://httpd.apache.org/docs/2.2/mod/mod_expires.html) erreicht werden.
 
-1. Manuelle Ungültigmachung\
-   Mit cdns können Ressourcen über Webschnittstellen aus dem Cache entfernt werden.
-1. API-basierte Ungültigmachung\
-   Die meisten cdns bieten außerdem eine REST- und/oder SOAP-API, mit der Ressourcen aus dem Cache entfernt werden können.
+1. Manuelle Invalidierung\
+   Durch CDNs können Ressourcen über Webschnittstellen aus dem Cache entfernt werden.
+1. API-basierte Invalidierung\
+   Die meisten CDNs bieten außerdem eine REST- und/oder eine SOAP-API, mit der Ressourcen aus dem Cache entfernt werden können.
 
 In einem typischen AEM-Setup bietet die Konfiguration über Erweiterung und/oder Pfad, die durch Punkt 1 und 2 erreicht werden kann, Möglichkeiten zum Festlegen angemessener Cache-Dauern für häufig verwendete Ressourcen, die nur selten geändert werden, z. B. Designgrafiken und Clientbibliotheken. Wenn neue Releases bereitgestellt werden, ist in der Regel eine manuelle Invalidierung erforderlich.
 
 Wenn verwaltete Inhalte mit diesem Verfahren zwischengespeichert werden, bedeutet dies, dass Änderungen am Inhalt für Endbenutzer erst sichtbar sind, wenn die konfigurierte Dauer für die Zwischenspeicherung abgelaufen ist und das Dokument erneut vom Dispatcher abgerufen wird.
 
-Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung den Cache eines CDN ungültig machen, wenn der Dispatcher-Cache ungültig gemacht wird. Auf Grundlage der API des CDN können Sie selbst [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) und [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) implementieren (wenn die API nicht REST-basiert ist) und einen Replikationsagenten einrichten, der hiermit den Cache des CDN ungültig macht. 
+Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung den Cache eines CDN ungültig machen, wenn der Dispatcher-Cache ungültig gemacht wird. Basierend auf der CDNs-API können Sie Ihre eigenen [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) und [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) implementieren (wenn die API nicht auf REST basiert) und einen Replizierungsagenten einrichten, der diese zur Invalidierung des CDN-Cache verwendet.
 
 >[!NOTE]
 >
->Siehe auch [AEM (CQ) Dispatcher-Sicherheit und CDN+Browser-Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) und Aufzeichnung einer Präsentation zu [Dispatcher-Caching](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
+>Siehe auch [AEM (CQ) Dispatcher-Sicherheit und CDN + Browser-Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) und aufgezeichnete Präsentation zu [Dispatcher-Caching](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
 
 ## Using a Dispatcher with an Author Server {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->Wenn Sie [AEM mit Touch-Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sollten **Sie den Inhalt der Instanz im Autorenmodus nicht** zwischenspeichern. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any` Datei bearbeiten und die `/rule` Eigenschaft des `/cache` Abschnitts wie folgt ändern:
+>Wenn Sie [AEM mit der Touch-optimierten UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sollten Sie den Inhalt der Autoreninstanz **nicht** zwischenspeichern. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any`-Datei bearbeiten und die `/rule`-Eigenschaft des `/cache`-Abschnitts wie folgt ändern:
 
 ```xml
 /rules
@@ -298,28 +298,28 @@ Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung d
 
 Ein Dispatcher kann vor einer Autoreninstanz verwendet werden, um die Bearbeitungsleistung zu verbessern. Um einen Bearbeitungs-Dispatcher zu konfigurieren, führen Sie die folgenden Schritte aus:
 
-1. Installieren Sie einen Dispatcher auf einem Webserver (dies könnte Apache oder IIS Webserver sein, siehe [Installieren von Dispatcher](dispatcher-install.md)).
+1. Installieren Sie einen Dispatcher auf einem Webserver (dabei kann es sich um einen Apache- oder IIS-Webserver handeln, siehe [Installieren des Dispatchers](dispatcher-install.md)).
 1. Sie sollten den neu installierten Dispatcher mit einer funktionierenden AEM-Veröffentlichungsinstanz testen, um sicherzustellen, dass die Grundinstallation erfolgreich war.
 1. Stellen Sie dann sicher, dass der Dispatcher über TCP/IP eine Verbindung zur Autoreninstanz herstellen kann.
-1. Ersetzen Sie die Datei dispatcher. any durch die Datei author_ dispatcher. any, die beim [Dispatcher-Download bereitgestellt](release-notes.md#downloads)wird.
-1. Öffnen Sie die `author_dispatcher.any` in einem Texteditor und nehmen Sie folgende Änderungen vor:
+1. Ersetzen Sie die Datei „dispatcher.any“ durch die Datei „author_dispatcher.any“, die beim [Dispatcher-Download](release-notes.md#downloads) bereitgestellt wird.
+1. Öffnen Sie `author_dispatcher.any` in einem Texteditor und nehmen Sie die folgenden Änderungen vor:
 
-   1. Ändern Sie den `/hostname` Abschnitt und `/port` den `/renders` Abschnitt so, dass er auf Ihre Autoreninstanz verweist.
-   1. Ändern Sie den `/docroot``/cache` Abschnitt so, dass er auf einen Cacheordner verweist. Falls Sie [AEM mit Touch-Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)verwenden, lesen Sie die oben genannte Warnung.
+   1. Ändern Sie `/hostname` und `/port` im Abschnitt `/renders` so, dass sie auf Ihre Autoreninstanz verweisen.
+   1. Ändern Sie `/docroot` im Abschnitt `/cache` so, dass auf ein Cache-Verzeichnis verwiesen wird. Falls Sie [AEM mit der Touch-optimierten UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, beachten Sie die oben genannte Warnung.
    1. Speichern Sie die Änderungen.
 
-1. Löschen Sie alle vorhandenen Dateien im Ordner `/cache` &gt; `/docroot` , die Sie oben konfiguriert haben.
+1. Löschen Sie alle vorhandenen Dateien im Verzeichnis `/cache` &gt; `/docroot`, das oben konfiguriert wurde.
 1. Starten Sie den Webserver neu.
 
 >[!NOTE]
 >
->Beachten Sie, dass bei der Installation der angegebenen `author_dispatcher.any` Konfiguration, wenn Sie ein CQ 5 Feature Pack, Hotfix oder ein Anwendungscodepaket installieren, das sich auf einen beliebigen Inhalt unter `/libs` oder `/apps` dann auswirkt, die zwischengespeicherten Dateien im Dispatcher-Cache gelöscht werden müssen, um sicherzustellen, dass die neu aktualisierten Dateien abgerufen werden, und nicht die alten zwischengespeicherten Dateien.
+>Hinweis: Mit der zur Verfügung gestellten `author_dispatcher.any`-Konfiguration müssen Sie beim Installieren eines CQ5-Feature Packs, Hotfixes oder Anwendungscodepakets, das Auswirkungen auf Inhalte unter `/libs` oder `/apps` hat, die zwischengespeicherten Dateien unter den Ordnern im Dispatcher-Cache löschen, um sicherzustellen, dass bei der nächsten Anforderung die gerade aktualisierten Dateien abgerufen werden und nicht die alten zwischengespeicherten Dateien.
 
 >[!CAUTION]
 >
->Wenn Sie den zuvor konfigurierten Autorendispatcher verwendet und einen *Dispatcher-Flushing aktiviert haben, führen* Sie die folgenden Schritte aus:
+>Wenn Sie den vorher konfigurierten Autoren-Dispatcher verwendet und einen *Dispatcher-Flushing-Agent* aktiviert haben, führen Sie folgende Schritte aus:
 
-1. Löschen oder deaktivieren **Sie den** Flushing-Agenten des Autors auf Ihrer AEM-Autoreninstanz.
+1. Löschen oder deaktivieren Sie den Flushing-Agent des **Autoren-Dispatchers** auf Ihrer AEM-Autoreninstanz.
 1. Wiederholen Sie die Konfiguration des Autoren-Dispatchers, indem Sie den neuen Anweisungen oben folgen.
 
 <!--
