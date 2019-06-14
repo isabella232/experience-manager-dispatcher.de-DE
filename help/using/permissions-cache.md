@@ -3,21 +3,21 @@ title: Zwischenspeichern von geschützten Inhalten
 seo-title: Zwischenspeicherung geschützter Inhalte in AEM Dispatcher
 description: Erfahren Sie, wie die Zwischenspeicherung mit Berechtigungen im Dispatcher funktioniert.
 seo-description: Erfahren Sie, wie die Zwischenspeicherung mit Berechtigungen in AEM Dispatcher funktioniert.
-uuid: abfed 68 a -2 efe -45 f 6-bdf 7-2284931629 d 6
+uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: Benutzer
-products: SG_ EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
+topic-tags: Dispatcher
 content-type: Referenz
-discoiquuid: 4 f 9 b 2 bc 8-a 309-47 bc-b 70 d-a 1 c 0 da 78 d 464
-translation-type: tm+mt
-source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
+translation-type: ht
+source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ---
 
 
 # Zwischenspeichern von geschützten Inhalten {#caching-secured-content}
 
-Mit dem Zwischenspeichern unter Beachtung von Berechtigungen können Sie gesicherte Seiten zwischenspeichern. Der Dispatcher überprüft die Zugriffsrechte des Benutzers für eine Seite, bevor die zwischengespeicherte Seite bereitgestellt wird.
+Mit dem Zwischenspeichern unter Beachtung von Berechtigungen können Sie gesicherte Seiten zwischenspeichern. Der Dispatcher prüft die Zugriffsberechtigungen der Benutzer für eine Seite, bevor die zwischengespeicherte Seite bereitgestellt wird.
 
 Der Dispatcher umfasst das AuthChecker-Modul, das das Zwischenspeichern unter Berücksichtigung von Berechtigungen implementiert. Wenn das Modul aktiviert ist, ruft der Renderer ein AEM-Servlet auf, um die Benutzerauthentifizierung und -autorisierung für die angeforderten Inhalte durchzuführen. Die Servletantwort bestimmt, ob der Inhalt im Webbrowser bereitgestellt wird.
 
@@ -29,7 +29,7 @@ Da die Methoden zur Authentifizierung und Autorisierung spezifisch für die AEM-
 
 Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn ein Webbrowser eine Seite anfordert, für die die Zwischenspeicherung unter Berücksichtigung von Berechtigungen verwendet wird.
 
-## Die Seite wurde zwischengespeichert und der Benutzer ist autorisiert {#page-is-cached-and-user-is-authorized}
+## Die Seite wurde zwischengespeichert und der Benutzer ist autorisiert  {#page-is-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1.png)
 
@@ -38,7 +38,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Renderer ruft die autorisierende Stelle auf, um die Sicherheitsprüfung durchzuführen, und antwortet dem Dispatcher. Die Antwortnachricht enthält den HTTP-Statuscode „200“, um anzuzeigen, dass der Benutzer autorisiert ist.
 1. Der Dispatcher sendet eine Antwortnachricht an den Browser, die aus den Kopfzeilen der Rendererantwort und dem zwischengespeicherten Inhalt im Textkörper besteht.
 
-## Die Seite wurde nicht zwischengespeichert und der Benutzer ist autorisiert {#page-is-not-cached-and-user-is-authorized}
+## Die Seite wurde nicht zwischengespeichert und der Benutzer ist autorisiert  {#page-is-not-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1-1.png)
 
@@ -47,7 +47,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Renderer ruft das Servlet der autorisierenden Stelle auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
 1. Der Dispatcher leitet die Antwort an den Browser weiter. Der Dispatcher fügt den Text der Antwortnachricht des Renderers zum Cache hinzu.
 
-## Der Benutzer ist nicht autorisiert {#user-is-not-authorized}
+## Der Benutzer ist nicht autorisiert  {#user-is-not-authorized}
 
 ![](assets/chlimage_1-2.png)
 
@@ -55,7 +55,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Dispatcher sendet eine Anfragenachricht an den Renderer, die alle Kopfzeilen der Browseranforderung enthält.
 1. Der Renderer ruft das Servlet der autorisierenden Stelle auf, eine Sicherheitsprüfung durchzuführen. Diese führt zu einem Fehler und der Render leitet die ursprüngliche Anforderung an den Dispatcher weiter.
 
-## Implementierung der Berechtigungssensitivität {#implementing-permission-sensitive-caching}
+## Implementieren von berechtigungssensitiver Zwischenspeicherung {#implementing-permission-sensitive-caching}
 
 Wenn Sie die Zwischenspeicherung unter Berücksichtigung von Berechtigungen implementieren möchten, führen Sie die folgenden Schritte aus:
 
@@ -67,15 +67,15 @@ Wenn Sie die Zwischenspeicherung unter Berücksichtigung von Berechtigungen impl
 >In der Regel werden sichere Ressourcen in einem anderen Ordner als nicht sichere Dateien gespeichert. Beispiel: /content/secure/
 
 
-## Erstellen des Servlets für die Autorisierung {#create-the-authorization-servlet}
+## Erstellen des Servlets für die Autorisierung  {#create-the-authorization-servlet}
 
 Erstellen Sie ein Servlet, das die Authentifizierung und Autorisierung des Benutzers ausführt, der den Webinhalt anfordert. Stellen Sie das Servlet bereit. Das Servlet kann beliebige Authentifizierungs- und Autorisierungsmethoden verwenden, z. B. das AEM-Benutzerkonto und Repository-ACLs oder einen LDAP-Suchdienst. Das Servlet wird auf der AEM-Instanz bereitgestellt, die der Dispatcher als Renderer verwendet.
 
-Alle Benutzer müssen auf das Servlet zugreifen können. Deshalb sollte Ihr Servlet die `org.apache.sling.api.servlets.SlingSafeMethodsServlet` Klasse erweitern, die schreibgeschützten Zugriff auf das System bietet.
+Alle Benutzer müssen auf das Servlet zugreifen können. Daher sollte das Servlet die `org.apache.sling.api.servlets.SlingSafeMethodsServlet`-Klasse erweitern, die Lesezugriff auf das System bereitstellt.
 
 Das Servlet empfängt nur HEAD-Anforderungen vom Renderer, Sie müssen daher nur die `doHead`-Methode implementieren.
 
-Der Renderer schließt den URI der angeforderten Ressource als Parameter der HTTP-Anforderung ein. Beispielsweise wird über `/bin/permissioncheck`ein Autorisierungsservlet zugegriffen. Um eine Sicherheitsprüfung auf der Seite „/content/geometrixx-outdoors/en.html“ durchzuführen, schließt der Renderer die folgende URL in die HTTP-Anforderung ein:
+Der Renderer schließt den URI der angeforderten Ressource als Parameter der HTTP-Anforderung ein. Der Zugriff auf ein Autorisierungsservlet erfolgt z. B. über `/bin/permissioncheck`. Um eine Sicherheitsprüfung auf der Seite „/content/geometrixx-outdoors/en.html“ durchzuführen, schließt der Renderer die folgende URL in die HTTP-Anforderung ein:
 
 `/bin/permissioncheck?uri=/content/geometrixx-outdoors/en.html`
 
@@ -89,7 +89,7 @@ Das folgende Beispielservlet ruft die URL der angeforderten Ressource aus der HT
 >
 >Der Wert der „sling.servlet.paths“-Eigenschaft muss im Sling Servlet Resolver-Dienst (org.apache.sling.servlets.resolver.SlingServletResolver) aktiviert werden.
 
-### Beispielservlet {#example-servlet}
+### Beispielservlet  {#example-servlet}
 
 ```java
 package com.adobe.example;
@@ -154,7 +154,7 @@ Beim Start des Dispatchers enthält die Dispatcher-Protokolldatei die folgende N
 
 Im folgenden „auth_checker“-Beispielabschnitt wird der Dispatcher für die Verwendung des Servlets aus dem vorherigen Thema konfiguriert. Durch die Angaben im Abschnitt „filter“ werden Berechtigungsprüfungen nur für sichere HTML-Ressourcen durchgeführt.
 
-### Beispielkonfiguration {#example-configuration}
+### Beispielkonfiguration  {#example-configuration}
 
 ```xml
 /auth_checker
