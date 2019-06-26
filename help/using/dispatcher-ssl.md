@@ -12,8 +12,8 @@ discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
 
@@ -35,9 +35,9 @@ Konfigurieren Sie den Dispatcher für die Kommunikation mit der AEM- oder CQ-Ren
 
 Bevor Sie den Dispatcher konfigurieren, konfigurieren Sie zunächst AEM oder CQ für die Verwendung von SSL:
 
-* AEM 6.2: [Aktivieren von HTTP über SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Aktivieren von HTTP über SSL](https://docs.adobe.com/content/docs/de/aem/6-1/deploy/configuring/config-ssl.html)
-* Ältere AEM-Versionen: siehe [dieser Seite](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Ältere AEM-Versionen: Siehe [diese Seite](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
 ### SSL-bezogene Anforderungsheader {#ssl-related-request-headers}
 
@@ -48,7 +48,7 @@ Wenn der Dispatcher eine HTTPS-Anforderung erhält, nimmt Dispatcher die folgend
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-Eine Anfrage durch Apache 2.2 mit `mod_ssl` enthält ähnliche Kopfzeilen wie im folgenden Beispiel:
+Eine Anfrage durch Apache 2.4 mit `mod_ssl` enthält ähnliche Kopfzeilen wie im folgenden Beispiel:
 
 ```shell
 X-Forwarded-SSL: on
@@ -251,8 +251,8 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Verwenden Sie das Renderzertifikat mit den Anweisungen im Abschnitt *Aktivieren von SSL auf der Veröffentlichungsinstanz*, um den HTTP-Dienst der Renderinstanz für die Verwendung von SSL zu konfigurieren:
 
-* AEM 6.2: [Aktivieren von HTTP über SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Aktivieren von HTTP über SSL](https://docs.adobe.com/content/docs/de/aem/6-1/deploy/configuring/config-ssl.html)
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
 * Ältere AEM-Versionen: Siehe [diese Seite.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
 ### Konfigurieren von SSL für das Dispatcher-Modul {#configuring-ssl-for-the-dispatcher-module}
