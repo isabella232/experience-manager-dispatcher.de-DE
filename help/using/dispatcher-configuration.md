@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 8e8638027c79015a4151539918a17069fb16873a
+source-git-commit: 4f1e3740c7eb91023b819ffed0bb5d0b432002be
 
 ---
 
@@ -1710,7 +1710,7 @@ Hiermit wird automatisch rotiert:
 * die Dispatcher-Protokolldatei mit einem Zeitstempel in der Erweiterung (logs/dispatcher.log%J%m%t)
 * auf Wochenbasis (60 x 60 x 24 x 7 = 604800 Sekunden).
 
-Lesen Sie die Apache-Webserverdokumentation, um weitere Informationen zum Rotieren und Wechseln von Protokollen zu erhalten, z. B. hier für [Apache 2.2](https://httpd.apache.org/docs/2.2/logs.html).
+Lesen Sie die Apache-Webserverdokumentation, um weitere Informationen zum Rotieren und Wechseln von Protokollen zu erhalten, z. B. hier für [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
 >[!NOTE]
 >
