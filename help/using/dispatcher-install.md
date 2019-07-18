@@ -9,7 +9,7 @@ converted: 'true'
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
@@ -89,7 +89,7 @@ Comment Type: draft
 Weitere Informationen zur Installation dieses Webservers bieten Ihnen die folgenden Ressourcen:
 
 * Dokumentation von Microsoft zu Internet Information Server
-* [Die offizielle Microsoft-Website zu IIS](https://www.iis.net/)
+* [„Offizielle Microsoft IIS-Seite“](https://www.iis.net/)
 
 ### Erforderliche IIS-Komponenten {#required-iis-components}
 
@@ -273,7 +273,7 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, ist Folgendes zu 
 
 ### Installieren eines Apache-Webservers  {#installing-apache-web-server}
 
-Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das entweder [online](https://httpd.apache.org/) verfügbar oder der Verteilung beigefügt ist.
+Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das sowohl [online](https://httpd.apache.org/) verfügbar ist als auch mit dem Produkt geliefert wurde.
 
 >[!CAUTION]
 >
@@ -281,7 +281,7 @@ Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im ent
 >
 >Weitere Informationen finden Sie im Installationshandbuch für Apache-Webserver.
 
-Also see the Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html).
+Weitere Informationen erhalten Sie in den [Sicherheitstipps](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Sicherheitsberichten](https://httpd.apache.org/security_report.html) zum Apache HTTP Server.
 
 ### Apache-Webserver – Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
 
@@ -423,7 +423,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen: `  
 ServerTokens Prod`\
-See the [Apache Documentation about ServerTokens Directive (for example, for Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) for more information.
+Weitere Informationen erhalten Sie in der [Apache-Dokumentation zur ServerTokens-Direktive (zum Beispiel für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html).
 
 **SetHandler**
 
@@ -536,7 +536,7 @@ Der Dispatcher verwendet OpenSSL, um eine sichere Kommunikation über HTTP zu im
    ```
 
 >[!NOTE]
-Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) / kompiliert wurden.
+Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) kompiliert wurden.
 
 ### Nächste Schritte {#next-steps-1}
 
