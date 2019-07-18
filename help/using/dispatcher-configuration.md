@@ -9,7 +9,7 @@ pageversionid: '1193211344162'
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
 
 ---
@@ -218,9 +218,9 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 
 >[!CAUTION]
 >
->Der `/homepage`-Parameter (nur IIS) funktioniert nicht mehr. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
+>Der `/homepage`-Parameter (nur IIS) funktioniert nicht mehr. Stattdessen sollten Sie das [IIS URL-Rewrite-Modul](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module) verwenden.
 >
->Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Bei der Nutzung von `mod_rewrite` ist es ratsam, die Markierung ** [&#39;passthrough|PT&#39; (Weiterleiten an den nächsten Handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** zu verwenden, um die Rewrite-Engine zu zwingen, das `uri`-Feld der internen `request_rec`-Struktur auf den Wert des `filename`-Feldes einzustellen.
+>Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. Weitere Informationen hierzu `mod_rewrite`(z. B. [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)) finden Sie in der Dokumentation auf der Apache-Website. Bei der Nutzung von `mod_rewrite` ist es ratsam, die Markierung ** [&#39;passthrough|PT&#39; (Weiterleiten an den nächsten Handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** zu verwenden, um die Rewrite-Engine zu zwingen, das `uri`-Feld der internen `request_rec`-Struktur auf den Wert des `filename`-Feldes einzustellen.
 
 <!-- 
 
@@ -328,7 +328,7 @@ Mit der `/virtualhosts`-Eigenschaft wird eine Liste aller Hostname-/URI-Kombinat
 ```
 
 * `scheme`: (optional) Entweder `https://` oder `https://.`
-* `host`: Der Name oder die IP-Adresse des Hostcomputers und die Portnummer, falls erforderlich. (See [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23))
+* `host`: Der Name oder die IP-Adresse des Hostcomputers und die Portnummer, falls erforderlich. (Siehe [https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.23))
 * `uri`: (Optional) Der Pfad zu den Ressourcen
 
 Mit der folgenden Beispielkonfiguration werden Anforderungen für .com- und .ch-Domänen von „myCompany“ und alle Domänen von „mySubDivision“ verarbeitet:
@@ -413,7 +413,7 @@ In der folgenden Tabelle sind die virtuellen Hosts aufgeführt, die für die HTT
 >
 >`/allowAuthorized` **muss** im `/cache`-Abschnitt auf `"0"` eingestellt sein, damit diese Funktion aktiviert wird.
 
-Erstellen Sie eine sichere Sitzung für den Zugriff auf die Renderer-Farm, sodass Benutzer nur nach Anmeldung Zugriff auf Seiten in der Farm erhalten. Nach der Anmeldung können Benutzer auf Seiten in der Farm zugreifen. Weitere Informationen zur Verwendung dieser Funktion mit geschlossenen Benutzergruppen finden Sie unter [Erstellen einer geschlossenen Benutzergruppe. ](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) Also, see the Dispatcher [Security Checklist](/help/using/security-checklist.md) before going live.
+Erstellen Sie eine sichere Sitzung für den Zugriff auf die Renderer-Farm, sodass Benutzer nur nach Anmeldung Zugriff auf Seiten in der Farm erhalten. Nach Anmeldung können sie dann auf Seiten in der Farm zugreifen. Informationen zur Verwendung dieser Funktion mit geschlossenen Benutzergruppen (CUGs) erhalten Sie im Artikel [Erstellen einer geschlossenen Benutzergruppe](https://helpx.adobe.com/de/experience-manager/6-3/sites/administring/using/cug.html#CreatingTheUserGroupToBeUsed) Lesen Sie vor der Live-Schaltung auch die [Sicherheits-Checkliste](/help/using/security-checklist.md) für den Dispatcher.
 
 Die `/sessionmanagement`-Eigenschaft ist eine Untereigenschaft von `/farms`.
 
@@ -429,7 +429,7 @@ Der Ordner, in dem die Sitzungsinformationen gespeichert werden. Wenn der Ordner
 
 >[!CAUTION]
 >
-> When configuring the directory sub-parameter **do not** point to the root folder (`/directory "/"`) as it can cause serious problems. Sie sollten immer den Pfad zum Ordner angeben, in dem die Sitzungsinformationen gespeichert werden. Beispiel:
+> Wenn Sie den Unterparameter für das Verzeichnis konfigurieren, verweisen Sie **nicht** auf den Stammordner (`/directory "/"`), da dies schwerwiegende Probleme verursachen kann. Geben Sie immer den Pfad zu dem Ornder an, in dem die Sitzungsinformationen gespeichert werden. Beispiel:
 
 ```xml
 /sessionmanagement 
@@ -563,7 +563,7 @@ Verwenden Sie den `/filter`-Abschnitt, um die HTTP-Anfragen anzugeben, die der D
 
 >[!CAUTION]
 >
->In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Also, read the [AEM Security Cheklist](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) for additional security details regarding your AEM installation.
+>In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Lesen Sie dazu die [AEM-Sicherheitscheckliste](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html), um weitere Sicherheitsinformationen zu Ihrer AEM-Installation zu erhalten.
 
 Der /filter-Abschnitt besteht aus einer Reihe von Regeln, die den Zugriff auf die Inhalte zulassen oder verweigern, wozu Muster in der Anforderungszeile der HTTP-Anforderung abgeglichen werden. Sie sollten eine „Whitelist“-Strategie für den /filter-Abschnitt verwenden:
 
@@ -598,7 +598,7 @@ besser Folgendes verwenden:
 
 #### Anforderungszeilen von HTTP-Anforderungen {#the-request-line-part-of-http-requests}
 
-HTTP/1.1 defines the [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) as follows:
+HTTP/1.1 definiert die [Anfragezeile](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) wie folgt:
 
 *Methode Anforderungs-URI HTTP-Version*&lt;CRLF&gt;
 
@@ -808,7 +808,7 @@ Je nach Installation stehen unter `/libs`, `/apps` oder an einem anderen Ort mö
 
 >[!CAUTION]
 >
->If you are [using reports in a publish environment](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironment) you should configure Dispatcher to deny access to `/etc/reports` for external visitors.
+>Wenn Sie [Berichte in der Veröffentlichungsumgebung](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironmentt) verwenden, sollten Sie den Dispatcher so konfigurieren, dass er den Zugriff auf `/etc/reports` für externe Besucher sperrt.
 
 ### Einschränken von Abfragezeichenfolgen {#restricting-query-strings}
 
@@ -941,7 +941,7 @@ Der `/vanity_urls`-Abschnitt enthält die folgenden Eigenschaften:
 
 >[!NOTE]
 >
->If your render is an instance of AEM you must install the [VanityURLS-Components](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) package to install the vanity URL service. (See [Signing In to Package Share](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
+>Wenn Ihr Renderer eine Instanz von AEM ist, müssen Sie das [VanityURLS-Komponenten-Paket](https://www.adobeaemcloud.com/content/marketplace/marketplaceProxy.html?packagePath=/content/companies/public/adobe/packages/cq600/component/vanityurls-components) installieren, um den Vanity URL-Service zu installieren. (Siehe [Anmelden bei Package Share](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html#SigningIntoPackageShare).)
 
 Führen Sie die folgenden Schritte aus, um den Zugriff auf Vanity-URLs zu aktivieren.
 
@@ -1172,7 +1172,7 @@ Wird eine Datei in `/content/myWebsite/xx` invalidiert, wirkt sich dies auf jede
 
 >[!NOTE]
 >
->Die Invalidierung kann durch Senden eines zusätzlichen Headers `CQ-Action-Scope:ResourceOnly` verhindert werden. Dies kann verwendet werden, um bestimmte Ressourcen zu leeren, ohne andere Teile des Cache zu invalidieren. See [this page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) and [Manually Invalidating the Dispatcher Cache](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) for additional details.
+>Die Invalidierung kann durch Senden eines zusätzlichen Headers `CQ-Action-Scope:ResourceOnly` verhindert werden. Dies kann verwendet werden, um bestimmte Ressourcen zu leeren, ohne andere Teile des Cache zu invalidieren. Weitere Informationen finden Sie auf [dieser Seite](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) und unter [Manuelle Invalidierung des Dispatcher-Caches](https://helpx.adobe.com/de/experience-manager/dispatcher/using/page-invalidate.html).
 
 >[!NOTE]
 >
@@ -1348,7 +1348,7 @@ Im Folgenden ein Beispiel aus der Standardkonfiguration:
 >Gehen Sie wie folgt vor, wenn der Dispatcher ETag-Antwortheader von AEM speichern und übermitteln soll:
 >
 >* Fügen Sie den Headernamen in den `/cache/headers`-Abschnitt ein.
->* Add the following [Apache directive](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) in the Dispatcher related section:
+>* Fügen Sie die folgende [Apache-Anweisung](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) im Dispatcher-Abschnitt hinzu:
 >
 
 
@@ -1501,7 +1501,7 @@ Wenn eine Seite aus Inhalten von mehreren Inhaltsknoten besteht, beziehen Sie di
 
 Wenn gebundene Verbindungen aktiviert sind, setzt das Dispatcher-Modul den `renderid`-Cookie. Dieser Cookie verfügt über keine `httponly`-Markierung, die hinzugefügt werden sollte, um die Sicherheit zu erhöhen. Sie können dies tun, indem Sie die `httpOnly`-Eigenschaft im `/stickyConnections`-Knoten einer `dispatcher.any`-Konfigurationsdatei festlegen. Der Wert der Eigenschaft (entweder 0 oder 1) definiert, ob dem `renderid`-Cookie das `HttpOnly`-Attribut angehängt wird. Der Standardwert ist 0, das heißt, das Attribut wird nicht hinzugefügt.
 
-For additional information about the `httponly` flag, read [this page](https://www.owasp.org/index.php/HttpOnly).
+Weitere Informationen über die `httponly`-Markierung erhalten Sie auf [dieser Seite](https://www.owasp.org/index.php/HttpOnly).
 
 ### secure {#secure}
 
@@ -1721,13 +1721,13 @@ Hierbei wird automatisch rotiert:
 * die Dispatcher-Protokolldatei mit einem Zeitstempel in der Erweiterung (logs/dispatcher.log%J%m%t);
 * auf wöchentlicher Basis (60 x 60 x 24 x 7 = 604800 Sekunden).
 
-Lesen Sie die Apache-Webserverdokumentation, um weitere Informationen zum Rotieren und Wechseln von Protokollen zu erhalten, z. B. hier für [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
+Lesen Sie ebenfalls die Apache Webserver-Dokumentation zum Rotieren und Wechseln von Protokollen, beispielsweise [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
 >[!NOTE]
 >
 >Nach der Installation ist die Standardprotokollebene hoch (d. h. Ebene 3 = Debugging), sodass der Dispatcher alle Fehler und Warnungen protokolliert. Dies ist am Anfang sehr nützlich.
 >
->Dies erfordert allerdings zusätzliche Ressourcen. Wenn der Dispatcher also*gemäß Ihren Anforderungen reibungslos funktioniert*, können (sollten) Sie daher die Protokollierungsebene reduzieren.
+>Dies erfordert allerdings zusätzliche Ressourcen. Wenn der Dispatcher also *gemäß Ihren Anforderungen reibungslos funktioniert*, können (sollten) Sie daher die Protokollierungsebene reduzieren.
 
 ### Trace-Protokollierung {#trace-logging}
 
