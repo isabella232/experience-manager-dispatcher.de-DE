@@ -8,7 +8,7 @@ pageversionid: '1193211344162'
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
-translation-type: tm+mt
+translation-type: ht
 source-git-commit: de6a513baf3e6b1a1463a442fa840e59f2196e8e
 
 ---
@@ -24,8 +24,8 @@ Der Dispatcher ist ein Tool von Adobe Experience Manager für das Zwischenspeich
 
 Die Bereitstellung des Dispatchers ist unabhängig von Webserver und Betriebssystem:
 
-1. Weitere Informationen zum Dispatcher (diese Seite). Weitere Informationen finden Sie außerdem in den [häufig gestellten Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Install a [supported web server](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
+1. Weitere Informationen zum Dispatcher (diese Seite). Siehe auch: [häufig gestellte Fragen zum Dispatcher](https://helpx.adobe.com/de/experience-manager/using/dispatcher-faq.html).
+1. Installieren Sie einen [unterstützten Webserver](https://helpx.adobe.com/de/experience-manager/6-3/sites/deploying/using/technical-requirements.html) gemäß der Webserver-Dokumentation.
 
 1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver dementsprechend.
 1. [Konfigurieren Sie den Dispatcher](dispatcher-configuration.md) (Datei „dispatcher.any“).
@@ -39,8 +39,8 @@ Die Bereitstellung des Dispatchers ist unabhängig von Webserver und Betriebssys
 Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 
 * [Die Dispatcher-Sicherheitscheckliste](security-checklist.md)
-* [Die Dispatcher-Knowledge-Base](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [Optimierung von Websites für die Cache-Leistung](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Die Dispatcher-Wissensdatenbank](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
+* [Optimierung von Websites für die Cache-Leistung]( https://helpx.adobe.com/de/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [Verwenden des Dispatchers mit mehreren Domänen](dispatcher-domains.md)
 * [Verwenden von SSL mit dem Dispatcher](dispatcher-ssl.md)
 * [Implementieren der Zwischenspeicherung unter Berücksichtigung von Berechtigungen](permissions-cache.md)
@@ -99,7 +99,7 @@ So können Sie vielseitigere, dynamische Inhalte erstellen und die Flexibilität
 
 >[!NOTE]
 >
->Wenn die Konfiguration für das Zwischenspeichern von HTTP-Headern fehlt, speichert der Dispatcher nur den HTML-Code der Seite. Die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der HTTP-Header-Zwischenspeicherung finden Sie unter [Konfigurieren des Dispatcher-Cache.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Wenn die Konfiguration für das Zwischenspeichern von HTTP-Headern fehlt, speichert der Dispatcher nur den HTML-Code der Seite. Die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der HTTP-Header-Zwischenspeicherung finden Sie unter [Konfigurieren des Dispatcher-Cache.](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -124,14 +124,14 @@ Bei einer Inhaltsaktualisierung werden ein oder mehrere AEM-Dokumente geändert.
 
 1. Die bearbeiteten Dateien werden aus dem Cache gelöscht.
 1. Es werden alle Dateien aus dem Cache gelöscht, die mit demselben Handle beginnen. Wenn beispielsweise die Datei „/de/index.html“ aktualisiert wird, werden alle Dateien, die mit „/de/index.“ beginnen, gelöscht. Auf diese Weise können Sie Cache-effiziente Sites erstellen, insbesondere im Hinblick auf die Navigation bei Bildern.
-1. ** Die sogenannte **Statfile** wird bearbeitet, indem der Zeitstempel der Statfile aktualisiert wird, um das Datum der letzten Änderung anzugeben.
+1. Die sogenannte **Statfile** wird *bearbeitet*, indem der Zeitstempel der Statfile aktualisiert wird, um das Datum der letzten Änderung anzugeben.
 
 Beachten Sie die folgenden Punkte:
 
 * Inhaltsaktualisierungen werden in der Regel in Verbindung mit einem Authoring-System verwendet, das „weiß“, was ersetzt werden muss.
 * Dateien, die von einer Aktualisierung betroffen sind, werden entfernt, aber nicht sofort ersetzt. Das nächste Mal, wenn eine solche Datei angefordert wird, ruft der Dispatcher die neue Datei aus der AEM-Instanz ab und speichert sie im Cache, sodass der alte Inhalt überschrieben wird.
 * In der Regel werden automatisch generierte Bilder, die Text von einer Seite enthalten, in den Bilddateien gespeichert, die mit demselben Handle beginnen. So wird gewährleistet, dass die Zuordnung zum Löschen vorhanden ist. Sie können z. B. den Titeltext der Seite „mypage.html“ als Bilddatei „mypage.titlePicture.gif“ im selben Verzeichnis speichern. Auf diese Weise wird das Bild automatisch jedes Mal aus dem Cache gelöscht, wenn die Seite aktualisiert wird. So können Sie sicher sein, dass das Bild immer die aktuelle Version der Seite darstellt.
-* Sie können mehrere Statfiles verwenden, z. B. eine pro Ordner. Wenn eine Seite aktualisiert wird, sucht AEM den nächsten übergeordneten Ordner, der eine Statfile enthält, und ** ändert diese Datei.
+* Sie können mehrere Statfiles verwenden, z. B. eine pro Ordner. Wenn eine Seite aktualisiert wird, sucht AEM den nächsten übergeordneten Ordner, der eine Statfile enthält, und *ändert*  diese Datei.
 
 ### Automatische Invalidierung
 
@@ -153,7 +153,7 @@ Auch hier sollten bestimmte Punkte beachtet werden:
 
 ### Festlegen, ob ein Dokument zwischengespeichert werden soll
 
-You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
+Sie können [definieren, welche Dokumente der Dispatcher in der Konfigurationsdatei zwischenspeichert](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
 
 Der Dispatcher ruft das Dokument in den folgenden Fällen *immer* direkt aus der AEM-Instanz ab:
 
@@ -163,7 +163,7 @@ Der Dispatcher ruft das Dokument in den folgenden Fällen *immer* direkt aus der
 
 >[!NOTE]
 >
->Die Methoden GET oder HEAD (für den HTTP-Header) können vom Dispatcher zwischengespeichert werden. Weitere Informationen zum Zwischenspeichern von Antwortheadern finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwortheadern](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Die Methoden GET oder HEAD (für den HTTP-Header) können vom Dispatcher zwischengespeichert werden. Weitere Informationen zur Zwischenspeicherung von Antwortheadern finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwortheadern](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Bestimmen, ob ein Dokument zwischengespeichert wird 
 
@@ -264,7 +264,7 @@ Es gibt verschiedene Möglichkeiten zu steuern, wie lange ein CDN eine Ressource
    Sie können konfigurieren, wie lange bestimmte Ressourcen im Cache des CDNs beibehalten werden, abhängig von MIME-Typ, Erweiterung, Anfragetyp etc.
 
 1. Ablauf- und Cache-Steuerelemente\
-   Die meisten CDNs berücksichtigen die HTTP-Header `Expires:` und `Cache-Control:`, wenn sie vom Upstream-Server gesendet werden. Dies lässt sich z. B. mit dem Apache-Modul [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) realisieren.
+   Die meisten CDNs berücksichtigen die HTTP-Header `Expires:` und `Cache-Control:`, wenn sie vom Upstream-Server gesendet werden. Dies kann beispielsweise mit dem Apache-Modul [mod_ expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) erreicht werden.
 
 1. Manuelle Invalidierung\
    Durch CDNs können Ressourcen über Webschnittstellen aus dem Cache entfernt werden.
@@ -275,17 +275,17 @@ In einem typischen AEM-Setup bietet die Konfiguration über Erweiterung und/oder
 
 Wenn verwaltete Inhalte mit diesem Verfahren zwischengespeichert werden, bedeutet dies, dass Änderungen am Inhalt für Endbenutzer erst sichtbar sind, wenn die konfigurierte Dauer für die Zwischenspeicherung abgelaufen ist und das Dokument erneut vom Dispatcher abgerufen wird.
 
-Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung den Cache eines CDN ungültig machen, wenn der Dispatcher-Cache ungültig gemacht wird. Auf Grundlage der API des CDN können Sie selbst [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) und [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) implementieren (wenn die API nicht REST-basiert ist) und einen Replikationsagenten einrichten, der hiermit den Cache des CDN ungültig macht. 
+Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung den Cache eines CDN ungültig machen, wenn der Dispatcher-Cache ungültig gemacht wird. Basierend auf der CDNs-API können Sie Ihre eigenen [ContentBuilder](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/ContentBuilder.html) und [TransportHandler](https://docs.adobe.com/docs/en/cq/current/javadoc/com/day/cq/replication/TransportHandler.html) implementieren (wenn die API nicht auf REST basiert) und einen Replizierungsagenten einrichten, der diese zur Invalidierung des CDN-Cache verwendet.
 
 >[!NOTE]
 >
->Siehe auch [AEM (CQ) Dispatcher-Sicherheit und CDN+Browser-Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) und Aufzeichnung einer Präsentation zu [Dispatcher-Caching](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
+>Siehe auch [AEM (CQ) Dispatcher-Sicherheit und CDN + Browser-Caching](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) und aufgezeichnete Präsentation zu [Dispatcher-Caching](https://docs.adobe.com/content/ddc/en/gems/dispatcher-caching---new-features-and-optimizations.html).
 
 ## Using a Dispatcher with an Author Server {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->if you are using [AEM with Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) you should **not** cache author instance content. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any`-Datei bearbeiten und die `/rule`-Eigenschaft des `/cache`-Abschnitts wie folgt ändern:
+>Wenn Sie [AEM mit der Touch-optimierten UI](https://helpx.adobe.com/de/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sollten Sie den Inhalt der Autoreninstanz **nicht** zwischenspeichern. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any`-Datei bearbeiten und die `/rule`-Eigenschaft des `/cache`-Abschnitts wie folgt ändern:
 
 ```xml
 /rules
@@ -304,7 +304,7 @@ Ein Dispatcher kann vor einer Autoreninstanz verwendet werden, um die Bearbeitun
 1. Öffnen Sie `author_dispatcher.any` in einem Texteditor und nehmen Sie die folgenden Änderungen vor:
 
    1. Ändern Sie `/hostname` und `/port` im Abschnitt `/renders` so, dass sie auf Ihre Autoreninstanz verweisen.
-   1. Ändern Sie `/docroot` im Abschnitt `/cache` so, dass auf ein Cache-Verzeichnis verwiesen wird. In case you are using [AEM with Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html), see the warning above.
+   1. Ändern Sie `/docroot` im Abschnitt `/cache` so, dass auf ein Cache-Verzeichnis verwiesen wird. Falls Sie [AEM mit der Touch-optimierten UI](https://helpx.adobe.com/de/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, beachten Sie die oben genannte Warnung.
    1. Speichern Sie die Änderungen.
 
 1. Löschen Sie alle vorhandenen Dateien im Verzeichnis `/cache` &gt; `/docroot`, das oben konfiguriert wurde.
