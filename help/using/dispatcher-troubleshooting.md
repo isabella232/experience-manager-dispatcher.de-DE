@@ -12,8 +12,8 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -28,7 +28,7 @@ source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 >[!NOTE]
 >
->Weitere Informationen erhalten Sie auch in der [Dispatcher-Wissensdatenbank](https://helpx.adobe.com/cq/kb/index/dispatcher.html), unter [Fehlerbehebung bei Problemen mit dem Leeren des Dispatchers](https://helpx.adobe.com/adobe-cq/kb/troubleshooter-dispatcher-flushing-issues.html) sowie in den [Häufig gestellten Fragen zum Dispatcher](dispatcher-faq.md).
+>Weitere Informationen finden Sie in der [Dispatcher Knowledge Base](https://helpx.adobe.com/cq/kb/index/dispatcher.html), der [Fehlerbehebung bei Problemen](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) mit dem Flushing von Dispatcher und in den häufig gestellten Fragen zu [Dispatcher Top Issues](dispatcher-faq.md) .
 
 ## Überprüfen der Basiskonfiguration {#check-the-basic-configuration}
 
@@ -60,8 +60,8 @@ Hiermit können Sie die Aktivität überwachen.
 
 Wenn Sie IIS verwenden, wird möglicherweise in verschiedenen Situationen `404 Not Found` zurückgegeben. Wenn dies der Fall ist, finden Sie weitere Informationen in den folgenden Knowledge Base-Artikeln. 
 
-* [IIS 6/7: POST-Methode gibt 404 zurück]( https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: Anfragen an URLs mit Basispfad `/bin` geben `404 Not Found` zurück ](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST-Methode gibt 404 zurück](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
+* [IIS 6: Anforderungen an URLs, die den Basispfad enthalten, `/bin` geben `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Sie sollten überprüfen, ob der Cache-Stammordner des Dispatchers und der IIS-Dokumentenstamm auf denselben Ordner festgelegt wurden.
 
@@ -80,7 +80,7 @@ Beim Löschen von Workflow-Modellen beim Zugriff auf eine AEM-Autoreninstanz dur
 
 1. Klicken Sie zur Bestätigung auf **Ja**.
 1. Es wird ein Fehlermeldungsfeld angezeigt:\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+   " `ERROR 'Could not delete workflow model!!`".
 
 **Problemlösung**
 
