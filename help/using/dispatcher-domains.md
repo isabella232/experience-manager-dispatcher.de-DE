@@ -10,8 +10,8 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -284,7 +284,7 @@ Dispatcher initializing (build 4.1.2)
 
 Verwenden Sie die Sling-Zuordnung für die Ressourcenauflösung, sodass die domänenbasierten URLs zu Inhalt auf der AEM-Veröffentlichungsinstanz aufgelöst werden. Die Ressourcenzuordnung übersetzt die eingehenden URLs vom Dispatcher (ursprünglich von Client-HTTP-Anforderungen) in Inhaltsknoten.
 
-Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen zur Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
+To learn about Sling resource mapping, see [Mappings for Resource Resolution](https://sling.apache.org/site/mappings-for-resource-resolution.html) in the Sling documentation.
 
 Üblicherweise sind Zuordnungen für die folgenden Ressourcen erforderlich, auch wenn möglicherweise zusätzliche Zuordnungen benötigt werden:
 
@@ -502,9 +502,9 @@ Wie üblich ist das Cache-Basisverzeichnis dasselbe wie das Basisverzeichnis des
 
 Um Verweise auf Dateien mit anderen Erweiterungen als „HTML“ oder „HTM“ neu zu schreiben, erstellen Sie eine Transformatorkomponente für Sling-Rewriter und fügen Sie sie zur standardmäßigen Rewriter-Pipeline hinzu.
 
-Schreiben Sie Verweise neu, wenn Ressourcenpfade nicht ordnungsgemäß im Webserverkontext aufgelöst werden. Beispielsweise ist ein Transformator erforderlich, wenn bildgenerierende Komponenten Links wie „/content/sitea/en/products.navimage.png“ erstellen. Die topnav-Komponente der [Anleitung zum Erstellen einer vollständigen Website](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html) erstellt solche Links.
+Schreiben Sie Verweise neu, wenn Ressourcenpfade nicht ordnungsgemäß im Webserverkontext aufgelöst werden. Beispielsweise ist ein Transformator erforderlich, wenn bildgenerierende Komponenten Links wie „/content/sitea/en/products.navimage.png“ erstellen. Die Komponente „topnav“ unter [Erstellen von Websites mit vollem Funktionsumfang](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html) erstellt solche Links.
 
-Der [Sling Rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) ist ein Modul, das die Sling-Ausgabe nachbearbeitet. SAX-Pipeline-Implementierungen von Rewriter bestehen aus einem Generator, einem oder mehreren Transformatoren und einem Serialisierungsprogramm:
+[Sling Rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) ist ein Modul, das die Sling-Ausgabe nachbearbeitet. SAX-Pipeline-Implementierungen von Rewriter bestehen aus einem Generator, einem oder mehreren Transformatoren und einem Serialisierungsprogramm:
 
 * **Generator:** Analysiert den Sling-Ausgabestream (HTML-Dokument) und generiert SAX-Ereignisse, wenn er bestimmte Elementtypen erkennt.
 * **Transformator:** Lauscht auf SAX-Ereignisse und ändert entsprechend das Ereignisziel (ein HTML-Element). Eine Rewriter-Pipeline enthält keine oder mehrere Transformatoren. Transformatoren werden nacheinander ausgeführt und übergeben dabei die SAX-Ereignisse an den jeweils nächsten Transformator.
@@ -541,7 +541,7 @@ Führen Sie die folgenden Ausgaben aus, um eine Transformatorkomponente zu erste
 
 >[!NOTE]
 >
->Verwenden Sie den Archetyp [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) des Content Package Maven-Plug-ins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
+>Verwenden Sie den Archetyp [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) des Content Package Maven-Plugins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
 
 In den folgenden Beispielen wird ein Transformator implementiert, der Verweise auf Bilddateien neu schreibt.
 
