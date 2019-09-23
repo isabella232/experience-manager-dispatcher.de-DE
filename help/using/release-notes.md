@@ -8,8 +8,8 @@ topic-tags: Versionshinweise
 content-type: Referenz
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
 
 ---
 
@@ -29,7 +29,7 @@ source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
 
 ## Systemanforderungen und Voraussetzungen {#system-requirements-and-prerequisites}
 
-Weitere Informationen zu Anforderungen und Voraussetzungen finden Sie auf der Seite [Unterstützte Plattformen](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html).
+Please see the [Supported Platforms](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html) page for more information regarding requirements and prerequisites.
 
 Adobe rät ausdrücklich dazu, die neueste Version von AEM Dispatcher zu verwenden, um von den neuesten Funktionen, behobenen Fehlern und der bestmöglichen Leistung zu profitieren.
 
@@ -139,7 +139,7 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 
 | Plattform | Architektur | SSL-Unterstützung | Herunterladen |
 |---|---|---|---|
-| Windows | x86 (32 Bit) | Nein | [dispatcher-iis-windows-x86-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.2.zip) |
-| Windows | x86 (32 Bit) | Ja | [dispatcher-iis-windows-x86-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl-4.3.2.zip) |
-| Windows | x64 (64 Bit) | Nein | [dispatcher-iis-windows-x64-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.2.zip) |
-| Windows | x64 (64 Bit) | Ja | [dispatcher-iis-windows-x64-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl-4.3.2.zip) |
+| Windows | x86 (32 Bit) | Nein | [dispatcher-is-windows-x86-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.2.zip) |
+| Windows | x86 (32 Bit) | Ja | [dispatcher-is-windows-x86-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl-4.3.2.zip) |
+| Windows | x64 (64 Bit) | Nein | [dispatcher-is-windows-x64-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.2.zip) |
+| Windows | x64 (64 Bit) | Ja | [dispatcher-is-windows-x64-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl-4.3.2.zip) |
