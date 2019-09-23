@@ -13,7 +13,7 @@ jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
-translation-type: ht
+translation-type: tm+mt
 source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
@@ -36,7 +36,7 @@ Der Dispatcher bietet als Front-End-System zusätzliche Sicherheit für Ihre Ado
 
 >[!CAUTION]
 >
->Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Beachten Sie die entsprechende [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html).
+>Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html).
 
 ## Verwenden der neuesten Version des Dispatchers {#use-the-latest-version-of-dispatcher}
 
@@ -102,7 +102,7 @@ Darüber hinaus müssen IIS-Benutzer ihre Website folgendermaßen konfigurieren:
 
 Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Benutzer unzugänglich zu machen.
 
-Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern:  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filter))
+Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern:  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filters))
 
 * Verwenden Sie das mod_rewrite-Modul (beispielsweise [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)), um URL-Überprüfungen durchzuführen (sofern die Regeln für das URL-Muster nicht zu komplex sind).
 
@@ -149,7 +149,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Konfigurieren des Dispatchers zum Verhindern von CSRF-Angriffen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross-Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu verwenden, müssen Sie in den Dispatcher die CSRF-Token-Unterstützung in die Whitelist aufnehmen. Sie können dies durch folgende Maßnahmen erreichen:
+AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu verwenden, müssen Sie in den Dispatcher die CSRF-Token-Unterstützung in die Whitelist aufnehmen. Sie können dies durch folgende Maßnahmen erreichen:
 
 1. Erstellen Sie einen Filter, um den Pfad `/libs/granite/csrf/token.json` zuzulassen.
 1. Fügen Sie die Kopfzeile `CSRF-Token` dem Abschnitt `clientheaders` der Dispatcher-Konfiguration hinzu.
@@ -158,7 +158,7 @@ AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/
 
 Um Clickjacking zu verhindern, sollten Sie Ihren Webserver so konfigurieren, dass er die HTTP-Kopfzeile `X-FRAME-OPTIONS` bereitstellt, die auf `SAMEORIGIN` festgelegt ist.
 
-Weitere [Informationen zu Clickjacking finden Sie auf der Website von OWASP](https://www.owasp.org/index.php/Clickjacking).
+Weitere [Informationen zum Thema Clickjacking finden Sie auf der OWASP-Website](https://www.owasp.org/index.php/Clickjacking).
 
 ## Durchführen eines Penetrationstests {#perform-a-penetration-test}
 
