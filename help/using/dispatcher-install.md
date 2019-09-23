@@ -9,7 +9,7 @@ converted: 'true'
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
-translation-type: ht
+translation-type: tm+mt
 source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
@@ -89,7 +89,7 @@ Comment Type: draft
 Weitere Informationen zur Installation dieses Webservers bieten Ihnen die folgenden Ressourcen:
 
 * Dokumentation von Microsoft zu Internet Information Server
-* [„Offizielle Microsoft IIS-Seite“](https://www.iis.net/)
+* [Die offizielle Microsoft-Website zu IIS](https://www.iis.net/)
 
 ### Erforderliche IIS-Komponenten {#required-iis-components}
 
@@ -273,7 +273,7 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, ist Folgendes zu 
 
 ### Installieren eines Apache-Webservers  {#installing-apache-web-server}
 
-Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das sowohl [online](https://httpd.apache.org/) verfügbar ist als auch mit dem Produkt geliefert wurde.
+Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das entweder [online](https://httpd.apache.org/) verfügbar oder der Verteilung beigefügt ist.
 
 >[!CAUTION]
 >
@@ -281,7 +281,7 @@ Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im ent
 >
 >Weitere Informationen finden Sie im Installationshandbuch für Apache-Webserver.
 
-Weitere Informationen erhalten Sie in den [Sicherheitstipps](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Sicherheitsberichten](https://httpd.apache.org/security_report.html) zum Apache HTTP Server.
+Also see the Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html).
 
 ### Apache-Webserver – Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
 
@@ -404,7 +404,7 @@ Die einzelnen Konfigurationsparameter lauten:
 | DispatcherLogLevel | Protokollebene für die Protokolldatei: <br/>0 – Fehlermeldungen <br/>1 – Warnungen <br/>2 – Informationen <br/>3 – Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
 | DispatcherNoServerHeader | *Dieser Parameter wird veraltet und hat keine Auswirkung mehr.*<br/><br/> Definiert den zu verwendenden Serverheader: <br/><ul><li>nicht definiert oder 0 – der HTTP-Server-Header enthält die AEM-Version. </li><li>1 – der Apache-Serverheader wird verwendet.</li></ul> |
 | DispatcherDeclineRoot | Definiert, ob Anforderungen an den Stamm „/“ abgelehnt werden sollen: <br/> **0** – Anforderungen an / werden angenommen <br/>**1** – Anforderungen an / werden nicht vom Dispatcher verarbeitet. Verwenden Sie „mod_alias“ für die korrekte Zuordnung. |
-| DispatcherUseProcessedURL | Legt fest, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen:<br/> **0** – die an den Webserver übergebene ursprüngliche URL wird verwendet. <br/>**1** – Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`), anstelle der ursprünglichen URL, die an den Webserver übergeben wurde.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT&#39; (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
+| DispatcherUseProcessedURL | Legt fest, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen:<br/> **0** – die an den Webserver übergebene ursprüngliche URL wird verwendet. <br/>**1** – Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`), anstelle der ursprünglichen URL, die an den Webserver übergeben wurde.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT' (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
 | DispatcherPassError | Definiert, wie Fehlercodes für die ErrorDocument-Verarbeitung unterstützt werden: <br/> **0** – Der Dispatcher spoolt alle Fehlerantworten an den Client. <br/>**1** – Der Dispatcher spoolt keine Fehlerantwort an den Client (wobei der Statuscode größer oder gleich 400 ist), übergibt aber den Statuscode an Apache, was es beispielsweise einer ErrorDocument-Direktive ermöglicht, einen solchen Statuscode zu verarbeiten. <br/>**Codebereich** – Geben Sie eine Reihe von Fehlercodes an, für die die Antwort an Apache übergeben wird. Andere Fehlercodes werden an den Client übergeben. Beispielsweise übergibt die folgende Konfiguration Antworten für Fehler 412 an den Client und alle anderen Fehler werden an Apache übergeben: DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 | DispatcherNoCanonURL | Wenn Sie diesen Parameter auf „Ein“ setzen, wird die unformatierte URL anstelle der kanonisierten URL an das Backend übergeben und die Einstellungen von DispatcherUseProcessedURL überschrieben. Der Standardwert ist „Aus“. <br/>**Hinweis**: Die Filterregeln in der Dispatcher-Konfiguration werden immer anhand der bereinigten URL und nicht anhand der unformatierten URL ausgewertet. |
@@ -423,7 +423,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen: `  
 ServerTokens Prod`\
-Weitere Informationen erhalten Sie in der [Apache-Dokumentation zur ServerTokens-Direktive (zum Beispiel für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html).
+See the [Apache Documentation about ServerTokens Directive (for example, for Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) for more information.
 
 **SetHandler**
 
@@ -536,7 +536,7 @@ Der Dispatcher verwendet OpenSSL, um eine sichere Kommunikation über HTTP zu im
    ```
 
 >[!NOTE]
-Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) kompiliert wurden.
+Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) / kompiliert wurden.
 
 ### Nächste Schritte {#next-steps-1}
 
