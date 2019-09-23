@@ -12,8 +12,8 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -24,9 +24,9 @@ Bei Verwendung des Dispatchers mit AEM muss die Interaktion konfiguriert werden,
 
 ## Einrichten von AEM-Benutzerkonten  {#setting-up-aem-user-accounts}
 
-Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen. [](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html#VerificationSteps)
+Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen. [](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)
 
-Weitere Informationen finden Sie im Abschnitt [Konfiguration von Replikations- und Transportnutzern](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) der AEM Sicherheits-Checkliste.
+For more information see the [Configure Replication and Transport Users](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) section of the AEM Security Checklist.
 
 ## Invalidierung des Dispatcher-Caches aus der Autorenumgebung {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -65,7 +65,7 @@ Wenden Sie das folgende Verfahren an, um einen Replizierungsagenten auf der AEM-
 1. Konfigurieren Sie ggf. weitere Parameter. 
 1. Klicken Sie auf „OK“, um den Agenten zu aktivieren.
 
-Alternativ können Sie auch über [die Touch-optimierte UI von AEM](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) den Dispatcher Flush-Agenten aufrufen und konfigurieren.
+Alternatively, you can also access and configure the Dispatcher Flush agent from the [AEM Touch UI](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent).
 
 Weitere Informationen zum Aktivieren des Zugriffs auf Vanity-URLs finden Sie unter [Aktivieren des Zugriffs auf Vanity-URLs](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -105,7 +105,7 @@ Das Leeren des Dispatchers wird von einem Replikationsagenten gesteuert, der auf
 1. Öffnen Sie die AEM-Tools-Konsole.
 1. Öffnen Sie den erforderlichen Replikationsagenten unter „Werkzeuge/Replikation/Agenten“ auf der Veröffentlichungsinstanz. Sie können den Dispatcher Flush-Agenten verwenden, der standardmäßig installiert ist.
 1. Klicken Sie auf „Bearbeiten“ und stellen Sie sicher, dass auf der Registerkarte „Einstellungen“ **Aktiviert** ausgewählt ist. 
-1. (Optional) Um Alias- oder Vanity Path-Invalidierungsanforderungen zu aktivieren, wählen Sie die Option **Alias-Aktualisierung** .
+1. (Optional) Um Alias- oder Vanity Path-Invalidierungsanforderungen zu aktivieren, wählen Sie die Option **Alias-Aktualisierung**.
 1. Geben Sie auf der Registerkarte „Transport“ den für den Zugriff auf den Dispatcher erforderlichen URI ein.\
    Wenn Sie den Standard-Dispatcher Flush-Agenten verwenden, müssen Sie wahrscheinlich den Hostnamen und Port aktualisieren. Beispiel: `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
 
