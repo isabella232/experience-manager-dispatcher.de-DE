@@ -12,7 +12,7 @@ discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
-translation-type: ht
+translation-type: tm+mt
 source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
@@ -35,9 +35,9 @@ Konfigurieren Sie den Dispatcher für die Kommunikation mit der AEM- oder CQ-Ren
 
 Bevor Sie den Dispatcher konfigurieren, konfigurieren Sie zunächst AEM oder CQ für die Verwendung von SSL:
 
-* AEM 6.2: [Aktivieren von HTTP über SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Aktivieren von HTTP über SSL](https://docs.adobe.com/content/docs/de/aem/6-1/deploy/configuring/config-ssl.html)
-* Ältere AEM-Versionen: siehe [dieser Seite](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Ältere AEM-Versionen: Siehe [diese Seite](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
 ### SSL-bezogene Anforderungsheader {#ssl-related-request-headers}
 
@@ -251,8 +251,8 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Verwenden Sie das Renderzertifikat mit den Anweisungen im Abschnitt *Aktivieren von SSL auf der Veröffentlichungsinstanz*, um den HTTP-Dienst der Renderinstanz für die Verwendung von SSL zu konfigurieren:
 
-* AEM 6.2: [Aktivieren von HTTP über SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [Aktivieren von HTTP über SSL](https://docs.adobe.com/content/docs/de/aem/6-1/deploy/configuring/config-ssl.html)
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
 * Ältere AEM-Versionen: Siehe [diese Seite.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
 ### Konfigurieren von SSL für das Dispatcher-Modul {#configuring-ssl-for-the-dispatcher-module}
