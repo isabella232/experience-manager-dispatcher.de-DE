@@ -3,8 +3,8 @@ title: Häufige Probleme beim Dispatcher
 seo-title: Häufige Probleme bei AEM Dispatcher
 description: Häufige Probleme bei AEM Dispatcher
 seo-description: Häufige Probleme bei Adobe AEM Dispatcher
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 ---
 
@@ -113,7 +113,7 @@ Lesen Sie hierzu [Zwischenspeichern sicherer Inhalte](permissions-cache.md).
 
 ### Wie sichere ich die Kommunikation zwischen den Dispatcher- und CQ-Instanzen?
 
-Lesen Sie hierzu die [Dispatcher-Sicherheits-Checkliste](security-checklist.md) sowie die [AEM-Sicherheits-Checkliste](https://helpx.adobe.com/experience-manager/6-4/sites/administring/using/security-checklist.html).
+Siehe auch [Dispatcher Security Checkliste](security-checklist.md) und [AEM Security Checklist](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html) -Seiten.
 
 ### Dispatcher-Problem `jcr:content` geändert in `jcr%3acontent`
 
@@ -121,17 +121,17 @@ Lesen Sie hierzu die [Dispatcher-Sicherheits-Checkliste](security-checklist.md) 
 
 **Antwort**: Verwenden Sie die Methode `ResourceResolver.map()`, um eine URL abzurufen, von der Anfragen entsprechend abgerufen bzw. ausgegeben werden, und um das Caching-Problem mit dem Dispatcher zu lösen. Die Methode „map()“ codiert den Doppelpunkt `:` zu Unterstrichen, die Methode „resolve()“ decodiert sie zurück in das von SLING JCR lesbare Format. Generieren Sie die im Ajax-Aufruf verwendete URL mittels „map()“.
 
-Weitere Informationen: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+Further read: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
 ## Dispatcher bereinigen
 
 ### Wie konfiguriere ich Dispatcher-Flush-Agenten auf einer Veröffentlichungsinstanz?
 
-Lesen Sie hierzu die Seite [Replikation](https://helpx.adobe.com/content/help/de/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
+Siehe auch [Replikationsseite](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
 
 ### Wie kann ich Dispatcher-Bereinigungsprobleme beheben?
 
-[Lesen Sie diesen Artikel zur Fehlerbehebung](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooter-flushing-issues.html), der die folgenden Fragen beantwortet:
+[In diesem Artikel](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) zur Fehlerbehebung finden Sie Antworten auf die folgenden Fragen:
 
 * Wie kann ich eine Situation lösen, in der kein Inhalt im Dispatcher-Cache gespeichert wird?
 * Wie kann ich ein Problem beheben, bei dem Cachedateien nicht aktualisiert werden?
