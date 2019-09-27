@@ -1,6 +1,6 @@
 ---
 cloud: experience-cloud
-solution-title: Experience Cloud Dispatcher
+solution-title: Learn & Support
 solution-hub-url: https://helpx.adobe.com/de/support/experience-manager/6-4.html
 solution-image: null
 getting-started-title: Erste Schritte
@@ -9,8 +9,8 @@ tutorials-title: Tutorials
 tutorials-url: https://helpx.adobe.com/experience-manager/kt/index/aem-6-4-videos.html
 git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.en
 index: y
-translation-type: ht
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+translation-type: tm+mt
+source-git-commit: 713a9f285da2ce16d9b8806c20e92d6ed37160c1
 
 ---
 
