@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
+source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
 
 ---
 
@@ -163,7 +163,7 @@ Die `/farms`-Eigenschaft definiert eine oder mehrere Gruppen von Dispatcher-Verh
 
 Diese `/farms`-Eigenschaft ist eine Eigenschaft der obersten Ebene in der Konfigurationsstruktur. Zum Definieren einer Farm fügen Sie der `/farms`-Eigenschaft eine untergeordnete Eigenschaft hinzu. Verwenden Sie einen Eigenschaftsnamen, der die Farm in der Dispatcher-Instanz eindeutig identifiziert.
 
-Die `/*farmname*`-Eigenschaft umfasst mehrere Werte und enthält andere Eigenschaften, die das Verhalten des Dispatchers definieren:
+Die `/farmname`-Eigenschaft umfasst mehrere Werte und enthält andere Eigenschaften, die das Verhalten des Dispatchers definieren:
 
 * Die URLs der Seiten, zu denen die Farm gehört.
 * Eine oder mehrere Dienst-URLs (in der Regel von AEM-Veröffentlichungsinstanzen) zum Rendern von Dokumenten.
@@ -213,6 +213,7 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 | [/retryDelay](#specifying-the-page-retry-delay) | Verzögerung bevor eine fehlgeschlagene Verbindung wiederholt wird. |
 | [/unavailablePenalty](#reflecting-server-unavailability-in-dispatcher-statistics) | Nachteile, die sich auf Statistiken für Berechnungen zum Lastenausgleich auswirken. |
 | [/failover](#using-the-fail-over-mechanism) | Erneutes Senden von Anforderungen an andere Renderer, wenn die ursprüngliche Anforderung fehlschlägt |
+| [/auth_checker](permissions-cache.md) | For permission-sensitive caching, see [Caching Secured Content](permissions-cache.md). |
 
 ## Angeben einer Standardseite (nur IIS) – /homepage {#specify-a-default-page-iis-only-homepage}
 
@@ -545,7 +546,7 @@ Mit der Dispatcher-Version **4.1.6** können Sie die `/always-resolve`-Eigenscha
 Diese Eigenschaft kann auch verwendet werden, wenn Probleme mit der dynamischen IP-Auflösung auftreten, siehe folgendes Beispiel:
 
 ```xml
-/rend {
+/renders {
   /0001 {
      /hostname "host-name-here"
      /port "4502"
@@ -974,6 +975,7 @@ Falls erforderlich, können Sie die /propagateSyndPost-Eigenschaft auf „1“ f
 * /headers
 * /mode
 * /gracePeriod
+* /enableTTL
 
 
 Ein Cacheabschnitt kann beispielsweise wie folgt aussehen:
@@ -1505,7 +1507,7 @@ For additional information about the `httponly` flag, read [this page](https://w
 
 ### secure {#secure}
 
-Wenn gebundene Verbindungen aktiviert sind, setzt das Dispatcher-Modul den `renderid`-Cookie. Dieser Cookie verfügt nicht über die **secure**-Markierung, die hinzugefügt werden sollte, um die Sicherheit zu erhöhen. Sie können dies tun, indem Sie die `secure`-Eigenschaft im `/stickyConnections`-Knoten einer `dispatcher.any`-Konfigurationsdatei festlegen. Der Wert der Eigenschaft (entweder 0 oder 1) definiert, ob dem `renderid`-Cookie das `secure`-Attribut angehängt wird. Der Standardwert ist 0, was bedeutet, dass das Attribut hinzugefügt wird, wenn die eingehende Anfrage sicher ist. Wenn der Wert auf 1 gesetzt ist, wird die Sicherheitsmarkierung hinzugefügt, unabhängig davon, ob die eingehende Anfrage sicher ist oder nicht.
+Wenn gebundene Verbindungen aktiviert sind, setzt das Dispatcher-Modul den `renderid`-Cookie. Dieser Cookie verfügt nicht über die **secure**-Markierung, die hinzugefügt werden sollte, um die Sicherheit zu erhöhen. Sie können dies tun, indem Sie die `secure`-Eigenschaft im `/stickyConnections`-Knoten einer `dispatcher.any`-Konfigurationsdatei festlegen. Der Wert der Eigenschaft (entweder 0 oder 1) definiert, ob dem `renderid`-Cookie das `secure`-Attribut angehängt wird. The default value is 0, which means the attribute will be added **if** the incoming request is secure. Wenn der Wert auf 1 gesetzt ist, wird die Sicherheitsmarkierung hinzugefügt, unabhängig davon, ob die eingehende Anfrage sicher ist oder nicht.
 
 ## Umgang mit Renderer-Verbindungsfehlern {#handling-render-connection-errors}
 
