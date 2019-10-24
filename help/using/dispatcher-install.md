@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -250,7 +250,7 @@ Führen Sie die folgenden Schritte aus, um Dispatcher-Protokollmeldungen in eine
    `IIS AppPool\DefaultAppPool`
 
 1. Klicken Sie auf die Schaltfläche „Namen überprüfen“. Wenn Windows das Benutzerkonto auflöst, klicken Sie auf „OK“.
-1. Wählen Sie im Dialogfeld „Berechtigungen“ für den Ordner „Dispatcher“ das Konto, das Sie gerade hinzugefügt haben, aktivieren Sie alle Berechtigungen für das Konto außer Vollzugriff und klicken Sie auf „OK“. Klicken Sie auf „OK“, um das Dialogfeld „Eigenschaften“ zu schließen.
+1. Wählen Sie im Dialogfeld „Berechtigungen“ für den Ordner „Dispatcher“ das Konto, das Sie gerade hinzugefügt haben, aktivieren Sie alle Berechtigungen für das Konto **außer Vollzugriff** und klicken Sie auf „OK“. Klicken Sie auf „OK“, um das Dialogfeld „Eigenschaften“ zu schließen.
 1. Verwenden Sie einen Text-Editor, um die Datei `disp_iis.ini` zu öffnen.
 1. Fügen Sie eine Textzeile ähnlich wie im folgenden Beispiel hinzu, um den Speicherort der Protokolldatei zu konfigurieren, und speichern Sie die Datei anschließend
 
