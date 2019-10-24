@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: Referenz
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -221,7 +221,7 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 >
 >Der `/homepage`-Parameter (nur IIS) funktioniert nicht mehr. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). Bei der Nutzung von `mod_rewrite` ist es ratsam, die Markierung ** ['passthrough|PT' (Weiterleiten an den nächsten Handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** zu verwenden, um die Rewrite-Engine zu zwingen, das `uri`-Feld der internen `request_rec`-Struktur auf den Wert des `filename`-Feldes einzustellen.
+>Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **['passthrough|PT' (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
 
 <!-- 
 
@@ -1163,7 +1163,7 @@ Verwenden Sie die `/statfileslevel`-Eigenschaft, um zwischengespeicherte Dateien
 
    * Beispiel: Wenn Sie die `statfileslevel`-Eigenschaft auf 6 festlegen und eine Datei auf Ebene 5 invalidiert wird, wirkt sich dies auf jede `.stat`-Datei vom Basisverzeichnis bis Ebene 5 aus. Um mit diesem Beispiel fortzufahren, wenn eine Datei auf Ebene 7 invalidiert wird, dann ist jede `stat`-Datei von docroot bis 6 betroffen (da `/statfileslevel = "6"`).
 
-Es sind nur Ressourcen **entlang dem Pfad** zur invalidierten Datei betroffen. Nehmen wir folgendes Beispiel: Eine Website verwendet die Struktur `/content/myWebsite/xx/.`. Wenn Sie `statfileslevel` auf 3 festlegen, wird eine `.stat`-Datei wie folgt erstellt:
+Only resources **along the path** to the invalidated file are affected. Nehmen wir folgendes Beispiel: Eine Website verwendet die Struktur `/content/myWebsite/xx/.`. Wenn Sie `statfileslevel` auf 3 festlegen, wird eine `.stat`-Datei wie folgt erstellt:
 
 * `docroot`
 * `/content`
