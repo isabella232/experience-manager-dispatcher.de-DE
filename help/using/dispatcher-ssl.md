@@ -13,7 +13,7 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -120,7 +120,7 @@ Konfigurieren Sie die Verbindungen zwischen dem Dispatcher und dem Rendercompute
 
 * Der Dispatcher stellt über SSL eine Verbindung zur Renderinstanz her.
 * Die Renderinstanz überprüft die Gültigkeit des Zertifikats des Dispatchers.
-* Der Dispatcher überprüft, ob die Zertifizierungsstelle des Zertifikats der Renderinstanz als vertrauenswürdig eingestuft wird.
+* Dispatcher überprüft, ob das CA des Zertifikats der Renderinstanz vertrauenswürdig ist.
 * (Optional) Der Dispatcher überprüft, ob das Zertifikat der Renderinstanz mit der Serveradresse der Renderinstanz übereinstimmt.
 
 Um die bidirektionale SSL-Kommunikation zu konfigurieren, benötigen Sie Zertifikate, die von einer vertrauenswürdigen Zertifizierungsstelle signiert sind. Selbstsignierte Zertifikate sind nicht ausreichend. Entweder können Sie als Zertifizierungsstelle fungieren oder Sie können eine externe Zertifizierungsstelle in Anspruch nehmen, um Ihre Zertifikate zu signieren. Um die bidirektionale SSL-Kommunikation zu konfigurieren, benötigen Sie Folgendes:
@@ -162,7 +162,7 @@ Verwenden Sie OpenSSL, um die Zertifikatanforderungen zu erstellen, die an die e
 Wenn Sie ein Zertifikat erstellen, verwendet OpenSSL die Eigenschaft für den allgemeinen Namen des Zertifikats, um den Zertifikatinhaber zu identifizieren. Verwenden Sie für das Zertifikat der Renderinstanz den Hostnamen des Instanzcomputers als den allgemeinen Namen, wenn Sie den Dispatcher so konfigurieren, dass das Zertifikat nur dann akzeptiert wird, wenn es dem Hostnamen der Veröffentlichungsinstanz entspricht. (Siehe Eigenschaft [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11))
 
 1. Öffnen Sie ein Terminalfenster und ändern Sie das aktuelle Verzeichnis in das Verzeichnis, in dem sich die Datei „CH.sh“ Ihrer OpenSSL-Bibliotheken befindet.
-1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Falls erforderlich, verwenden Sie den Hostnamen der Veröffentlichungsinstanz als den allgemeinen Namen. Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
+1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Verwenden Sie bei Bedarf den Hostnamen der Veröffentlichungsinstanz als "Allgemeiner Name". Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
 
    ```shell
    ./CA.sh -newreq
