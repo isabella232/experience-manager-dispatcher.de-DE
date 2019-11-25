@@ -5,12 +5,12 @@ description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
 seo-description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
-topic-tags: Dispatcher
-content-type: Referenz
+pageversionid: 1193211344162
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
 
 ---
 
@@ -1383,19 +1383,13 @@ Die `/gracePeriod`-Eigenschaft definiert die Anzahl der Sekunden, in denen eine 
 
 Weitere Informationen finden Sie auch in den Abschnitten `/invalidate` und `/statfileslevel` oben.
 
-## Konfigurieren der zeitbasierten Cache-Invalidierung – /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### Konfigurieren der zeitbasierten Cache-Invalidierung – /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Mit der `enableTTL`-Eigenschaft werden die Antwortheader aus dem Backend ausgewertet und wenn sie ein maximales Alter vom Typ `Cache-Control` oder ein Datum vom Typ `Expires` enthalten, wird eine leere Hilfsdatei neben der Cachedatei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
-
-Sie können diese Funktion aktivieren, indem Sie folgende Zeile in die Datei `dispatcher.any` einfügen:
-
-```xml
-/enableTTL "1"
-```
+Mit der `/enableTTL`-Eigenschaft werden die Antwortheader aus dem Backend ausgewertet und wenn sie ein maximales Alter vom Typ `Cache-Control` oder ein Datum vom Typ `Expires` enthalten, wird eine leere Hilfsdatei neben der Cachedatei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
 
 >[!NOTE]
 >
->Diese Funktion ist in Version **4.1.11** des Dispatchers verfügbar.
+>Diese Funktion ist in Version **4.1.11** oder höher des Dispatchers verfügbar.
 
 ## Konfigurieren des Lastenausgleichs – /statistics {#configuring-load-balancing-statistics}
 
