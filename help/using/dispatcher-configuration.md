@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
+source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
 
 ---
 
@@ -221,7 +221,7 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 >
 >Der `/homepage`-Parameter (nur IIS) funktioniert nicht mehr. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **['passthrough|PT' (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
+>Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **[&#39;passthrough|PT&#39; (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**to force the rewrite engine to set the`uri`field of the internal`request_rec`structure to the value of the`filename`field.
 
 <!-- 
 
@@ -405,7 +405,7 @@ In der folgenden Tabelle sind die virtuellen Hosts aufgeführt, die für die HTT
 
 | URL-Anforderung | Aufgelöster virtueller Host |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*;` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## Ermöglichen von sicheren Sitzungen – /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
@@ -482,7 +482,7 @@ Mit der /renders-Eigenschaft wird die URL definiert, an die der Dispatcher Anfor
   }
 ```
 
-Im folgenden beispielhaften /renders-Abschnitt wird eine AEM-Instanz definiert, die auf demselben Computer wie der Dispatcher ausgeführt wird:
+Im folgenden Beispiel /renders-Abschnitt wird eine AEM-Instanz identifiziert, die auf demselben Computer wie der Dispatcher ausgeführt wird:
 
 ```xml
 /renders
@@ -601,13 +601,13 @@ besser Folgendes verwenden:
 
 HTTP/1.1 defines the [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) as follows:
 
-*Methode Anforderungs-URI HTTP-Version*&lt;CRLF&gt;
+*Methode Anforderungs-URI HTTP-Version*&lt;CRLF>
 
-Die &lt;CRLF&gt;-Zeichen stehen für einen Wagenrücklauf gefolgt von einem Zeilenvorschub. Im folgenden Beispiel wird die Anforderungszeile gezeigt, die empfangen wird, wenn ein Client die en-Seite der „Geometrixx-Outdoors“-Website anfordert:
+Die &lt;CRLF>-Zeichen stehen für einen Wagenrücklauf gefolgt von einem Zeilenvorschub. Im folgenden Beispiel wird die Anforderungszeile gezeigt, die empfangen wird, wenn ein Client die en-Seite der „Geometrixx-Outdoors“-Website anfordert:
 
-GET /content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF&gt;
+GET /content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF>
 
-Ihre Muster müssen die Leerzeichen in der Anfragezeile sowie die &lt;CRLF&gt;-Zeichen berücksichtigen.
+Ihre Muster müssen die Leerzeichen in der Anfragezeile sowie die &lt;CRLF>-Zeichen berücksichtigen.
 
 #### Doppelte Anführungszeichen vs. einfache Anführungszeichen {#double-quotes-vs-single-quotes}
 
@@ -1598,7 +1598,7 @@ Die glob-Werte können Platzhalterzeichen und alphanumerische Zeichen enthalten,
 | Platzhalterzeichen | Beschreibung | Beispiele |
 |--- |--- |--- |
 | `*` | Entspricht null oder mehreren aufeinanderfolgenden Instanzen eines Zeichens in der Zeichenfolge. Das letzte Zeichen der Entsprechung ergibt sich durch eine der folgenden Bedingungen:  <br/>Ein Zeichen in der Zeichenfolge entspricht dem nächsten Zeichen im Muster und das Musterzeichen verfügt über die folgenden Merkmale:<br/><ul><li>Kein *</li><li>Kein ?</li><li>Ein Buchstabenzeichen (einschließlich Leerzeichen) oder eine Zeichenklasse</li><li>Das Ende des Musters wird erreicht.</li></ul>Innerhalb einer Zeichenklasse wird das Zeichen als Literal interpretiert. | `*/geo*` Entspricht allen Seiten unter den Knoten `/content/geometrixx` und `/content/geometrixx-outdoors`. Die folgenden HTTP-Anforderungen entsprechen dem glob-Muster: <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` <br/>Entspricht allen Seiten unter dem Knoten `/content/geometrixx-outdoors`. Die folgende HTTP-Anforderung entspricht beispielsweise dem glob-Muster: <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
-| `?` | Entspricht einem beliebigen einzelnen Zeichen Zu benutzen außerhalb von Zeichenklassen. Innerhalb einer Zeichenklasse wird dieses Zeichen literal ("wörtlich") interpretiert. | `*outdoors/??/*`<br/> Entspricht den Seiten für eine beliebige Sprache der Site „geometrixx-outdoors“. Die folgende HTTP-Anforderung entspricht beispielsweise dem glob-Muster: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Die folgende Anforderung entspricht nicht dem glob-Muster: <br/><ul><li>"GET /content/geometrixx-outdoors/en.html"</li></ul> |
+| `?` | Entspricht einem beliebigen einzelnen Zeichen Zu benutzen außerhalb von Zeichenklassen. Innerhalb einer Zeichenklasse wird dieses Zeichen literal (&quot;wörtlich&quot;) interpretiert. | `*outdoors/??/*`<br/> Entspricht den Seiten für eine beliebige Sprache der Site „geometrixx-outdoors“. Die folgende HTTP-Anforderung entspricht beispielsweise dem glob-Muster: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Die folgende Anforderung entspricht nicht dem glob-Muster: <br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | Markiert den Anfang und das Ende einer Zeichenklasse. Zeichenklassen können einen oder mehrere Zeichenbereiche und einzelne Zeichen enthalten.<br/>Eine Übereinstimmung tritt auf, wenn das Zielzeichen einem Zeichen in der Zeichenklasse oder innerhalb eines bestimmten Bereichs entspricht.<br/>Wenn die schließende Klammer nicht vorhanden ist, liefert das Muster keine Treffer. | `*[o]men.html*`<br/> Entspricht der folgenden HTTP-Anforderung:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Entspricht nicht der folgenden HTTP-Anforderung:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` <br/>Entspricht den folgenden HTTP-Anfragen: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | Steht für einen Zeichenbereich. Zur Verwendung in Zeichenklassen.  Außerhalb einer Zeichenklasse wird dieses Zeichen wörtlich interpretiert. | `*[m-p]men.html*` Entspricht der folgenden HTTP-Anforderung: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Entspricht nicht der folgenden HTTP-Anforderung:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | Schließt das nachfolgende Zeichen oder die nachfolgende Zeichenklasse aus. Verwenden Sie dies nur zum Ausschließen von Zeichen und Zeichenbereichen innerhalb von Zeichenklassen. Entspricht `^ wildcard`. <br/>Außerhalb einer Zeichenklasse wird dieses Zeichen wörtlich interpretiert. | `*[!o]men.html*`<br/> Entspricht der folgenden HTTP-Anforderung: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Entspricht nicht der folgenden HTTP-Anforderung: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Entspricht nicht der folgenden HTTP-Anforderung:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` oder `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
@@ -1854,7 +1854,6 @@ Die HTTP-Methode ist weder ein GET noch ein HEAD. Der Dispatcher geht davon aus,
    Die Berechtigungsprüfung der Farm hat den Zugriff auf die zwischengespeicherte Datei verweigert.
 * **Nicht zwischenspeicherbar: Die Sitzung ist nicht gültig.**
 Der Farmcache wird von einem Sitzungsmanager verwaltet (die Konfiguration enthält einen `sessionmanagement`-Knoten) und die Sitzung des Benutzers ist nicht oder nicht mehr gültig.
-* **Nicht zwischenspeicherbar: Antwort enthält`no_cache `**
-Der Remote-Server gibt einen Header `Dispatcher: no_cache` zurück, der es dem Dispatcher nicht erlaubt, die Ausgabe zwischenzuspeichern.
+* **Nicht zwischenspeicherbar: Antwort enthält`no_cache `**Der Remote-Server gibt einen Header`Dispatcher: no_cache`zurück, der es dem Dispatcher nicht erlaubt, die Ausgabe zwischenzuspeichern.
 * **nicht zwischenspeicherbar: Antwortinhaltslänge ist null**
 Die Inhaltslänge der Antwort ist null; der Dispatcher erstellt keine Datei mit einer Länge von null.
