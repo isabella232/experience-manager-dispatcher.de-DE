@@ -4,14 +4,14 @@ seo-title: 'Verwenden des Dispatchers mit mehreren Domänen '
 description: Erfahren Sie, wie Sie mit dem Dispatcher Seitenanfragen in mehreren Webdomänen verarbeiten.
 seo-description: Erfahren Sie, wie Sie mit dem Dispatcher Seitenanfragen in mehreren Webdomänen verarbeiten.
 uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
-contentOwner: Benutzer
+contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
 
 ---
 
@@ -70,8 +70,8 @@ Um den Dispatcher mit mehreren Domänen zu verwenden, müssen Sie AEM, den Dispa
 
 Um für Domänen-URLs und Inhaltspfade die Auflösung zu zwischengespeicherten Dateien zu ermöglichen, muss an einem Punkt während des Prozesses ein Dateipfad oder eine Seiten-URL übersetzt werden. Es werden Beschreibungen der folgenden allgemeinen Strategien bereitgestellt, bei denen Pfad- oder URL-Übersetzungen an unterschiedlichen Punkten während des Prozesses erfolgen:
 
-* (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung zur Implementierung von Regeln zum Neuschreiben interner URLs. Domänen-URLs werden in Inhaltsrepositorypfade übersetzt. (Siehe [AEM schreibt eingehende URLs neu](dispatcher-domains.md#main-pars-title-2).)
-* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. (Siehe [Der Webserver schreibt eingehende URLs neu](dispatcher-domains.md#main-pars-title-1))
+* (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung zur Implementierung von Regeln zum Neuschreiben interner URLs. Domänen-URLs werden in Inhaltsrepositorypfade übersetzt. (Siehe [AEM schreibt eingehende URLs neu](#aem-rewrites-incoming-urls).)
+* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. (Siehe [Der Webserver schreibt eingehende URLs neu](#the-web-server-rewrites-incoming-urls))
 
 Es empfiehlt sich, kurze URLs für Webseiten zu verwenden. Üblicherweise spiegeln Seiten-URLs die Struktur der Repositoryordner wider, die den Webinhalt enthalten. Allerdings zeigen die URLs nicht die höchsten Repositoryknoten, beispielsweise `/content`. Dem Client ist die Struktur des AEM-Repositorys nicht notwendigerweise bekannt.
 
