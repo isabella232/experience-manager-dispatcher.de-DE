@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -200,19 +200,19 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 |--- |--- |
 | [/homepage](#specify-a-default-page-iis-only-homepage) | Standard-Homepage (optional) (nur IIS) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | Die Header aus der Client-HTTP fragen eine Weiterleitung an. |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | Die virtuellen Hosts für diese Farm |
-| [/sessionmanagement](#enabling-secure-sessions-session-management) | Unterstützung für die Sitzungsverwaltung und -authentifizierung. |
+| [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | Die virtuellen Hosts für diese Farm |
+| [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | Unterstützung für die Sitzungsverwaltung und -authentifizierung. |
 | [/renders](#defining-page-renderers-renders) | Die Server, welche die gerenderten Seiten liefern (in der Regel AEM-Veröffentlichungsinstanzen). |
 | [/filter](#configuring-access-to-content-filter) | Definiert die URLs, auf die der Dispatcher den Zugriff ermöglicht. |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | Konfiguriert den Zugriff auf Vanity-URLs. |
-| [/propagateSyndPost](#forwarding-syndication-requests-propagate-syndpost) | Unterstützung bei der Weiterleitung von Syndizierungsanforderungen |
+| [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | Unterstützung bei der Weiterleitung von Syndizierungsanforderungen |
 | [/cache](#configuring-the-dispatcher-cache-cache) | Konfiguriert das Cache-Verhalten. |
 | [/statistics](#configuring-load-balancing-statistics) | Definieren von statistischen Kategorien zur Berechnung des Lastenausgleichs. |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | Der Ordner, der „Sticky“-Dokumente enthält. |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | Der Ordner, der „Sticky“-Dokumente enthält. |
 | [/health_check](#specifying-a-health-check-page) | URL zum Prüfen der Serververfügbarkeit |
 | [/retryDelay](#specifying-the-page-retry-delay) | Verzögerung bevor eine fehlgeschlagene Verbindung wiederholt wird. |
 | [/unavailablePenalty](#reflecting-server-unavailability-in-dispatcher-statistics) | Nachteile, die sich auf Statistiken für Berechnungen zum Lastenausgleich auswirken. |
-| [/failover](#using-the-fail-over-mechanism) | Erneutes Senden von Anforderungen an andere Renderer, wenn die ursprüngliche Anforderung fehlschlägt |
+| [/failover](#using-the-failover-mechanism) | Erneutes Senden von Anforderungen an andere Renderer, wenn die ursprüngliche Anforderung fehlschlägt |
 | [/auth_checker](permissions-cache.md) | For permission-sensitive caching, see [Caching Secured Content](permissions-cache.md). |
 
 ## Angeben einer Standardseite (nur IIS) – /homepage {#specify-a-default-page-iis-only-homepage}
