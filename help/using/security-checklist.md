@@ -4,17 +4,17 @@ seo-title: Die Dispatcher-Sicherheitscheckliste
 description: Eine Sicherheitscheckliste, die vor der Produktion geprüft werden sollte.
 seo-description: Eine Sicherheitscheckliste, die vor der Produktion geprüft werden sollte.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
-contentOwner: Benutzer
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
 jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -91,9 +91,9 @@ Whitelists eignen sich besser zur Zugriffskontrolle, da sie grundsätzlich vorau
 
 ## Ausführen des Dispatchers mit einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
 
-Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einem dedizierten Benutzer mit den geringsten Rechten ausgeführt wird. Es empfiehlt sich, nur Schreibrechte für den Dispatcher-Cacheordner zu erteilen.
+Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einem dedizierten Benutzer mit den geringsten Rechten ausgeführt wird. Es wird empfohlen, Schreibzugriff nur auf den Ordner für den Dispatcher-Cache zu gewähren.
 
-Darüber hinaus müssen IIS-Benutzer ihre Website folgendermaßen konfigurieren:
+Außerdem müssen IIS-Benutzer ihre Website wie folgt konfigurieren:
 
 1. Wählen Sie in den Einstellungen für den physischen Pfad für Ihre Website die Option zum Verbinden als bestimmter Benutzer ****.
 1. Legen Sie den Benutzer fest.
@@ -102,7 +102,7 @@ Darüber hinaus müssen IIS-Benutzer ihre Website folgendermaßen konfigurieren:
 
 Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Benutzer unzugänglich zu machen.
 
-Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern:  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filters))
+Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern:  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filter))
 
 * Verwenden Sie das mod_rewrite-Modul (beispielsweise [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)), um URL-Überprüfungen durchzuführen (sofern die Regeln für das URL-Muster nicht zu komplex sind).
 
