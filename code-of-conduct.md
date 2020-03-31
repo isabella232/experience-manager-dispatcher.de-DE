@@ -1,6 +1,6 @@
 ---
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
-translation-type: ht
+source-git-commit: 36c4ad10a9140d368fdbf3f0939e6756cc2bfbbf
+translation-type: tm+mt
 
 ---
 # Adobe-Verhaltenskodex
@@ -39,11 +39,10 @@ Dieser Verhaltenskodex gilt sowohl innerhalb der Projektbereiche als auch in öf
 
 ## Durchsetzung
 
-Fälle von beleidigenden, belästigenden oder sonst inakzeptablen Verhaltensweisen können über die Kontaktaufnahme mit dem Projektteam unter Grp-opensourceoffice@adobe.com gemeldet werden. Alle Beschwerden werden geprüft und untersucht und erhalten eine Antwort, die für die Umstände als erforderlich und angemessen erachtet wird. Das Projektteam ist verpflichtet, die Vertraulichkeit in Bezug auf den Melder eines Vorkommnisses zu wahren.
-Weitere Details zu spezifischen Durchsetzungsrichtlinien können separat veröffentlicht werden.
+Fälle von beleidigenden, belästigenden oder sonst inakzeptablen Verhaltensweisen können über die Kontaktaufnahme mit dem Projektteam unter Grp-opensourceoffice@adobe.com gemeldet werden. Alle Beschwerden werden geprüft und untersucht und erhalten eine Antwort, die für die Umstände als erforderlich und angemessen erachtet wird. Das Projektteam ist verpflichtet, die Vertraulichkeit in Bezug auf den Melder eines Vorkommnisses zu wahren. Weitere Details zu spezifischen Durchsetzungsrichtlinien können separat veröffentlicht werden.
 
 Projektverantwortliche, die dem Verhaltenskodex nicht im guten Glauben folgen oder diesen durchsetzen, können vorübergehenden oder dauerhaften Auswirkungen unterliegen, wie von anderen Mitgliedern der Projektleitung bestimmt.
 
 ## Zuordnung
 
-Dieser Verhaltenskodex wird vom [Contributor Covenant](https://contributor-covenant.org), Version 1.4 angepasst, der unter [https://contributor-covenant.org/version/1/4](https://contributor-covenant.org/version/1/4/) verfügbar ist.
+Dieser Verhaltenskodex wird vom [Contributor Covenant](https://contributor-covenant.org), Version 1.4 angepasst, der unter [](https://contributor-covenant.org/version/1/4/)https://contributor-covenant.org/version/1/4/ verfügbar ist.
