@@ -5,15 +5,15 @@ description: Erfahren Sie, wie Sie die Interaktion zwischen Dispatcher und AEM k
 seo-description: Erfahren Sie, wie Sie die Interaktion zwischen Adobe AEM Dispatcher und AEM konfigurieren, um eine effektive Cacheverwaltung sicherzustellen.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: Benutzer
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
 
 ---
 
@@ -24,7 +24,7 @@ Bei Verwendung des Dispatchers mit AEM muss die Interaktion konfiguriert werden,
 
 ## Einrichten von AEM-Benutzerkonten  {#setting-up-aem-user-accounts}
 
-Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen. [](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)
+Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen.
 
 For more information see the [Configure Replication and Transport Users](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) section of the AEM Security Checklist.
 
@@ -58,7 +58,7 @@ Wenden Sie das folgende Verfahren an, um einen Replizierungsagenten auf der AEM-
 
 1. (Optional) Um Alias- oder Vanity Path-Invalidierungsanforderungen zu aktivieren, wählen Sie die Option **Alias-Aktualisierung**.
 1. Geben Sie auf der Registerkarte „Transport“ den für den Zugriff auf den Dispatcher erforderlichen URI ein.\
-   Wenn Sie den Standard-Dispatcher Flush-Agenten verwenden, müssen Sie wahrscheinlich den Hostnamen und Anschluss aktualisieren. Beispiel: https://&lt;*dispatcherhost*&gt;:&lt;*Portapache*&gt;/dispatcher/invalidate. cache
+   Wenn Sie den Standard-Dispatcher Flush-Agenten verwenden, müssen Sie wahrscheinlich den Hostnamen und Anschluss aktualisieren. Beispiel: https://&lt;*dispatcherhost*>:&lt;*Portapache*>/dispatcher/invalidate. cache
 
    **Hinweis:** Bei Dispatcher Flush-Agenten wird die URI-Eigenschaft nur verwendet, wenn Sie pfadbasierte virtualhost-Einträge verwenden, um zwischen den Farmen zu unterscheiden. Sie verwenden dieses Feld zum Bestimmen der Farm, die invalidiert werden soll. Beispiel: Farm 1 hat den virtuellen Host `www.mysite.com/path1/*` und Farm 2 den virtuellen Host `www.mysite.com/path2/*`. Mit der URL `/path1/invalidate.cache` können Sie die erste Farm und mit `/path2/invalidate.cache` die zweite Farm bestimmen. Weitere Informationen finden Sie unter [Verwenden des Dispatchers mit mehreren Domänen](dispatcher-domains.md).
 
