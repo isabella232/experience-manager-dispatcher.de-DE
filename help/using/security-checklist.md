@@ -14,7 +14,10 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+workflow-type: tm+mt
+source-wordcount: '672'
+ht-degree: 86%
 
 ---
 
@@ -36,7 +39,7 @@ Der Dispatcher bietet als Front-End-System zusätzliche Sicherheit für Ihre Ado
 
 >[!CAUTION]
 >
->Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html).
+>Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html).
 
 ## Verwenden der neuesten Version des Dispatchers {#use-the-latest-version-of-dispatcher}
 
@@ -85,9 +88,9 @@ Stellen Sie sicher, dass Sie Filter verwenden, um den externen Zugriff auf sämt
 
 Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dispatcher-security) finden Sie eine Liste der URLs, die blockiert werden müssen.
 
-## Verwenden von Whitelists anstelle von Blacklists {#use-whitelists-instead-of-blacklists}
+## Verwenden von Zulassungsliste anstelle von Blockierungsliste {#use-allowlists-instead-of-blocklists}
 
-Whitelists eignen sich besser zur Zugriffskontrolle, da sie grundsätzlich voraussetzen, dass alle Zugriffsanforderungen verweigert werden sollten, sofern sie nicht ausdrücklich Teil der Whitelist sind. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
+Zulassungsliste sind eine bessere Möglichkeit, Zugriffskontrolle zu bieten, da sie davon ausgehen, dass alle Zugangsanfragen verweigert werden sollten, es sei denn, sie sind explizit Bestandteil der zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
 ## Ausführen des Dispatchers mit einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
 
@@ -117,6 +120,7 @@ Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe 
    * `.doc`
    * `.pdf`
    * `.ppt`
+
    Sie können eine Beispielkonfigurationsdatei zum [Einschränken des externen Zugriffs](#restrict-access) einsehen, diese beinhaltet die Einschränkungen für MIME-Typen. 
 
 Um sicher den vollen Funktionsumfang für die Veröffentlichungsinstanzen zu aktivieren, konfigurieren Sie Filter, um den Zugriff auf die folgenden Knoten zu verhindern:
@@ -149,7 +153,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Konfigurieren des Dispatchers zum Verhindern von CSRF-Angriffen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu verwenden, müssen Sie in den Dispatcher die CSRF-Token-Unterstützung in die Whitelist aufnehmen. Sie können dies durch folgende Maßnahmen erreichen:
+AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Damit Sie dieses Framework ordnungsgemäß nutzen können, müssen Sie im Dispatcher CSRF-Token-Unterstützung im zulassungsliste- hinzufügen. Gehen Sie dazu wie folgt vor:
 
 1. Erstellen Sie einen Filter, um den Pfad `/libs/granite/csrf/token.json` zuzulassen.
 1. Fügen Sie die Kopfzeile `CSRF-Token` dem Abschnitt `clientheaders` der Dispatcher-Konfiguration hinzu.
