@@ -10,7 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 183131dec51b67e152a8660c325ed980ae9ef458
+source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+workflow-type: tm+mt
+source-wordcount: '8802'
+ht-degree: 96%
 
 ---
 
@@ -221,7 +224,7 @@ Jede Farmeigenschaft kann die folgenden untergeordneten Eigenschaften enthalten:
 >
 >Der `/homepage`-Parameter (nur IIS) funktioniert nicht mehr. Instead, you should use the [IIS URL Rewrite Module](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **[&#39;passthrough|PT&#39; (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**to force the rewrite engine to set the`uri`field of the internal`request_rec`structure to the value of the`filename`field.
+>Wenn Sie Apache verwenden, sollten Sie das Modul `mod_rewrite` verwenden. See the Apache web site documentation for information about `mod_rewrite` (for example, [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). When using `mod_rewrite`, it is advisable to use the flag **[&#39;passthrough|PT&#39; (pass through to next handler)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** to force the rewrite engine to set the `uri` field of the internal `request_rec` structure to the value of the `filename` field.
 
 <!-- 
 
@@ -482,7 +485,7 @@ Mit der /renders-Eigenschaft wird die URL definiert, an die der Dispatcher Anfor
   }
 ```
 
-Im folgenden Beispiel /renders-Abschnitt wird eine AEM-Instanz identifiziert, die auf demselben Computer wie der Dispatcher ausgeführt wird:
+Im folgenden Beispiel /renders-Abschnitt wird eine AEM Instanz identifiziert, die auf demselben Computer wie der Dispatcher ausgeführt wird:
 
 ```xml
 /renders
@@ -564,7 +567,7 @@ Verwenden Sie den `/filter`-Abschnitt, um die HTTP-Anfragen anzugeben, die der D
 
 >[!CAUTION]
 >
->In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Also, read the [AEM Security Cheklist](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html) for additional security details regarding your AEM installation.
+>In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Also, read the [AEM Security Cheklist](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html) for additional security details regarding your AEM installation.
 
 Der /filter-Abschnitt besteht aus einer Reihe von Regeln, die den Zugriff auf die Inhalte zulassen oder verweigern, wozu Muster in der Anforderungszeile der HTTP-Anforderung abgeglichen werden. Sie sollten eine „Whitelist“-Strategie für den /filter-Abschnitt verwenden:
 
@@ -1351,6 +1354,7 @@ Im Folgenden ein Beispiel aus der Standardkonfiguration:
 >
 >* Fügen Sie den Headernamen in den `/cache/headers`-Abschnitt ein.
 >* Add the following [Apache directive](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) in the Dispatcher related section:
+
 >
 
 
@@ -1577,9 +1581,11 @@ Verwenden Sie den /ignoreEINTR-Parameter, wenn Ihre Instanz eine solche Konfigur
 
 Intern liest der Dispatcher die Antwort vom Remote-Server (z. B. AEM) mit einer Schleife, die sich wie folgt darstellen lässt:
 
-`while (response not finished) {  
+```
+while (response not finished) {  
 read more data  
-}`
+}
+```
 
 Diese Meldungen können generiert werden, wenn `EINTR` im Abschnitt `read more data` auftritt. Sie werden durch den Empfang eines Signals vor dem Empfang von Daten ausgelöst.
 
@@ -1829,7 +1835,8 @@ Nachfolgend finden Sie eine Liste mit den Antwortheadern, die von `X-Dispatcher-
 * **Zwischenspeicherung läuft: stat-Datei ist aktueller**
 Die Zieldatei ist im Cache enthalten, wird aber durch eine neuere stat-Datei invalidiert. Der Dispatcher löscht die Zieldatei, erstellt sie aus der Ausgabe neu und gibt sie aus.
 * **Nicht zwischenspeicherbar: kein Basisverzeichnis**
-Die Konfiguration der Farm enthält kein Basisverzeichnis (Konfigurationselement `cache.docroot`).
+Die Konfiguration der Farm enthält kein Basisverzeichnis (Konfigurationselement 
+`cache.docroot`).
 * **Nicht zwischenspeicherbar: Cache-Dateipfad zu lang**\
    Die Zieldatei – die Verknüpfung von Basisverzeichnis und URL-Datei – überschreitet den längsten möglichen Dateinamen im System.
 * **Nicht zwischenspeicherbar: temporärer Dateipfad zu lang**\
@@ -1854,6 +1861,7 @@ Die HTTP-Methode ist weder ein GET noch ein HEAD. Der Dispatcher geht davon aus,
    Die Berechtigungsprüfung der Farm hat den Zugriff auf die zwischengespeicherte Datei verweigert.
 * **Nicht zwischenspeicherbar: Die Sitzung ist nicht gültig.**
 Der Farmcache wird von einem Sitzungsmanager verwaltet (die Konfiguration enthält einen `sessionmanagement`-Knoten) und die Sitzung des Benutzers ist nicht oder nicht mehr gültig.
-* **Nicht zwischenspeicherbar: Antwort enthält`no_cache `**Der Remote-Server gibt einen Header`Dispatcher: no_cache`zurück, der es dem Dispatcher nicht erlaubt, die Ausgabe zwischenzuspeichern.
+* **nicht zwischenspeichern können: response enthält`no_cache `** Der Remote-Server gab eine 
+`Dispatcher: no_cache` -Header, der dem Dispatcher das Zwischenspeichern der Ausgabe untersagt.
 * **nicht zwischenspeicherbar: Antwortinhaltslänge ist null**
 Die Inhaltslänge der Antwort ist null; der Dispatcher erstellt keine Datei mit einer Länge von null.
