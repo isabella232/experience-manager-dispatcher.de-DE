@@ -5,15 +5,18 @@ description: Erfahren Sie mehr zur Fehlerbehebung bei Dispatcher-Problemen.
 seo-description: Erfahren Sie mehr zur Fehlerbehebung bei AEM Dispatcher-Problemen.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: Benutzer
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+workflow-type: tm+mt
+source-wordcount: '553'
+ht-degree: 90%
 
 ---
 
@@ -80,7 +83,7 @@ Beim Löschen von Workflow-Modellen beim Zugriff auf eine AEM-Autoreninstanz dur
 
 1. Klicken Sie zur Bestätigung auf **Ja**.
 1. Es wird ein Fehlermeldungsfeld angezeigt:\
-   " `ERROR 'Could not delete workflow model!!`".
+   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
 
 **Problemlösung**
 
@@ -89,14 +92,16 @@ Fügen Sie die folgenden Header im Abschnitt `/clientheaders` der Datei `dispatc
 * `x-http-method-override`
 * `x-requested-with`
 
-`{  
+```
+{  
 {  
 /clientheaders  
 {  
 ...  
 "x-http-method-override"  
 "x-requested-with"  
-}`
+}
+```
 
 ## Wechselwirkung mit „mod_dir“ (Apache) {#interference-with-mod-dir-apache}
 
