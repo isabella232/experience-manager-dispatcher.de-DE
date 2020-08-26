@@ -9,7 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 translation-type: tm+mt
-source-git-commit: 3bf255c54b46f571fab64f0754b71e050c3bda3f
+source-git-commit: 88ea38c9ad7fe67edbaf68c4882a01c3f9a475d9
+workflow-type: tm+mt
+source-wordcount: '3222'
+ht-degree: 95%
 
 ---
 
@@ -25,16 +28,19 @@ Dispatcher ist ein Tool von Adobe Experience Manager für das Zwischenspeichern 
 Die Bereitstellung des Dispatchers ist unabhängig von Webserver und Betriebssystem:
 
 1. Weitere Informationen zum Dispatcher (diese Seite). Weitere Informationen finden Sie außerdem in den [häufig gestellten Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Install a [supported web server](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
-
+1. Install a [supported web server](https://helpx.adobe.com/de/experience-manager/6-3/sites/deploying/using/technical-requirements.html) according to the web server documentation.
 1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver dementsprechend.
 1. [Konfigurieren Sie den Dispatcher](dispatcher-configuration.md) (Datei „dispatcher.any“).
-
 1. [Konfigurieren Sie AEM](page-invalidate.md), sodass der Cache durch Inhaltsaktualisierungen invalidiert wird.
 
 >[!NOTE]
 >
->Weitere Informationen zur Funktionsweise des Dispatchers mit AEM finden Sie unter [Fragen Sie die AEM Community-Experten Juli 2017](https://bit.ly/ATACE0717).
+>So erhalten Sie ein besseres Verständnis, wie Dispatcher mit AEM funktioniert:
+>
+>* Siehe [Fragen Sie die AEM Gemeinschaftssachverständigen für Juli 2017](https://bit.ly/ATACE0717).
+>* Greifen Sie auf [dieses Repository](https://github.com/adobe/aem-dispatcher-experiments)zu. Es enthält eine Sammlung von Experimenten im Laborformat &quot;Take-home&quot;.
+
+
 
 Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 
@@ -49,7 +55,7 @@ Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 
 >[!NOTE]
 >
->**Die häufigste Verwendung des Dispatchers** ist das Zwischenspeichern von Antworten aus einer AEM-**Veröffentlichungsinstanz**, um die Reaktionsfähigkeit und Sicherheit einer öffentlich zugänglichen veröffentlichten Website zu erhöhen. Diese Anwendung steht im Mittelpunkt des Themas.
+>******Dispatcher wird am häufigsten zum Zwischenspeichern von Antworten aus einer AEM-Veröffentlichungsinstanz** verwendet, um die Reaktionsfähigkeit und Sicherheit einer öffentlich zugänglichen veröffentlichten Website zu erhöhen. Diese Anwendung steht im Mittelpunkt des Themas.
 >
 >Mit dem Dispatcher kann jedoch auch die Reaktionsgeschwindigkeit der **Autoreninstanz** gesteigert werden, besonders wenn viele Benutzer Ihre Website bearbeiten und aktualisieren. Weitere Informationen zu diesem speziellen Fall finden Sie unten unter [Verwenden eines Dispatchers mit einem Autorenserver](#using-a-dispatcher-with-an-author-server).
 
@@ -99,7 +105,7 @@ So können Sie vielseitigere, dynamische Inhalte erstellen und die Flexibilität
 
 >[!NOTE]
 >
->Wenn die Konfiguration für das Zwischenspeichern von HTTP-Headern fehlt, speichert der Dispatcher nur den HTML-Code der Seite. Die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der HTTP-Header-Zwischenspeicherung finden Sie unter [Konfigurieren des Dispatcher-Cache.](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>Wenn die Konfiguration für das Zwischenspeichern von HTTP-Headern fehlt, speichert der Dispatcher nur den HTML-Code der Seite. Die HTTP-Header werden nicht gespeichert. Dies kann problematisch sein, wenn Sie verschiedene Kodierungen in Ihrer Website verwenden, da diese unter Umständen verloren gehen. Informationen zum Aktivieren der HTTP-Header-Zwischenspeicherung finden Sie unter [Konfigurieren des Dispatcher-Cache.](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -153,7 +159,7 @@ Auch hier sollten bestimmte Punkte beachtet werden:
 
 ### Festlegen, ob ein Dokument zwischengespeichert werden soll
 
-You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
+You can [define which documents the Dispatcher caches in the configuration file](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html). Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
 
 Der Dispatcher ruft das Dokument in den folgenden Fällen *immer* direkt aus der AEM-Instanz ab:
 
@@ -163,7 +169,7 @@ Der Dispatcher ruft das Dokument in den folgenden Fällen *immer* direkt aus der
 
 >[!NOTE]
 >
->Die Methoden GET oder HEAD (für den HTTP-Header) können vom Dispatcher zwischengespeichert werden. Weitere Informationen zum Zwischenspeichern von Antwortheadern finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwortheadern](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html).
+>Die Methoden GET oder HEAD (für den HTTP-Header) können vom Dispatcher zwischengespeichert werden. Weitere Informationen zum Zwischenspeichern von Antwortheadern finden Sie im Abschnitt [Zwischenspeichern von HTTP-Antwortheadern](https://helpx.adobe.com/de/experience-manager/dispatcher/using/dispatcher-configuration.html).
 
 ### Bestimmen, ob ein Dokument zwischengespeichert wird 
 
