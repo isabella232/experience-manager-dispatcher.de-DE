@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
 workflow-type: tm+mt
-source-wordcount: '672'
+source-wordcount: '653'
 ht-degree: 86%
 
 ---
@@ -35,7 +35,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-Der Dispatcher bietet als Front-End-System zusätzliche Sicherheit für Ihre Adobe Experience Manager-Infrastruktur. Adobe empfiehlt, vor dem Einsatz in einer Produktionsumgebung unbedingt die folgende Checkliste abzuarbeiten.
+Adobe empfiehlt, vor dem Einsatz in einer Produktionsumgebung unbedingt die folgende Checkliste abzuarbeiten.
 
 >[!CAUTION]
 >
@@ -88,9 +88,9 @@ Stellen Sie sicher, dass Sie Filter verwenden, um den externen Zugriff auf sämt
 
 Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dispatcher-security) finden Sie eine Liste der URLs, die blockiert werden müssen.
 
-## Verwenden von Zulassungsliste anstelle von Blockierungsliste {#use-allowlists-instead-of-blocklists}
+## Zulassungslisten anstelle von Blockierungslisten verwenden {#use-allowlists-instead-of-blocklists}
 
-Zulassungsliste sind eine bessere Möglichkeit, Zugriffskontrolle zu bieten, da sie davon ausgehen, dass alle Zugangsanfragen verweigert werden sollten, es sei denn, sie sind explizit Bestandteil der zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
+Zulassungslisten stellen eine bessere Möglichkeit dar, Zugriffskontrollen bereitzustellen, da sie davon ausgehen, dass alle Zugangsanfragen verweigert werden sollten, es sei denn, sie sind explizit Bestandteil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
 ## Ausführen des Dispatchers mit einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
 
@@ -120,6 +120,7 @@ Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe 
    * `.doc`
    * `.pdf`
    * `.ppt`
+
    Sie können eine Beispielkonfigurationsdatei zum [Einschränken des externen Zugriffs](#restrict-access) einsehen, diese beinhaltet die Einschränkungen für MIME-Typen. 
 
 Um sicher den vollen Funktionsumfang für die Veröffentlichungsinstanzen zu aktivieren, konfigurieren Sie Filter, um den Zugriff auf die folgenden Knoten zu verhindern:
@@ -152,7 +153,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Konfigurieren des Dispatchers zum Verhindern von CSRF-Angriffen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Damit Sie dieses Framework ordnungsgemäß nutzen können, müssen Sie im Dispatcher CSRF-Token-Unterstützung im zulassungsliste- hinzufügen. Gehen Sie dazu wie folgt vor:
+AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Damit Sie dieses Framework ordnungsgemäß nutzen können, müssen Sie die CSRF-Token-Unterstützung im Dispatcher in Zulassungsliste setzen. Gehen Sie dazu wie folgt vor:
 
 1. Erstellen Sie einen Filter, um den Pfad `/libs/granite/csrf/token.json` zuzulassen.
 1. Fügen Sie die Kopfzeile `CSRF-Token` dem Abschnitt `clientheaders` der Dispatcher-Konfiguration hinzu.
