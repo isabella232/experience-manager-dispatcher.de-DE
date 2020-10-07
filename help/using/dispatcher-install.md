@@ -4,13 +4,16 @@ seo-title: Installieren von AEM Dispatchers
 description: Erfahren Sie, wie Sie das Dispatcher-Modul auf Microsoft Internet Information Server, Apache Web Server und Sun Java Web Server-iplanet installieren.
 seo-description: Erfahren Sie, wie Sie das AEM Dispatcher-Modul auf Microsoft Internet Information Server, Apache Web Server und Sun Java Web Server-iplanet installieren.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
-contentOwner: Benutzer
-converted: 'true'
-topic-tags: Dispatcher
-content-type: Referenz
+contentOwner: User
+converted: true
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+workflow-type: tm+mt
+source-wordcount: '3689'
+ht-degree: 98%
 
 ---
 
@@ -41,9 +44,9 @@ In der folgenden Tabelle ist die Webserverkennung aufgeführt, die in den Datein
 
 | Webserver | Installations-Kit |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4**-&lt;andere Parameter&gt; |
-| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;andere Parameter&gt; |
-| Sun Java Web Server/iPlanet | dispatcher-**ns**-&lt;andere Parameter&gt; |
+| Apache 2.4 | dispatcher-apache **2.4**-&lt;andere Parameter> |
+| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;andere Parameter> |
+| Sun Java Web Server/iPlanet | dispatcher-**ns**-&lt;andere Parameter> |
 
 >[!NOTE]
 >
@@ -107,7 +110,7 @@ Das erforderliche Archiv für Microsoft Internet Information System ist:
 
 Die ZIP-Datei enthält die folgenden Dateien:
 
-| Datei | Beschreibung |
+| File | Beschreibung |
 |--- |--- |
 | `disp_iis.dll` | Die DLL-Datei (Dynamic Link Library) des Dispatchers. |
 | `disp_iis.ini` | Konfigurationsdatei für IIS. Dieses Beispiel kann mit Ihren Anforderungen aktualisiert werden. **Hinweis**: Die INI-Datei muss denselben Namensstamm wie die DLL haben. |
@@ -292,12 +295,12 @@ Der Dispatcher wird folgendermaßen bereitgestellt:
 
 Die Installationsarchivdatei enthält die folgenden Dateien, je nachdem ob Sie Windows oder Unix gewählt haben:
 
-| Datei | Beschreibung |
+| File | Beschreibung |
 |--- |--- |
-| disp_apache&lt;x.y&gt;.dll | Windows: die DLL-Datei des Dispatchers. |
-| dispatcher-apache&lt;x.y&gt;-&lt;Versionsnr&gt;.so | Unix: die DSO-Datei des Dispatchers. |
+| disp_apache&lt;x.y>.dll | Windows: die DLL-Datei des Dispatchers. |
+| dispatcher-apache&lt;x.y>-&lt;Versionsnr>.so | Unix: die DSO-Datei des Dispatchers. |
 | mod_dispatcher.so | Unix: ein Beispiellink. |
-| http.conf.disp&lt;x&gt; | Eine Beispielkonfigurationsdatei für den Apache-Server. |
+| http.conf.disp&lt;x> | Eine Beispielkonfigurationsdatei für den Apache-Server. |
 | dispatcher.any | Eine Beispielkonfigurationsdatei für den Dispatcher. |
 | README | Datei mit Installationsanweisungen und aktuellen Informationen. **Hinweis**: Lesen Sie die Informationen in dieser Datei, bevor Sie mit der Installation beginnen. |
 | CHANGES | Datei, in der Probleme aufgeführt sind, die in der aktuellen und in vorherigen Versionen behoben wurden. |
@@ -403,9 +406,9 @@ Die einzelnen Konfigurationsparameter lauten:
 | DispatcherLog | Speicherort und Name der Protokolldatei. |
 | DispatcherLogLevel | Protokollebene für die Protokolldatei: <br/>0 – Fehlermeldungen <br/>1 – Warnungen <br/>2 – Informationen <br/>3 – Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
 | DispatcherNoServerHeader | *Dieser Parameter wird veraltet und hat keine Auswirkung mehr.*<br/><br/> Definiert den zu verwendenden Serverheader: <br/><ul><li>nicht definiert oder 0 – der HTTP-Server-Header enthält die AEM-Version. </li><li>1 – der Apache-Serverheader wird verwendet.</li></ul> |
-| DispatcherDeclineRoot | Definiert, ob Anforderungen an den Stamm „/“ abgelehnt werden sollen: <br/> **0** – Anforderungen an / werden angenommen <br/>**1** – Anforderungen an / werden nicht vom Dispatcher verarbeitet. Verwenden Sie „mod_alias“ für die korrekte Zuordnung. |
-| DispatcherUseProcessedURL | Legt fest, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen:<br/> **0** – die an den Webserver übergebene ursprüngliche URL wird verwendet. <br/>**1** – Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`), anstelle der ursprünglichen URL, die an den Webserver übergeben wurde.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT' (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
-| DispatcherPassError | Definiert, wie Fehlercodes für die ErrorDocument-Verarbeitung unterstützt werden: <br/> **0** – Der Dispatcher spoolt alle Fehlerantworten an den Client. <br/>**1** – Der Dispatcher spoolt keine Fehlerantwort an den Client (wobei der Statuscode größer oder gleich 400 ist), übergibt aber den Statuscode an Apache, was es beispielsweise einer ErrorDocument-Direktive ermöglicht, einen solchen Statuscode zu verarbeiten. <br/>**Codebereich** – Geben Sie eine Reihe von Fehlercodes an, für die die Antwort an Apache übergeben wird. Andere Fehlercodes werden an den Client übergeben. Beispielsweise übergibt die folgende Konfiguration Antworten für Fehler 412 an den Client und alle anderen Fehler werden an Apache übergeben: DispatcherPassError 400-411,413-417 |
+| DispatcherDeclineRoot | Definiert, ob Anforderungen an den Stamm „/“ abgelehnt werden sollen: <br/>**0** – Anforderungen an / werden angenommen <br/>**1** – Anforderungen an / werden nicht vom Dispatcher verarbeitet. Verwenden Sie „mod_alias“ für die korrekte Zuordnung. |
+| DispatcherUseProcessedURL | Legt fest, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen:<br/>**0** – die an den Webserver übergebene ursprüngliche URL wird verwendet. <br/>**1** – Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`), anstelle der ursprünglichen URL, die an den Webserver übergeben wurde.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT&#39; (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
+| DispatcherPassError | Definiert, wie Fehlercodes für die ErrorDocument-Verarbeitung unterstützt werden: <br/>**0** – Der Dispatcher spoolt alle Fehlerantworten an den Client. <br/>**1** – Der Dispatcher spoolt keine Fehlerantwort an den Client (wobei der Statuscode größer oder gleich 400 ist), übergibt aber den Statuscode an Apache, was es beispielsweise einer ErrorDocument-Direktive ermöglicht, einen solchen Statuscode zu verarbeiten. <br/>**Codebereich** – Geben Sie eine Reihe von Fehlercodes an, für die die Antwort an Apache übergeben wird. Andere Fehlercodes werden an den Client übergeben. Beispielsweise übergibt die folgende Konfiguration Antworten für Fehler 412 an den Client und alle anderen Fehler werden an Apache übergeben: DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 | DispatcherNoCanonURL | Wenn Sie diesen Parameter auf „Ein“ setzen, wird die unformatierte URL anstelle der kanonisierten URL an das Backend übergeben und die Einstellungen von DispatcherUseProcessedURL überschrieben. Der Standardwert ist „Aus“. <br/>**Hinweis**: Die Filterregeln in der Dispatcher-Konfiguration werden immer anhand der bereinigten URL und nicht anhand der unformatierten URL ausgewertet. |
 
@@ -567,7 +570,7 @@ Der Dispatcher wird folgendermaßen bereitgestellt:
 
 Die Installationsarchivdatei enthält die folgenden Dateien, je nachdem ob Sie Windows oder Unix gewählt haben:
 
-| Datei | Beschreibung |
+| File | Beschreibung |
 |---|---|
 | `disp_ns.dll` | Windows: die DLL-Datei des Dispatchers. |
 | `dispatcher.so` | Unix: die DSO-Datei des Dispatchers. |
@@ -624,7 +627,7 @@ hierbei gilt:
 |--- |--- |
 | config | Speicherort und Name der Konfigurationsdatei `dispatcher.any.` |
 | logfile | Speicherort und Name der Protokolldatei. |
-| loglevel | Protokollebene für die Protokolldatei: <br/>**0** Fehlermeldungen <br/> **1** Warnungen <br/> **2** Informationen <br/>**3** Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
+| loglevel | Protokollebene für die Protokolldatei: <br/>**0** Fehlermeldungen <br/>**1** Warnungen <br/>**2** Informationen <br/>**3** Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
 | keepalivetimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 
 Abhängig von Ihren jeweiligen Anforderungen können Sie den Dispatcher als Service für Ihre Objekte definieren. Um den Dispatcher für Ihre gesamte Website zu konfigurieren, ändern Sie das Standardobjekt:
