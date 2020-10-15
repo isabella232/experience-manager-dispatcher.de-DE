@@ -3,13 +3,13 @@ cloud: experience-cloud
 product: experience manager
 sub-product: Experience Manager Dispatcher
 archetype: Administrator
-user-guide-title: Hilfe zu Experience Manager Dispatcher
-breadcrumb-title: Dispatcher Guide
-user-guide-description: Learn to use Dispatcher for caching, load balancing, and improving security for your AEM server.
+user-guide-title: Experience Manager Dispatcher Help
+breadcrumb-title: Dispatcher-Anleitung
+user-guide-description: Erfahren Sie, wie Sie Dispatcher für die Zwischenspeicherung, den Lastenausgleich und die Verbesserung der Sicherheit für Ihren AEM-Server einsetzen können.
 translation-type: tm+mt
 source-git-commit: 5765970c0335df084b5d49efae60997b3a021c47
 workflow-type: tm+mt
-source-wordcount: '70'
+source-wordcount: '87'
 ht-degree: 100%
 
 ---
