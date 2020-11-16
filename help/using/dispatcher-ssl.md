@@ -4,16 +4,19 @@ seo-title: Verwenden von SSL mit dem Dispatcher
 description: Erfahren Sie, wie der Dispatcher für die Kommunikation mit AEM mithilfe von SSL-Verbindungen konfiguriert wird.
 seo-description: Erfahren Sie, wie der Dispatcher für die Kommunikation mit AEM mithilfe von SSL-Verbindungen konfiguriert wird.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
-contentOwner: Benutzer
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
+workflow-type: tm+mt
+source-wordcount: '1375'
+ht-degree: 94%
 
 ---
 
@@ -22,8 +25,8 @@ source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 Verwenden Sie SSL-Verbindungen zwischen dem Dispatcher und dem Rendercomputer:
 
-* [Unidirektionale SSL-Kommunikation](dispatcher-ssl.md#main-pars-title-1)
-* [Bidirektionale SSL-Kommunikation](dispatcher-ssl.md#main-pars-title-2)
+* [Unidirektionale SSL-Kommunikation](#use-ssl-when-dispatcher-connects-to-aem)
+* [Bidirektionale SSL-Kommunikation](#configuring-mutual-ssl-between-dispatcher-and-aem)
 
 >[!NOTE]
 >
@@ -162,7 +165,7 @@ Verwenden Sie OpenSSL, um die Zertifikatanforderungen zu erstellen, die an die e
 Wenn Sie ein Zertifikat erstellen, verwendet OpenSSL die Eigenschaft für den allgemeinen Namen des Zertifikats, um den Zertifikatinhaber zu identifizieren. Verwenden Sie für das Zertifikat der Renderinstanz den Hostnamen des Instanzcomputers als den allgemeinen Namen, wenn Sie den Dispatcher so konfigurieren, dass das Zertifikat nur dann akzeptiert wird, wenn es dem Hostnamen der Veröffentlichungsinstanz entspricht. (Siehe Eigenschaft [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11))
 
 1. Öffnen Sie ein Terminalfenster und ändern Sie das aktuelle Verzeichnis in das Verzeichnis, in dem sich die Datei „CH.sh“ Ihrer OpenSSL-Bibliotheken befindet.
-1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Verwenden Sie bei Bedarf den Hostnamen der Veröffentlichungsinstanz als "Allgemeiner Name". Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
+1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Verwenden Sie bei Bedarf den Hostnamen der Veröffentlichungsinstanz als &quot;Allgemeiner Name&quot;. Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
 
    ```shell
    ./CA.sh -newreq
