@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '3689'
+source-wordcount: '3684'
 ht-degree: 98%
 
 ---
@@ -28,11 +28,11 @@ Comment Type: draft
 
  -->
 
+Rufen Sie über die Seite [Versionshinweise zu Dispatcher](release-notes.md) die neueste Dispatcher-Installationsdatei für Ihr Betriebssystem und Ihren Webserver ab. Die Dispatcher-Versionsnummern sind von den Adobe Experience Manager-Releasenummern unabhängig und mit Adobe Experience Manager 6.x, 5.x und den Adobe CQ 5.x-Releases kompatibel.
+
 >[!NOTE]
 >
->Dispatcher-Versionen sind unabhängig von AEM. Möglicherweise wurden Sie von der Dokumentation zu einer früheren AEM-Version zu dieser Seite weitergeleitet.
-
-Rufen Sie über die Seite [Versionshinweise zu Dispatcher](release-notes.md) die neueste Dispatcher-Installationsdatei für Ihr Betriebssystem und Ihren Webserver ab. Die Dispatcher-Versionsnummern sind von den Adobe Experience Manager-Releasenummern unabhängig und mit Adobe Experience Manager 6.x, 5.x und den Adobe CQ 5.x-Releases kompatibel.
+>Bitte beachten Sie, dass für Adobe Experience Manager 6.5 Dispatcher Version 4.3.2 oder höher erforderlich ist. Allerdings sind Dispatcher-Versionen unabhängig von AEM, zum Beispiel ist Dispatcher Version 4.3.2 auch mit Adobe Experience Manager 6.4 kompatibel.
 
 Es wird die folgende Dateibenennungskonvention verwendet:
 
@@ -48,7 +48,7 @@ In der folgenden Tabelle ist die Webserverkennung aufgeführt, die in den Datein
 | Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;andere Parameter> |
 | Sun Java Web Server/iPlanet | dispatcher-**ns**-&lt;andere Parameter> |
 
->[!NOTE]
+>[!CAUTION]
 >
 >Sie sollten die neueste Dispatcher-Version installieren, die für Ihre Plattform verfügbar ist. Darüber hinaus sollten Sie Ihre Dispatcher-Instanz jährlich auf die neueste Version aktualisieren, um von Produktverbesserungen zu profitieren.
 
