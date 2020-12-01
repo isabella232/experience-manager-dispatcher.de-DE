@@ -12,6 +12,9 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
 source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -71,7 +74,7 @@ Um den Dispatcher mit mehreren Domänen zu verwenden, müssen Sie AEM, den Dispa
 Um für Domänen-URLs und Inhaltspfade die Auflösung zu zwischengespeicherten Dateien zu ermöglichen, muss an einem Punkt während des Prozesses ein Dateipfad oder eine Seiten-URL übersetzt werden. Es werden Beschreibungen der folgenden allgemeinen Strategien bereitgestellt, bei denen Pfad- oder URL-Übersetzungen an unterschiedlichen Punkten während des Prozesses erfolgen:
 
 * (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung zur Implementierung von Regeln zum Neuschreiben interner URLs. Domänen-URLs werden in Inhaltsrepositorypfade übersetzt. Siehe [AEM schreibt eingehende URLs neu](#aem-rewrites-incoming-urls).
-* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. See [The Web Server Rewrites Incoming URLs](#the-web-server-rewrites-incoming-urls).
+* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. Siehe [Der Webserver schreibt eingehende URLs neu.](#the-web-server-rewrites-incoming-urls)
 
 Es empfiehlt sich, kurze URLs für Webseiten zu verwenden. Üblicherweise spiegeln Seiten-URLs die Struktur der Repositoryordner wider, die den Webinhalt enthalten. Allerdings zeigen die URLs nicht die höchsten Repositoryknoten, beispielsweise `/content`. Dem Client ist die Struktur des AEM-Repositorys nicht notwendigerweise bekannt.
 
@@ -148,7 +151,7 @@ Mit dieser Konfiguration führt der Webserver die folgenden Aktionen durch, wenn
 
 * Leitet die URL an den Dispatcher weiter.
 
-### httpd.conf  {#httpd-conf}
+### httpd.conf   {#httpd-conf}
 
 ```xml
 # load the Dispatcher module
@@ -198,7 +201,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 Beachten Sie, dass virtuelle Hosts den Eigenschaftswert [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) erben, der im Hauptabschnitt für den Server konfiguriert ist. Virtuelle Hosts können eine eigene Eigenschaft „DispatcherConfig“ umfassen, um die Hauptserverkonfiguration zu überschreiben.
 
-### Konfigurieren des Dispatchers zur Verarbeitung mehrerer Domänen  {#configure-dispatcher-to-handle-multiple-domains}
+### Konfigurieren des Dispatchers zur Verarbeitung mehrerer Domänen   {#configure-dispatcher-to-handle-multiple-domains}
 
 Um URLs zu unterstützen, die Domänennamen und ihre entsprechenden virtuellen Hosts umfassen, definieren Sie die folgenden Dispatcher-Farmen:
 
@@ -280,11 +283,11 @@ Dispatcher initializing (build 4.1.2)
 [Fri Nov 02 16:27:18 2012] [I] [24974(140006182991616)] Dispatcher initialized (build 4.1.2)
 ```
 
-### Konfigurieren der Sling-Zuordnung für die Ressourcenauflösung  {#configure-sling-mapping-for-resource-resolution}
+### Konfigurieren der Sling-Zuordnung für die Ressourcenauflösung   {#configure-sling-mapping-for-resource-resolution}
 
 Verwenden Sie die Sling-Zuordnung für die Ressourcenauflösung, sodass die domänenbasierten URLs zu Inhalt auf der AEM-Veröffentlichungsinstanz aufgelöst werden. Die Ressourcenzuordnung übersetzt die eingehenden URLs vom Dispatcher (ursprünglich von Client-HTTP-Anforderungen) in Inhaltsknoten.
 
-To learn about Sling resource mapping, see [Mappings for Resource Resolution](https://sling.apache.org/site/mappings-for-resource-resolution.html) in the Sling documentation.
+Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen für Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
 
 Üblicherweise sind Zuordnungen für die folgenden Ressourcen erforderlich, auch wenn möglicherweise zusätzliche Zuordnungen benötigt werden:
 
@@ -306,13 +309,13 @@ Nachdem Sie die Zuordnung für die Inhaltsseite erstellt haben, verwenden Sie zu
 
 In der folgenden Tabelle sind die Knoten aufgeführt, die die Ressourcenzuordnung für die Domäne „branda.com“ implementieren. Ähnliche Knoten werden für die Domäne `brandb.com` erstellt, beispielsweise `/etc/map/http/brandb.com`. In allen Fällen sind Zuordnungen erforderlich, wenn Verweise im HTML-Code der Seite nicht ordnungsgemäß im Sling-Kontext aufgelöst werden.
 
-| Knotenpfad | Typ | Eigenschaft |
+| Knotenpfad | Typ | Property |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | Name: sling:internalRedirect Typ: Zeichenfolge Wert: /content/sitea |
-| `/etc/map/http/branda.com/libs` | sling:Mapping | Name: sling:internalRedirect<br/> Typ: Zeichenfolge<br/> Value: /libs |
-| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
-| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:Zuordnung | Name: sling:internalRedirect<br/> Typ: Zeichenfolge<br/> Value: /libs |
+| `/etc/map/http/branda.com/etc` | sling:Zuordnung |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:Zuordnung | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:Zuordnung | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/clientlibs |
 
 ## Konfigurieren des Dispatcher Flush-Replikationsagenten {#configuring-the-dispatcher-flush-replication-agent}
 
@@ -498,7 +501,7 @@ Wie üblich ist das Cache-Basisverzeichnis dasselbe wie das Basisverzeichnis des
 >
 >Da eine einzelne Dispatcher-Farm definiert ist, erfordert der Dispatcher Flush-Replikationsagent auf der AEM-Veröffentlichungsinstanz keine speziellen Konfigurationen.
 
-## Neuschreiben von Links zu Nicht-HTML-Dateien  {#rewriting-links-to-non-html-files}
+## Neuschreiben von Links zu Nicht-HTML-Dateien   {#rewriting-links-to-non-html-files}
 
 Um Verweise auf Dateien mit anderen Erweiterungen als „HTML“ oder „HTM“ neu zu schreiben, erstellen Sie eine Transformatorkomponente für Sling-Rewriter und fügen Sie sie zur standardmäßigen Rewriter-Pipeline hinzu.
 
@@ -512,7 +515,7 @@ Schreiben Sie Verweise neu, wenn Ressourcenpfade nicht ordnungsgemäß im Webser
 
 ![](assets/chlimage_1-15.png)
 
-### Die standardmäßige AEM-Rewriter-Pipeline  {#the-aem-default-rewriter-pipeline}
+### Die standardmäßige AEM-Rewriter-Pipeline   {#the-aem-default-rewriter-pipeline}
 
 AEM verwendet standardmäßig eine Rewriter-Pipeline, die Dokumente des Typs „text/html“ verarbeitet:
 
@@ -550,7 +553,7 @@ In den folgenden Beispielen wird ein Transformator implementiert, der Verweise a
 
 Die Beispiele sind nicht fundiert und sollten nicht in einer Produktionsumgebung verwendet werden.
 
-### Beispiel für eine TransformerFactory-Implementierung  {#example-transformerfactory-implementation}
+### Beispiel für eine TransformerFactory-Implementierung   {#example-transformerfactory-implementation}
 
 ```java
 package com.adobe.example;
