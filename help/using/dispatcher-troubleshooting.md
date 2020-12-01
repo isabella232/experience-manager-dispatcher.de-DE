@@ -15,8 +15,8 @@ discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
 source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
 workflow-type: tm+mt
-source-wordcount: '553'
-ht-degree: 90%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -31,7 +31,7 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Weitere Informationen finden Sie in der [Dispatcher Knowledge Base](https://helpx.adobe.com/cq/kb/index/dispatcher.html), der [Fehlerbehebung bei Problemen](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) mit dem Flushing von Dispatcher und in den häufig gestellten Fragen zu [Dispatcher Top Issues](dispatcher-faq.md) .
+>Weitere Informationen finden Sie in den Abschnitten [Wissensdatenbank für Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Fehlerbehebung bei Problemen mit dem Flushing von Dispatcher](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) und [Häufig gestellte Fragen zu Dispatcher-Problemen](dispatcher-faq.md).
 
 ## Überprüfen der Basiskonfiguration {#check-the-basic-configuration}
 
@@ -59,12 +59,12 @@ IIS bietet verschiedene Werkzeuge für die Ablaufverfolgung, abhängig von der j
 
 Hiermit können Sie die Aktivität überwachen.
 
-## IIS und 404 (Nicht gefunden)  {#iis-and-not-found}
+## IIS und 404 (Nicht gefunden)   {#iis-and-not-found}
 
 Wenn Sie IIS verwenden, wird möglicherweise in verschiedenen Situationen `404 Not Found` zurückgegeben. Wenn dies der Fall ist, finden Sie weitere Informationen in den folgenden Knowledge Base-Artikeln. 
 
 * [IIS 6/7: POST-Methode gibt 404 zurück](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: Anforderungen an URLs, die den Basispfad enthalten, `/bin` geben `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6: Anforderungen an URLs, die den Basispfad enthalten,  `/bin` geben  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Sie sollten überprüfen, ob der Cache-Stammordner des Dispatchers und der IIS-Dokumentenstamm auf denselben Ordner festgelegt wurden.
 
