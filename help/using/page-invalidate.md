@@ -14,6 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 translation-type: tm+mt
 source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -26,7 +29,7 @@ Bei Verwendung des Dispatchers mit AEM muss die Interaktion konfiguriert werden,
 
 Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen.
 
-For more information see the [Configure Replication and Transport Users](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) section of the AEM Security Checklist.
+Weitere Informationen finden Sie im Abschnitt [Replizierungs- und Transportbenutzer konfigurieren](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html#VerificationSteps) der AEM Sicherheitscheckliste.
 
 ## Invalidierung des Dispatcher-Caches aus der Autorenumgebung {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -65,7 +68,7 @@ Wenden Sie das folgende Verfahren an, um einen Replizierungsagenten auf der AEM-
 1. Konfigurieren Sie ggf. weitere Parameter. 
 1. Klicken Sie auf „OK“, um den Agenten zu aktivieren.
 
-Alternatively, you can also access and configure the Dispatcher Flush agent from the [AEM Touch UI](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent).
+Alternativ können Sie auch über die [AEM Touch-Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) auf den Dispatcher Flush-Agent zugreifen und ihn konfigurieren.
 
 Weitere Informationen zum Aktivieren des Zugriffs auf Vanity-URLs finden Sie unter [Aktivieren des Zugriffs auf Vanity-URLs](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -79,7 +82,7 @@ Dieser Ansatz birgt zwei mögliche Probleme:
 
 * Die Veröffentlichung und die Invalidierung des Caches finden gleichzeitig statt. Ein Benutzer kann möglicherweise eine Seite anfordern, nachdem diese gerade aus dem Cache entfernt wurde und bevor die neue Seite veröffentlicht wird. AEM gibt dann die alte Seite zurück und der Dispatcher speichert sie erneut im Cache. Dies stellt vor allem für große Sites ein Problem dar.
 
-## Invalidierung des Dispatcher-Caches von einer Veröffentlichungsinstanz  {#invalidating-dispatcher-cache-from-a-publishing-instance}
+## Invalidierung des Dispatcher-Caches von einer Veröffentlichungsinstanz   {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
 Unter bestimmten Umständen lassen sich Leistungsverbesserungen erzielen, indem die Cacheverwaltung aus der Autorenumgebung auf eine Veröffentlichungsinstanz verlagert wird. Dann sendet die Veröffentlichungsumgebung (nicht die Autorenumgebung von AEM) eine Anforderung zur Invalidierung an den Dispatcher, wenn eine veröffentlichte Seite empfangen wird.
 
@@ -124,7 +127,7 @@ Um den Dispatcher-Cache ungültig zu machen (oder zu leeren), ohne eine Seite zu
 
 Die HTTP-Anforderung veranlasst den Dispatcher zum Löschen bestimmter Dateien aus dem Cache. Der Dispatcher aktualisiert den Cache dann mit einer neuen Kopie (optional).
 
-### Löschen zwischengespeicherter Dateien  {#delete-cached-files}
+### Löschen zwischengespeicherter Dateien   {#delete-cached-files}
 
 Geben Sie eine HTTP-Anforderung aus, die den Dispatcher zum Löschen von Dateien aus dem Cache veranlasst. Der Dispatcher speichert die Dateien nur dann erneut im Cache, wenn eine Clientanfrage für die Seite eingeht. Auf diese Weise zwischengespeicherte Dateien zu löschen, empfiehlt sich für Websites mit geringer Wahrscheinlichkeit, gleichzeitige Anfragen für ein und dieselbe Seite zu empfangen.
 
@@ -147,7 +150,7 @@ Alle anderen Dateien im Dispatcher-Cache (bzw. bis zu einer bestimmten Ebene je 
 
 Die Invalidierung (d. h. das nicht inhaltsverändernde Bearbeiten von STAT-Dateien) kann durch Senden des zusätzlichen Headers `CQ-Action-Scope: ResourceOnly` verhindert werden. Damit können bestimmte Ressourcen geleert werden, ohne andere Teile des Caches ungültig zu machen, wie JSON-Daten, die dynamisch erstellt werden und unabhängig vom Cache regelmäßig geleert werden müssen (z. B. Daten, die aus Drittanbietersystemen abgerufen werden, um Nachrichten, Börsenticker usw. anzuzeigen).
 
-### Löschen und erneutes Zwischenspeichern von Dateien  {#delete-and-recache-files}
+### Löschen und erneutes Zwischenspeichern von Dateien   {#delete-and-recache-files}
 
 Geben Sie eine HTTP-Anforderung aus, die den Dispatcher veranlasst, zwischengespeicherte Dateien zu löschen und die Datei unmittelbar abzurufen und erneut zwischenzuspeichern. Löschen und speichern Sie Dateien sofort erneut im Cache, wenn Websites wahrscheinlich gleichzeitige Anforderungen für ein und dieselbe Seite empfangen. Mit dem unmittelbaren erneuten Zwischenspeichern wird sichergestellt, dass der Dispatcher die Seite insgesamt nur einmal abruft und zwischenspeichert, anstatt einmal für alle gleichzeitigen Clientanforderungen.
 
