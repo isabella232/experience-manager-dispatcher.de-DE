@@ -4,13 +4,16 @@ seo-title: Zwischenspeicherung geschützter Inhalte in AEM Dispatcher
 description: Erfahren Sie, wie die Zwischenspeicherung mit Berechtigungen im Dispatcher funktioniert.
 seo-description: Erfahren Sie, wie die Zwischenspeicherung mit Berechtigungen in AEM Dispatcher funktioniert.
 uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
-contentOwner: Benutzer
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 translation-type: tm+mt
 source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -38,7 +41,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Renderer ruft die autorisierende Stelle auf, um die Sicherheitsprüfung durchzuführen, und antwortet dem Dispatcher. Die Antwortnachricht enthält den HTTP-Statuscode „200“, um anzuzeigen, dass der Benutzer autorisiert ist.
 1. Der Dispatcher sendet eine Antwortnachricht an den Browser, die aus den Kopfzeilen der Rendererantwort und dem zwischengespeicherten Inhalt im Textkörper besteht.
 
-## Die Seite wurde nicht zwischengespeichert und der Benutzer ist autorisiert  {#page-is-not-cached-and-user-is-authorized}
+## Die Seite wurde nicht zwischengespeichert und der Benutzer ist autorisiert   {#page-is-not-cached-and-user-is-authorized}
 
 ![](assets/chlimage_1-1.png)
 
@@ -47,7 +50,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Renderer ruft das Servlet der autorisierenden Stelle auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
 1. Der Dispatcher leitet die Antwort an den Browser weiter. Der Dispatcher fügt den Text der Antwortnachricht des Renderers zum Cache hinzu.
 
-## Der Benutzer ist nicht autorisiert  {#user-is-not-authorized}
+## Der Benutzer ist nicht autorisiert   {#user-is-not-authorized}
 
 ![](assets/chlimage_1-2.png)
 
@@ -67,7 +70,7 @@ Wenn Sie die Zwischenspeicherung unter Berücksichtigung von Berechtigungen impl
 >In der Regel werden sichere Ressourcen in einem anderen Ordner als nicht sichere Dateien gespeichert. Beispiel: /content/secure/
 
 
-## Erstellen des Servlets für die Autorisierung  {#create-the-authorization-servlet}
+## Erstellen des Servlets für die Autorisierung   {#create-the-authorization-servlet}
 
 Erstellen Sie ein Servlet, das die Authentifizierung und Autorisierung des Benutzers ausführt, der den Webinhalt anfordert. Stellen Sie das Servlet bereit. Das Servlet kann beliebige Authentifizierungs- und Autorisierungsmethoden verwenden, z. B. das AEM-Benutzerkonto und Repository-ACLs oder einen LDAP-Suchdienst. Das Servlet wird auf der AEM-Instanz bereitgestellt, die der Dispatcher als Renderer verwendet.
 
@@ -89,7 +92,7 @@ Das folgende Beispielservlet ruft die URL der angeforderten Ressource aus der HT
 >
 >Der Wert der „sling.servlet.paths“-Eigenschaft muss im Sling Servlet Resolver-Dienst (org.apache.sling.servlets.resolver.SlingServletResolver) aktiviert werden.
 
-### Beispielservlet  {#example-servlet}
+### Beispielservlet   {#example-servlet}
 
 ```java
 package com.adobe.example;
@@ -154,7 +157,7 @@ Beim Start des Dispatchers enthält die Dispatcher-Protokolldatei die folgende N
 
 Im folgenden „auth_checker“-Beispielabschnitt wird der Dispatcher für die Verwendung des Servlets aus dem vorherigen Thema konfiguriert. Durch die Angaben im Abschnitt „filter“ werden Berechtigungsprüfungen nur für sichere HTML-Ressourcen durchgeführt.
 
-### Beispielkonfiguration  {#example-configuration}
+### Beispielkonfiguration   {#example-configuration}
 
 ```xml
 /auth_checker
