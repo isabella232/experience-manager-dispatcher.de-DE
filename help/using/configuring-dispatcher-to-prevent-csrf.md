@@ -4,11 +4,14 @@ seo-title: Konfigurieren von AEM Dispatcher zum Verhindern von CSRF-Angriffen
 description: Erfahren Sie, wie Sie AEM Dispatcher konfigurieren, um Cross-Site Request Forgery-Angriffe zu verhindern.
 seo-description: Erfahren Sie, wie Sie Adobe AEM Dispatcher konfigurieren, um Cross-Site Request Forgery-Angriffe zu verhindern.
 uuid: f290bdeb-54e2-4649-b0fc-6257b422af2d
-topic-tags: Dispatcher
-content-type: Referenz
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: d61d021e-b338-4a1d-91ee-55427557e931
 translation-type: tm+mt
 source-git-commit: 69edbe7608b46c93d238515e4223606eadad0ac4
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
