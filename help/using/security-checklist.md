@@ -16,8 +16,8 @@ snippet: y
 translation-type: tm+mt
 source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
 workflow-type: tm+mt
-source-wordcount: '653'
-ht-degree: 86%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -88,7 +88,7 @@ Stellen Sie sicher, dass Sie Filter verwenden, um den externen Zugriff auf sämt
 
 Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dispatcher-security) finden Sie eine Liste der URLs, die blockiert werden müssen.
 
-## Zulassungslisten anstelle von Blockierungslisten verwenden {#use-allowlists-instead-of-blocklists}
+## Zulassungslisten anstelle der Auf die Blockierungsliste setzte {#use-allowlists-instead-of-blocklists} verwenden
 
 Zulassungslisten stellen eine bessere Möglichkeit dar, Zugriffskontrollen bereitzustellen, da sie davon ausgehen, dass alle Zugangsanfragen verweigert werden sollten, es sei denn, sie sind explizit Bestandteil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
@@ -101,7 +101,7 @@ Außerdem müssen IIS-Benutzer ihre Website wie folgt konfigurieren:
 1. Wählen Sie in den Einstellungen für den physischen Pfad für Ihre Website die Option zum Verbinden als bestimmter Benutzer ****.
 1. Legen Sie den Benutzer fest.
 
-## Vermeiden von Denial-of-Service-Angriffen  {#prevent-denial-of-service-dos-attacks}
+## Vermeiden von Denial-of-Service-Angriffen   {#prevent-denial-of-service-dos-attacks}
 
 Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Benutzer unzugänglich zu machen.
 
