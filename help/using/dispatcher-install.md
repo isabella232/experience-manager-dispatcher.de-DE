@@ -12,8 +12,8 @@ discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
 source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '3684'
-ht-degree: 98%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -274,7 +274,7 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, ist Folgendes zu 
 >
 >Hier finden Sie Anweisungen für die Installation unter **Windows** und **Unix**. Gehen Sie bei der Durchführung der Schritte umsichtig vor.
 
-### Installieren eines Apache-Webservers  {#installing-apache-web-server}
+### Installieren eines Apache-Webservers   {#installing-apache-web-server}
 
 Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das entweder [online](https://httpd.apache.org/) verfügbar oder der Verteilung beigefügt ist.
 
@@ -284,7 +284,7 @@ Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im ent
 >
 >Weitere Informationen finden Sie im Installationshandbuch für Apache-Webserver.
 
-Also see the Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html).
+Siehe auch Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Security Reports](https://httpd.apache.org/security_report.html).
 
 ### Apache-Webserver – Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
 
@@ -295,15 +295,15 @@ Der Dispatcher wird folgendermaßen bereitgestellt:
 
 Die Installationsarchivdatei enthält die folgenden Dateien, je nachdem ob Sie Windows oder Unix gewählt haben:
 
-| File | Beschreibung |
+| Datei | Beschreibung |
 |--- |--- |
 | disp_apache&lt;x.y>.dll | Windows: die DLL-Datei des Dispatchers. |
 | dispatcher-apache&lt;x.y>-&lt;Versionsnr>.so | Unix: die DSO-Datei des Dispatchers. |
 | mod_dispatcher.so | Unix: ein Beispiellink. |
 | http.conf.disp&lt;x> | Eine Beispielkonfigurationsdatei für den Apache-Server. |
 | dispatcher.any | Eine Beispielkonfigurationsdatei für den Dispatcher. |
-| README | Datei mit Installationsanweisungen und aktuellen Informationen. **Hinweis**: Lesen Sie die Informationen in dieser Datei, bevor Sie mit der Installation beginnen. |
-| CHANGES | Datei, in der Probleme aufgeführt sind, die in der aktuellen und in vorherigen Versionen behoben wurden. |
+| LESEN | Datei mit Installationsanweisungen und aktuellen Informationen. **Hinweis**: Lesen Sie die Informationen in dieser Datei, bevor Sie mit der Installation beginnen. |
+| ÄNDERUNGEN | Datei, in der Probleme aufgeführt sind, die in der aktuellen und in vorherigen Versionen behoben wurden. |
 
 Führen Sie die folgenden Schritte aus, um den Dispatcher zum Apache-Webserver hinzuzufügen:
 
@@ -319,7 +319,7 @@ Führen Sie die folgenden Schritte aus, um den Dispatcher zum Apache-Webserver h
 
    **Hinweis:** Sie können diese Datei an einem anderen Speicherort platzieren, sofern die Eigenschaft „DispatcherLog“ des Dispatcher-Moduls entsprechend konfiguriert ist. (Siehe Dispatcher-spezifische Konfigurationseinträge weiter unten auf dieser Seite.)
 
-### Apache-Webserver – Konfigurieren der SELinux-Eigenschaften  {#apache-web-server-configure-selinux-properties}
+### Apache-Webserver – Konfigurieren der SELinux-Eigenschaften   {#apache-web-server-configure-selinux-properties}
 
 Wenn Sie den Dispatcher auf RedHat Linux Kernel 2.6 ausführen und SELinux aktiviert ist, werden Ihnen in der Dispatcher-Protokolldatei möglicherweise Fehlermeldungen wie diese angezeigt.
 
@@ -426,7 +426,7 @@ ServerTokens Full` `
 DispatcherNoServerHeader 0`\
 Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen: `  
 ServerTokens Prod`\
-See the [Apache Documentation about ServerTokens Directive (for example, for Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) for more information.
+Weitere Informationen finden Sie in der [Apache-Dokumentation zur ServerTokens-Richtlinie (z. B. für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html).
 
 **SetHandler**
 
@@ -554,14 +554,14 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, müssen Sie Folge
 Hier werden Anweisungen für Windows- und Unix-Umgebungen beschrieben.
 Gehen Sie bei der Auswahl der auszuführenden Version umsichtig vor.
 
-### Sun Java System Web Server/iPlanet – Installieren des Webservers  {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Sun Java System Web Server/iPlanet – Installieren des Webservers   {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 Umfassende Informationen zur Installation dieser Webserver finden Sie in der jeweiligen Dokumentation:
 
 * Sun Java System Web Server
 * iPlanet Web Server
 
-### Sun Java System Web Server/iPlanet – Hinzufügen des Dispatcher-Moduls  {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java System Web Server/iPlanet – Hinzufügen des Dispatcher-Moduls   {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Der Dispatcher wird folgendermaßen bereitgestellt:
 
@@ -570,15 +570,15 @@ Der Dispatcher wird folgendermaßen bereitgestellt:
 
 Die Installationsarchivdatei enthält die folgenden Dateien, je nachdem ob Sie Windows oder Unix gewählt haben:
 
-| File | Beschreibung |
+| Datei | Beschreibung |
 |---|---|
 | `disp_ns.dll` | Windows: die DLL-Datei des Dispatchers. |
 | `dispatcher.so` | Unix: die DSO-Datei des Dispatchers. |
 | `dispatcher.so` | Unix: ein Beispiellink. |
 | `obj.conf.disp` | Eine Beispielkonfigurationsdatei für den iPlanet-/Sun Java-System-Webserver. |
 | `dispatcher.any` | Eine Beispielkonfigurationsdatei für den Dispatcher. |
-| README | Datei mit Installationsanweisungen und aktuellen Informationen. Hinweis: Lesen Sie die Informationen in dieser Datei, bevor Sie mit der Installation beginnen. |
-| CHANGES | Datei, in der Probleme aufgeführt sind, die in der aktuellen und in vorherigen Versionen behoben wurden. |
+| LESEN | Datei mit Installationsanweisungen und aktuellen Informationen. Hinweis: Lesen Sie die Informationen in dieser Datei, bevor Sie mit der Installation beginnen. |
+| ÄNDERUNGEN | Datei, in der Probleme aufgeführt sind, die in der aktuellen und in vorherigen Versionen behoben wurden. |
 
 Führen Sie die folgenden Schritte aus, um den Dispatcher zum Webserver hinzuzufügen:
 
@@ -627,7 +627,7 @@ hierbei gilt:
 |--- |--- |
 | config | Speicherort und Name der Konfigurationsdatei `dispatcher.any.` |
 | logfile | Speicherort und Name der Protokolldatei. |
-| loglevel | Protokollebene für die Protokolldatei: <br/>**0** Fehlermeldungen <br/>**1** Warnungen <br/>**2** Informationen <br/>**3** Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
+| Loglevel | Protokollebene für die Protokolldatei: <br/>**0** Fehlermeldungen <br/>**1** Warnungen <br/>**2** Informationen <br/>**3** Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
 | keepalivetimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 
 Abhängig von Ihren jeweiligen Anforderungen können Sie den Dispatcher als Service für Ihre Objekte definieren. Um den Dispatcher für Ihre gesamte Website zu konfigurieren, ändern Sie das Standardobjekt:
