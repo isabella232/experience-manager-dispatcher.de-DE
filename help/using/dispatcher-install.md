@@ -12,8 +12,8 @@ discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
 source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '3684'
+ht-degree: 98%
 
 ---
 
