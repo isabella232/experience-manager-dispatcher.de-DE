@@ -15,8 +15,8 @@ snippet: y
 translation-type: tm+mt
 source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '1375'
+ht-degree: 94%
 
 ---
 
