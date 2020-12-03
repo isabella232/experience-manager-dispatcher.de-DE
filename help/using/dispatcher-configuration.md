@@ -4,8 +4,8 @@ description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
 translation-type: tm+mt
 source-git-commit: 6177dafa64d7c22f72ccb64e343b85f4ee133d73
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '8513'
+ht-degree: 84%
 
 ---
 
