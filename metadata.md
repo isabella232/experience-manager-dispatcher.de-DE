@@ -1,16 +1,14 @@
 ---
 cloud: experience-cloud
-solution-title: Lernen und Support
-solution-hub-url: https://helpx.adobe.com/de/support/experience-manager/6-4.html
-solution-image: null
-getting-started-title: Erste Schritte
-getting-started-url: https://helpx.adobe.com/experience-manager/get-started.html
-tutorials-title: Tutorials
-tutorials-url: https://helpx.adobe.com/experience-manager/kt/index/aem-6-4-videos.html
-git-repo: https://github.com/AdobeDocs/experience-manager-dispatcher.en
+solution: Experience Manager
+type: Dokumentation
+git-repo: https://git.corp.adobe.com/AdobeDocs/experience-manager-dispatcher.de-DE
 index: y
-translation-type: ht
-source-git-commit: 713a9f285da2ce16d9b8806c20e92d6ed37160c1
+translation-type: tm+mt
+source-git-commit: d03518767918288f03d289f19253f15803a313c7
+workflow-type: tm+mt
+source-wordcount: '112'
+ht-degree: 100%
 
 ---
 
@@ -25,6 +23,6 @@ Die metadata.md-Datei enthält Metadaten auf Repo-Ebene, die über die TOC.md-Da
 | solution-hub-url | Öffnet die helpx-Hub-Seite |
 | solution-icon | Zeigt das Lösungssymbol neben Lösungstitel an. Noch nicht implementiert |
 | getting-started-url | Link zur helpx-Seite „Erste Schritte“ |
-| tutorials-url | Link zu Videotutorials – entweder helpx-Tutorials oder KT-Tutorials |
+| tutorials-url | Link zu Video-Tutorials – entweder helpx-Tutorials oder KT-Tutorials |
 | mini-toc-levels | Legt die Anzahl der Überschriftenebenen fest, die in der rechten Leiste angezeigt werden. Standard ist 2 |
-| git-repo | Gibt den Speicherort des Master-Repo für die interne Verwendung an. |
+| git-repo | Gibt den Speicherort des primären Repo für die interne Verwendung an. |
