@@ -13,7 +13,6 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
 source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
 workflow-type: tm+mt
 source-wordcount: '1167'
@@ -46,8 +45,10 @@ Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Le
 >
 >* alle Daten zwischenspeichern können, die als Seite gespeichert und mit einer URL abgerufen werden können
 >* keine anderen Daten speichern können, z. B. HTTP-Header, Cookies, Sitzungsdaten und Formulardaten
+
 >
->Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
+>
+Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
 
 ## Verwenden einer einheitlichen Seitencodierung  {#using-consistent-page-encoding}
 
@@ -127,7 +128,7 @@ Sie müssen diese Grafiken mit demselben Namenhandle wie die Seite erstellen, um
 
 Bei Seiten, die nicht geändert werden, bleiben die Bilder im Cache, auch wenn die Seiten selbst normalerweise automatisch ungültig gemacht werden.
 
-## Personalisierung   {#personalization}
+## Personalisierung  {#personalization}
 
 Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten die Personalisierung daher nur bei Bedarf verwenden. Dies hat folgende Gründe:
 
@@ -142,6 +143,7 @@ Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten 
 >
 >* Sie können die Seite mit iFrames aufteilen in einen Teil, der für alle Benutzer gleich ist, und einen Teil, der bei allen Seiten eines Benutzers gleich ist. Diese beiden Teile können dann zwischengespeichert werden.
 >* Sie können mit clientseitigem JavaScript personalisierte Informationen anzeigen. Sie müssen jedoch sicherstellen, dass die Seite weiterhin richtig angezeigt wird, wenn ein Benutzer JavaScript deaktiviert.
+
 >
 
 
