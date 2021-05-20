@@ -13,14 +13,13 @@ jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
-source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
+exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '653'
 ht-degree: 86%
 
 ---
-
 
 # Die Dispatcher-Sicherheitscheckliste{#the-dispatcher-security-checklist}
 
@@ -88,13 +87,13 @@ Stellen Sie sicher, dass Sie Filter verwenden, um den externen Zugriff auf sämt
 
 Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dispatcher-security) finden Sie eine Liste der URLs, die blockiert werden müssen.
 
-## Zulassungslisten anstelle der Auf die Blockierungsliste setzte {#use-allowlists-instead-of-blocklists} verwenden
+## Verwenden Sie Zulassungslisten anstelle von Auf die Blockierungsliste setz {#use-allowlists-instead-of-blocklists}
 
-Zulassungslisten stellen eine bessere Möglichkeit dar, Zugriffskontrollen bereitzustellen, da sie davon ausgehen, dass alle Zugangsanfragen verweigert werden sollten, es sei denn, sie sind explizit Bestandteil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
+Zulassungslisten sind eine bessere Möglichkeit zur Zugangssteuerung, da sie grundsätzlich davon ausgehen, dass alle Zugriffsanfragen verweigert werden sollten, es sei denn, sie sind ausdrücklich Teil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
 ## Ausführen des Dispatchers mit einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
 
-Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einem dedizierten Benutzer mit den geringsten Rechten ausgeführt wird. Es wird empfohlen, Schreibzugriff nur auf den Ordner für den Dispatcher-Cache zu gewähren.
+Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einem dedizierten Benutzer mit den geringsten Rechten ausgeführt wird. Es wird empfohlen, nur Schreibzugriff auf den Dispatcher-Cache-Ordner zu gewähren.
 
 Außerdem müssen IIS-Benutzer ihre Website wie folgt konfigurieren:
 
@@ -153,7 +152,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Konfigurieren des Dispatchers zum Verhindern von CSRF-Angriffen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Damit Sie dieses Framework ordnungsgemäß nutzen können, müssen Sie die CSRF-Token-Unterstützung im Dispatcher in Zulassungsliste setzen. Gehen Sie dazu wie folgt vor:
+AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu nutzen, müssen Sie die CSRF-Token-Unterstützung im Dispatcher in Zulassungsliste stellen. Gehen Sie dazu wie folgt vor:
 
 1. Erstellen Sie einen Filter, um den Pfad `/libs/granite/csrf/token.json` zuzulassen.
 1. Fügen Sie die Kopfzeile `CSRF-Token` dem Abschnitt `clientheaders` der Dispatcher-Konfiguration hinzu.
@@ -167,4 +166,3 @@ Weitere [Informationen zum Thema Clickjacking finden Sie auf der OWASP-Website](
 ## Durchführen eines Penetrationstests {#perform-a-penetration-test}
 
 Adobe empfiehlt dringend, Ihre AEM-Infrastruktur vor dem Einsatz in einer Produktionsumgebung einem Penetrationstest zu unterziehen. 
-
