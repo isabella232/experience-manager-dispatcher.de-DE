@@ -12,14 +12,13 @@ discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
-translation-type: tm+mt
-source-git-commit: f9fb0e94dbd1c67bf87463570e8b5eddaca11bf3
+exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1375'
 ht-degree: 94%
 
 ---
-
 
 # Verwenden von SSL mit dem Dispatcher {#using-ssl-with-dispatcher}
 
@@ -40,7 +39,7 @@ Bevor Sie den Dispatcher konfigurieren, konfigurieren Sie zunächst AEM oder CQ 
 
 * AEM 6.2: [Aktivieren von HTTP über SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
 * AEM 6.1: [Aktivieren von HTTP über SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* Ältere AEM-Versionen: Siehe [diese Seite](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* Ältere AEM-Versionen: Siehe [diese Seite](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=de#how-to-install-documentation-package).
 
 ### SSL-bezogene Anforderungsheader {#ssl-related-request-headers}
 
@@ -123,7 +122,7 @@ Konfigurieren Sie die Verbindungen zwischen dem Dispatcher und dem Rendercompute
 
 * Der Dispatcher stellt über SSL eine Verbindung zur Renderinstanz her.
 * Die Renderinstanz überprüft die Gültigkeit des Zertifikats des Dispatchers.
-* Dispatcher überprüft, ob das CA des Zertifikats der Renderinstanz vertrauenswürdig ist.
+* Der Dispatcher überprüft, ob die Zertifizierungsstelle des Zertifikats der Renderinstanz vertrauenswürdig ist.
 * (Optional) Der Dispatcher überprüft, ob das Zertifikat der Renderinstanz mit der Serveradresse der Renderinstanz übereinstimmt.
 
 Um die bidirektionale SSL-Kommunikation zu konfigurieren, benötigen Sie Zertifikate, die von einer vertrauenswürdigen Zertifizierungsstelle signiert sind. Selbstsignierte Zertifikate sind nicht ausreichend. Entweder können Sie als Zertifizierungsstelle fungieren oder Sie können eine externe Zertifizierungsstelle in Anspruch nehmen, um Ihre Zertifikate zu signieren. Um die bidirektionale SSL-Kommunikation zu konfigurieren, benötigen Sie Folgendes:
@@ -165,7 +164,7 @@ Verwenden Sie OpenSSL, um die Zertifikatanforderungen zu erstellen, die an die e
 Wenn Sie ein Zertifikat erstellen, verwendet OpenSSL die Eigenschaft für den allgemeinen Namen des Zertifikats, um den Zertifikatinhaber zu identifizieren. Verwenden Sie für das Zertifikat der Renderinstanz den Hostnamen des Instanzcomputers als den allgemeinen Namen, wenn Sie den Dispatcher so konfigurieren, dass das Zertifikat nur dann akzeptiert wird, wenn es dem Hostnamen der Veröffentlichungsinstanz entspricht. (Siehe Eigenschaft [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11))
 
 1. Öffnen Sie ein Terminalfenster und ändern Sie das aktuelle Verzeichnis in das Verzeichnis, in dem sich die Datei „CH.sh“ Ihrer OpenSSL-Bibliotheken befindet.
-1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Verwenden Sie bei Bedarf den Hostnamen der Veröffentlichungsinstanz als &quot;Allgemeiner Name&quot;. Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
+1. Geben Sie den folgenden Befehl ein und geben Sie Werte an, wenn Sie dazu aufgefordert werden. Verwenden Sie bei Bedarf den Hostnamen der Veröffentlichungsinstanz als allgemeinen Namen. Der Hostname ist ein von DNS auflösbarer Name für die IP-Adresse des Renderknotens:
 
    ```shell
    ./CA.sh -newreq
@@ -310,4 +309,3 @@ Der folgende Code weist eine Beispielkonfiguration auf:
   DispatcherCheckPeerCN On
 </IfModule>
 ```
-
