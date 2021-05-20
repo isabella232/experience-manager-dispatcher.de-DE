@@ -8,14 +8,13 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
-translation-type: tm+mt
-source-git-commit: 328bc82673783b4a2df2d68481fa7eec88b74b01
+exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '805'
 ht-degree: 69%
 
 ---
-
 
 # Versionshinweise zu AEM Dispatcher{#aem-dispatcher-release-notes}
 
@@ -32,7 +31,7 @@ ht-degree: 69%
 
 ## Systemanforderungen und Voraussetzungen {#system-requirements-and-prerequisites}
 
-Weitere Informationen zu Anforderungen und Voraussetzungen finden Sie auf der Seite [Unterstützte Plattformen](https://helpx.adobe.com/de/experience-manager/6-4/sites/deploying/using/technical-requirements.html).
+Weitere Informationen zu Anforderungen und Voraussetzungen finden Sie auf der Seite [Unterstützte Plattformen](https://helpx.adobe.com/de/experience-manager/6-4/sites/deploying/using/technical-requirements.html) .
 
 Adobe rät ausdrücklich dazu, die neueste Version von AEM Dispatcher zu verwenden, um von den neuesten Funktionen, behobenen Fehlern und der bestmöglichen Leistung zu profitieren.
 
@@ -42,29 +41,29 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 
 ## Versionsverlauf {#release-history}
 
-### Version 4.3.3 (2019-Okt-18) {#october}
+### Version 4.3.3 (18. Oktober 2019) {#october}
 
 **Fehlerbehebungen**:
 
-* DISP-739 - LogLevel-Dispatcher: **Level** funktioniert nicht
-* DISP-749 - Alpine Linux Dispatcher stürzt mit Trace-Loglevel ab
+* DISP-739 - LogLevel Dispatcher: **level** funktioniert nicht
+* DISP-749 - Alpine Linux Dispatcher stürzt mit Trace Log Level ab
 
 **Verbesserungen**:
 
-* DISP-813 - Unterstützung in Dispatcher für openssl 1.1.x
-* DISP-814 - Apache-40x-Fehler bei Cache-Flush
-* DISP-818 - mod_expires fügt Cache-Control-Header für nicht abrufbaren Inhalt hinzu
+* DISP-813 - Unterstützung im Dispatcher für openssl 1.1.x
+* DISP-814 - Apache 40x-Fehler während Cache-Leeren
+* DISP-818 - mod_expires fügt Cache-Control-Header für nicht speicherbare Inhalte hinzu
 * DISP-821 - Protokollkontext nicht im Socket speichern
 * DISP-822 - Dispatcher sollte &quot;ppoll&quot;anstelle von &quot;pselect&quot;verwenden
 * DISP-824 - Secure DispatcherUseForwardedHost
-* DISP-825 - Loggen Sie eine besondere Meldung ein, wenn kein Speicherplatz mehr auf der Festplatte vorhanden ist.
-* DISP-826 - Unterstützt Reader-URIs mit einer Abfrage-Zeichenfolge
+* DISP-825 - Meldung protokollieren, wenn kein Speicherplatz mehr auf der Festplatte vorhanden ist
+* DISP-826 - Unterstützung von Refzierungs-URIs mit einer Abfragezeichenfolge
 
 **Neue Funktionen**:
 
-* DISP-703 - Betriebsspezifisches Cache-Trefferverhältnis
+* DISP-703 - Farm-spezifisches Cache-Trefferverhältnis
 * DISP-827 - Lokaler Server zum Testen
-* DISP-828 - Erstellen Sie ein Testdockerbild für den Dispatcher
+* DISP-828 - Erstellen eines Testdocker-Bildes für Dispatcher
 
 ### Version 4.3.2 (31. Januar 2019) {#jan}
 
@@ -146,19 +145,19 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 |---|---|---|---|
 | Linux | i686 (32 Bit) | Kein | [dispatcher-apache2.4-linux-i686-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.3.tar.gz) |
 | Linux | i686 (32 Bit) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz) |
-| Linux | i686 (32 Bit) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz) |
+| Linux | i686 (32 Bit) | 1,1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz) |
 | Linux | x86_64 (64 Bit) | Kein | [dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz) |
 | Linux | x86_64 (64 Bit) | 1,0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz) |
-| Linux | x86_64 (64 Bit) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz) |
+| Linux | x86_64 (64 Bit) | 1,1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz) |
 | macOS | x86_64 (64 Bit) | Kein | [dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz) |
 
 ### IIS {#iis}
 
 | Plattform | Architektur | OpenSSL-Unterstützung | Herunterladen |
 |---|---|---|---|
-| Windows | x86 (32 Bit) | Kein | [dispatcher-is-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
-| Windows | x86 (32 Bit) | 1,0 | [dispatcher-is-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
-| Windows | x86 (32 Bit) | 1.1 | [dispatcher-is-windows-x86-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip) |
-| Windows | x64 (64 Bit) | Kein | [dispatcher-is-windows-x64-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.3.zip) |
-| Windows | x64 (64 Bit) | 1,0 | [dispatcher-is-windows-x64-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip) |
-| Windows | x64 (64 Bit) | 1.1 | [dispatcher-is-windows-x64-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip) |
+| Windows | x86 (32 Bit) | Kein | [dispatcher-iis-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
+| Windows | x86 (32 Bit) | 1,0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
+| Windows | x86 (32 Bit) | 1,1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip) |
+| Windows | x64 (64 Bit) | Kein | [dispatcher-iis-windows-x64-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.3.zip) |
+| Windows | x64 (64 Bit) | 1,0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip) |
+| Windows | x64 (64 Bit) | 1,1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip) |
