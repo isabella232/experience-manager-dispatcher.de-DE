@@ -10,14 +10,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
-translation-type: tm+mt
-source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
+exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '2983'
 ht-degree: 99%
 
 ---
-
 
 # Verwenden des Dispatchers mit mehreren Domänen {#using-dispatcher-with-multiple-domains}
 
@@ -74,7 +73,7 @@ Um den Dispatcher mit mehreren Domänen zu verwenden, müssen Sie AEM, den Dispa
 Um für Domänen-URLs und Inhaltspfade die Auflösung zu zwischengespeicherten Dateien zu ermöglichen, muss an einem Punkt während des Prozesses ein Dateipfad oder eine Seiten-URL übersetzt werden. Es werden Beschreibungen der folgenden allgemeinen Strategien bereitgestellt, bei denen Pfad- oder URL-Übersetzungen an unterschiedlichen Punkten während des Prozesses erfolgen:
 
 * (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung zur Implementierung von Regeln zum Neuschreiben interner URLs. Domänen-URLs werden in Inhaltsrepositorypfade übersetzt. Siehe [AEM schreibt eingehende URLs neu](#aem-rewrites-incoming-urls).
-* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. Siehe [Der Webserver schreibt eingehende URLs neu.](#the-web-server-rewrites-incoming-urls)
+* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. Siehe [Der Webserver schreibt eingehende URLs](#the-web-server-rewrites-incoming-urls) neu.
 
 Es empfiehlt sich, kurze URLs für Webseiten zu verwenden. Üblicherweise spiegeln Seiten-URLs die Struktur der Repositoryordner wider, die den Webinhalt enthalten. Allerdings zeigen die URLs nicht die höchsten Repositoryknoten, beispielsweise `/content`. Dem Client ist die Struktur des AEM-Repositorys nicht notwendigerweise bekannt.
 
@@ -287,7 +286,7 @@ Dispatcher initializing (build 4.1.2)
 
 Verwenden Sie die Sling-Zuordnung für die Ressourcenauflösung, sodass die domänenbasierten URLs zu Inhalt auf der AEM-Veröffentlichungsinstanz aufgelöst werden. Die Ressourcenzuordnung übersetzt die eingehenden URLs vom Dispatcher (ursprünglich von Client-HTTP-Anforderungen) in Inhaltsknoten.
 
-Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen für Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
+Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen zur Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
 
 Üblicherweise sind Zuordnungen für die folgenden Ressourcen erforderlich, auch wenn möglicherweise zusätzliche Zuordnungen benötigt werden:
 
@@ -312,10 +311,10 @@ In der folgenden Tabelle sind die Knoten aufgeführt, die die Ressourcenzuordnun
 | Knotenpfad | Typ | Property |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | Name: sling:internalRedirect Typ: Zeichenfolge Wert: /content/sitea |
-| `/etc/map/http/branda.com/libs` | sling:Zuordnung | Name: sling:internalRedirect<br/> Typ: Zeichenfolge<br/> Value: /libs |
-| `/etc/map/http/branda.com/etc` | sling:Zuordnung |  |
-| `/etc/map/http/branda.com/etc/designs` | sling:Zuordnung | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling:Zuordnung | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:Mapping | Name: sling:internalRedirect<br/> Typ: Zeichenfolge<br/> Value: /libs |
+| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/clientlibs |
 
 ## Konfigurieren des Dispatcher Flush-Replikationsagenten {#configuring-the-dispatcher-flush-replication-agent}
 
@@ -544,7 +543,7 @@ Führen Sie die folgenden Ausgaben aus, um eine Transformatorkomponente zu erste
 
 >[!NOTE]
 >
->Verwenden Sie den Archetyp [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) des Content Package Maven-Plugins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
+>Verwenden Sie den Archetyp [multimodule](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=de#how-to-install-documentation-package) des Content Package Maven-Plugins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
 
 In den folgenden Beispielen wird ein Transformator implementiert, der Verweise auf Bilddateien neu schreibt.
 
