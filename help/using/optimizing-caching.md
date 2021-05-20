@@ -45,10 +45,8 @@ Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Le
 >
 >* alle Daten zwischenspeichern können, die als Seite gespeichert und mit einer URL abgerufen werden können
 >* keine anderen Daten speichern können, z. B. HTTP-Header, Cookies, Sitzungsdaten und Formulardaten
-
 >
->
-Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
+>Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
 
 ## Verwenden einer einheitlichen Seitencodierung  {#using-consistent-page-encoding}
 
@@ -143,7 +141,6 @@ Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten 
 >
 >* Sie können die Seite mit iFrames aufteilen in einen Teil, der für alle Benutzer gleich ist, und einen Teil, der bei allen Seiten eines Benutzers gleich ist. Diese beiden Teile können dann zwischengespeichert werden.
 >* Sie können mit clientseitigem JavaScript personalisierte Informationen anzeigen. Sie müssen jedoch sicherstellen, dass die Seite weiterhin richtig angezeigt wird, wenn ein Benutzer JavaScript deaktiviert.
-
 >
 
 
