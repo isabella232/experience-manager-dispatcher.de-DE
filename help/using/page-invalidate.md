@@ -12,14 +12,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
-translation-type: tm+mt
-source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
+exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1427'
 ht-degree: 97%
 
 ---
-
 
 # Invalidierung zwischengespeicherter Seiten aus AEM {#invalidating-cached-pages-from-aem}
 
@@ -29,7 +28,7 @@ Bei Verwendung des Dispatchers mit AEM muss die Interaktion konfiguriert werden,
 
 Das Standardbenutzerkonto `admin` wird zur Authentifizierung der Replikationsagenten verwendet, die standardmäßig installiert sind. Sie sollten ein dediziertes Benutzerkonto zur Verwendung mit Replikationsagenten erstellen.
 
-Weitere Informationen finden Sie im Abschnitt [Replizierungs- und Transportbenutzer konfigurieren](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html#VerificationSteps) der AEM Sicherheitscheckliste.
+Weitere Informationen finden Sie im Abschnitt [Konfigurieren von Replikations- und Transportbenutzern](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html#VerificationSteps) der AEM Sicherheits-Checkliste.
 
 ## Invalidierung des Dispatcher-Caches aus der Autorenumgebung {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -68,7 +67,7 @@ Wenden Sie das folgende Verfahren an, um einen Replizierungsagenten auf der AEM-
 1. Konfigurieren Sie ggf. weitere Parameter. 
 1. Klicken Sie auf „OK“, um den Agenten zu aktivieren.
 
-Alternativ können Sie auch über die [AEM Touch-Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) auf den Dispatcher Flush-Agent zugreifen und ihn konfigurieren.
+Alternativ können Sie auch über die [AEM Touch-Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) auf den Dispatcher Flush-Agenten zugreifen und ihn konfigurieren.
 
 Weitere Informationen zum Aktivieren des Zugriffs auf Vanity-URLs finden Sie unter [Aktivieren des Zugriffs auf Vanity-URLs](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -252,4 +251,3 @@ public class Flushcache extends SlingSafeMethodsServlet {
  }
 }
 ```
-
