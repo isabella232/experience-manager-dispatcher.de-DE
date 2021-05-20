@@ -8,14 +8,13 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
-translation-type: tm+mt
-source-git-commit: 10f436e941e553bd85abe978059aac3a60c6769f
+exl-id: c9266683-6890-4359-96db-054b7e856dd0
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '3199'
-ht-degree: 93%
+ht-degree: 94%
 
 ---
-
 
 # Dispatcher-Übersicht {#dispatcher-overview}
 
@@ -23,22 +22,22 @@ ht-degree: 93%
 >
 >Dispatcher-Versionen sind unabhängig von AEM. Möglicherweise wurden Sie von der Dokumentation zu einer früheren AEM-Version zu dieser Seite weitergeleitet.
 
-Dispatcher ist das Caching- und/oder Lastenausgleichstool von Adobe Experience Manager, das in Verbindung mit einem Webserver der Unternehmensklasse verwendet werden kann.
+Der Dispatcher ist das Tool zum Zwischenspeichern und/oder Lastenausgleich von Adobe Experience Manager, das in Verbindung mit einem Webserver der Unternehmensklasse verwendet werden kann.
 
-Die Bereitstellung des Dispatchers erfolgt unabhängig vom Webserver und der gewählten Betriebssystemplattform:
+Der Prozess für die Bereitstellung des Dispatchers ist unabhängig vom Webserver und der gewählten Betriebssystemplattform:
 
 1. Weitere Informationen zum Dispatcher (diese Seite). Weitere Informationen finden Sie außerdem in den [häufig gestellten Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Installieren Sie einen [unterstützten Webserver](https://helpx.adobe.com/de/experience-manager/6-3/sites/deploying/using/technical-requirements.html) gemäß der Webserverdokumentation.
+1. Installieren Sie einen [unterstützten Webserver](https://helpx.adobe.com/de/experience-manager/6-3/sites/deploying/using/technical-requirements.html) gemäß der Webserver-Dokumentation.
 1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver dementsprechend.
 1. [Konfigurieren Sie den Dispatcher](dispatcher-configuration.md) (Datei „dispatcher.any“).
 1. [Konfigurieren Sie AEM](page-invalidate.md), sodass der Cache durch Inhaltsaktualisierungen invalidiert wird.
 
 >[!NOTE]
 >
->So erhalten Sie ein besseres Verständnis, wie Dispatcher mit AEM funktioniert:
+>So erhalten Sie ein besseres Verständnis darüber, wie der Dispatcher mit AEM funktioniert:
 >
 >* Siehe [Fragen Sie die AEM Community-Experten nach Juli 2017](https://bit.ly/ATACE0717).
->* Zugriff auf [dieses Repository](https://github.com/adobe/aem-dispatcher-experiments). Es enthält eine Sammlung von Experimenten im Laborformat &quot;Take-home&quot;.
+>* Rufen Sie [dieses Repository](https://github.com/adobe/aem-dispatcher-experiments) auf. Es enthält eine Sammlung von Experimenten im Laborformat &quot;Take-home&quot;.
 
 
 
@@ -51,7 +50,7 @@ Ziehen Sie bei Bedarf die folgenden Ressourcen hinzu:
 * [Verwenden von SSL mit dem Dispatcher](dispatcher-ssl.md)
 * [Implementieren der Zwischenspeicherung unter Berücksichtigung von Berechtigungen](permissions-cache.md)
 * [Beheben von Problemen beim Dispatcher](dispatcher-troubleshooting.md)
-* [Häufig gestellte Fragen zu Problemen beim Dispatcher](dispatcher-faq.md)
+* [Häufig gestellte Fragen zu Dispatcher - Häufige Probleme](dispatcher-faq.md)
 
 >[!NOTE]
 >
@@ -291,7 +290,7 @@ Für eine präzisere Steuerung können Sie mit der API-basierten Invalidierung d
 
 >[!CAUTION]
 >
->Wenn Sie [AEM mit Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sollten Sie **nicht** Inhalt der Cache-Autoreninstanz verwenden. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any`-Datei bearbeiten und die `/rule`-Eigenschaft des `/cache`-Abschnitts wie folgt ändern:
+>Wenn Sie [AEM mit der Touch-optimierten Benutzeroberfläche](https://helpx.adobe.com/de/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sollten Sie **nicht** Inhalt der Autoreninstanz zwischenspeichern. Wenn die Zwischenspeicherung für die Autoreninstanz aktiviert wurde, müssen Sie sie deaktivieren und den Inhalt des Cacheordners löschen. Um die Zwischenspeicherung zu deaktivieren, sollten Sie die `author_dispatcher.any`-Datei bearbeiten und die `/rule`-Eigenschaft des `/cache`-Abschnitts wie folgt ändern:
 
 ```xml
 /rules
@@ -310,7 +309,7 @@ Ein Dispatcher kann vor einer Autoreninstanz verwendet werden, um die Bearbeitun
 1. Öffnen Sie `author_dispatcher.any` in einem Texteditor und nehmen Sie die folgenden Änderungen vor:
 
    1. Ändern Sie `/hostname` und `/port` im Abschnitt `/renders` so, dass sie auf Ihre Autoreninstanz verweisen.
-   1. Ändern Sie `/docroot` im Abschnitt `/cache` so, dass auf ein Cache-Verzeichnis verwiesen wird. Falls Sie [AEM mit Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, lesen Sie die Warnung oben.
+   1. Ändern Sie `/docroot` im Abschnitt `/cache` so, dass auf ein Cache-Verzeichnis verwiesen wird. Falls Sie [AEM mit der Touch-optimierten Benutzeroberfläche](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) verwenden, sehen Sie sich die Warnung oben an.
    1. Speichern Sie die Änderungen.
 
 1. Löschen Sie alle vorhandenen Dateien im Verzeichnis `/cache` > `/docroot`, das oben konfiguriert wurde.
