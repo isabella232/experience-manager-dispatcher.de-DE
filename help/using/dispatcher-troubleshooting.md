@@ -12,14 +12,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
-translation-type: tm+mt
-source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
+exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 90%
 
 ---
-
 
 # Beheben von Problemen beim Dispatcher {#troubleshooting-dispatcher-problems}
 
@@ -31,7 +30,7 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Weitere Informationen finden Sie in den Abschnitten [Wissensdatenbank für Dispatcher](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Fehlerbehebung bei Problemen mit dem Flushing von Dispatcher](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) und [Häufig gestellte Fragen zu Dispatcher-Problemen](dispatcher-faq.md).
+>Weitere Informationen finden Sie auch in der [Dispatcher-Wissensdatenbank](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Fehlerbehebung für Probleme beim Leeren des Dispatchers](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) und in den [Häufig gestellten Fragen zum Dispatcher](dispatcher-faq.md).
 
 ## Überprüfen der Basiskonfiguration {#check-the-basic-configuration}
 
@@ -64,7 +63,7 @@ Hiermit können Sie die Aktivität überwachen.
 Wenn Sie IIS verwenden, wird möglicherweise in verschiedenen Situationen `404 Not Found` zurückgegeben. Wenn dies der Fall ist, finden Sie weitere Informationen in den folgenden Knowledge Base-Artikeln. 
 
 * [IIS 6/7: POST-Methode gibt 404 zurück](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: Anforderungen an URLs, die den Basispfad enthalten,  `/bin` geben  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6: Anfragen an URLs, die den Basispfad enthalten,  `/bin` geben zurück  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Sie sollten überprüfen, ob der Cache-Stammordner des Dispatchers und der IIS-Dokumentenstamm auf denselben Ordner festgelegt wurden.
 
