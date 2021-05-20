@@ -3,14 +3,13 @@ title: Häufige Probleme beim Dispatcher
 seo-title: Häufige Probleme bei AEM Dispatcher
 description: Häufige Probleme bei AEM Dispatcher
 seo-description: Häufige Probleme bei Adobe AEM Dispatcher
-translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '1644'
 ht-degree: 95%
 
 ---
-
 
 # Häufig gestellte Fragen zu Problemen bei AEM Dispatcher
 
@@ -116,7 +115,7 @@ Lesen Sie hierzu [Zwischenspeichern sicherer Inhalte](permissions-cache.md).
 
 ### Wie sichere ich die Kommunikation zwischen den Dispatcher- und CQ-Instanzen?
 
-Siehe die Seiten [Dispatcher Security Checklist](security-checklist.md) und [AEM Security Checklist](https://helpx.adobe.com/experience-manager/6-4/sites/administring/using/security-checklist.html).
+Siehe die Seiten [Dispatcher-Sicherheits-Checkliste](security-checklist.md) und [AEM Sicherheitscheckliste](https://helpx.adobe.com/experience-manager/6-4/sites/administring/using/security-checklist.html) .
 
 ### Dispatcher-Problem `jcr:content` geändert in `jcr%3acontent`
 
@@ -130,7 +129,7 @@ Weitere Informationen: [https://sling.apache.org/documentation/the-sling-engine/
 
 ### Wie konfiguriere ich Dispatcher-Flush-Agenten auf einer Veröffentlichungsinstanz?
 
-Siehe die Seite [Replikation](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents).
+Siehe die Seite [Replikation](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
 
 ### Wie kann ich Dispatcher-Bereinigungsprobleme beheben?
 
@@ -184,4 +183,3 @@ Der Dispatcher speichert die zwischengespeicherten Dateien auf dem Webserver, al
 ### Kann ich mehrere Dispatcher in einem Setup implementieren?
 
 Ja. In solchen Fällen müssen beide Dispatcher direkt auf die AEM-Website zugreifen. Ein Dispatcher kann keine Anforderungen aus einem anderen Dispatcher verarbeiten.
-
