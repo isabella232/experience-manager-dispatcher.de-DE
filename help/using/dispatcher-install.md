@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
 source-wordcount: '3684'
 ht-degree: 98%
@@ -273,7 +273,7 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, ist Folgendes zu 
 >
 >Hier finden Sie Anweisungen für die Installation unter **Windows** und **Unix**. Gehen Sie bei der Durchführung der Schritte umsichtig vor.
 
-### Installieren eines Apache-Webservers   {#installing-apache-web-server}
+### Installieren eines Apache-Webservers  {#installing-apache-web-server}
 
 Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im entsprechenden Installationshandbuch, das entweder [online](https://httpd.apache.org/) verfügbar oder der Verteilung beigefügt ist.
 
@@ -318,7 +318,7 @@ Führen Sie die folgenden Schritte aus, um den Dispatcher zum Apache-Webserver h
 
    **Hinweis:** Sie können diese Datei an einem anderen Speicherort platzieren, sofern die Eigenschaft „DispatcherLog“ des Dispatcher-Moduls entsprechend konfiguriert ist. (Siehe Dispatcher-spezifische Konfigurationseinträge weiter unten auf dieser Seite.)
 
-### Apache-Webserver – Konfigurieren der SELinux-Eigenschaften   {#apache-web-server-configure-selinux-properties}
+### Apache-Webserver – Konfigurieren der SELinux-Eigenschaften  {#apache-web-server-configure-selinux-properties}
 
 Wenn Sie den Dispatcher auf RedHat Linux Kernel 2.6 ausführen und SELinux aktiviert ist, werden Ihnen in der Dispatcher-Protokolldatei möglicherweise Fehlermeldungen wie diese angezeigt.
 
@@ -420,12 +420,17 @@ Die einzelnen Konfigurationsparameter lauten:
 
 >[!NOTE]
 >
->Die Standardeinstellungen für den Server-Header lauten: `  
-ServerTokens Full` `  
-DispatcherNoServerHeader 0`\
-Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen: `  
-ServerTokens Prod`\
-Weitere Informationen finden Sie in der [Apache-Dokumentation zur ServerTokens-Direktive (z. B. für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
+>Die Standardeinstellungen für den Server-Header lauten:
+>
+>`ServerTokens Full`
+>
+>`DispatcherNoServerHeader 0`
+>
+>Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen:
+>
+>`ServerTokens Prod`
+>
+>Weitere Informationen finden Sie in der [Apache-Dokumentation zur ServerTokens-Direktive (z. B. für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
 
 **SetHandler**
 
@@ -483,16 +488,20 @@ AllowOverride None
 ```
 
 >[!NOTE]
-Der Parameter der Anweisung **SetHandler** muss *genau wie in den oben aufgeführten Beispielen* geschrieben sein, da dies der Name des im Modul definierten Handlers ist.
-Umfassende Informationen zu diesem Befehl finden Sie in den Beispielkonfigurationsdateien und in der Apache-Webserver-Dokumentation.
+>
+>Der Parameter der Anweisung **SetHandler** muss *genau wie in den oben aufgeführten Beispielen* geschrieben sein, da dies der Name des im Modul definierten Handlers ist.
+>
+>Umfassende Informationen zu diesem Befehl finden Sie in den Beispielkonfigurationsdateien und in der Apache-Webserver-Dokumentation.
 
 **ModMimeUsePathInfo**
 
 Nach der Anweisung **SetHandler** sollten Sie auch die Definition **ModMimeUsePathInfo** hinzufügen.
 
 >[!NOTE]
-Der Parameter `ModMimeUsePathInfo` sollte nur verwendet und konfiguriert werden, wenn Sie die Dispatcher-Version 4.0.9 oder höher verwenden.
-(Beachten Sie, dass die Dispatcher-Version 4.0.9 im Jahr 2011 veröffentlicht wurde. Wenn Sie eine ältere Version verwenden, sollten Sie ein Upgrade auf eine aktuelle Dispatcher-Version durchführen.)
+>
+>Der Parameter `ModMimeUsePathInfo` sollte nur verwendet und konfiguriert werden, wenn Sie die Dispatcher-Version 4.0.9 oder höher verwenden.
+>
+>(Beachten Sie, dass die Dispatcher-Version 4.0.9 im Jahr 2011 veröffentlicht wurde. Wenn Sie eine ältere Version verwenden, sollten Sie ein Upgrade auf eine aktuelle Dispatcher-Version durchführen.)
 
 Der Parameter **ModMimeUsePathInfo** sollte für alle Apache-Konfigurationen auf `On` festgelegt sein:
 
@@ -538,7 +547,8 @@ Der Dispatcher verwendet OpenSSL, um eine sichere Kommunikation über HTTP zu im
    ```
 
 >[!NOTE]
-Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) / kompiliert wurden.
+>
+>Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) / kompiliert wurden.
 
 ### Nächste Schritte {#next-steps-1}
 
@@ -550,17 +560,19 @@ Bevor Sie mit der Verwendung des Dispatchers beginnen können, müssen Sie Folge
 ## Sun Java System Web Server/iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
-Hier werden Anweisungen für Windows- und Unix-Umgebungen beschrieben.
-Gehen Sie bei der Auswahl der auszuführenden Version umsichtig vor.
+>
+>Hier werden Anweisungen für Windows- und Unix-Umgebungen beschrieben.
+>
+>Gehen Sie bei der Auswahl der auszuführenden Version umsichtig vor.
 
-### Sun Java System Web Server/iPlanet – Installieren des Webservers   {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Sun Java System Web Server/iPlanet – Installieren des Webservers  {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 Umfassende Informationen zur Installation dieser Webserver finden Sie in der jeweiligen Dokumentation:
 
 * Sun Java System Web Server
 * iPlanet Web Server
 
-### Sun Java System Web Server/iPlanet – Hinzufügen des Dispatcher-Moduls   {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java System Web Server/iPlanet – Hinzufügen des Dispatcher-Moduls  {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Der Dispatcher wird folgendermaßen bereitgestellt:
 
@@ -604,7 +616,8 @@ Der Webserver muss mithilfe von `obj.conf` konfiguriert werden. Im Dispatcher In
 1. Speichern Sie die Änderungen.
 
 >[!NOTE]
-Die folgenden Konfigurationen sollten sich alle in einer Zeile befinden. `$(SERVER_ROOT)` und `$(PRODUCT_SUBDIR)` müssen durch die entsprechenden Werte ersetzt werden.
+>
+>Die folgenden Konfigurationen sollten sich alle in einer Zeile befinden. `$(SERVER_ROOT)` und `$(PRODUCT_SUBDIR)` müssen durch die entsprechenden Werte ersetzt werden.
 
 **Init**
 
@@ -620,7 +633,7 @@ keepalivetimeout="60"
 ...
 ```
 
-hierbei gilt:
+Hierbei gilt:
 
 | Parameter | Beschreibung |
 |--- |--- |
