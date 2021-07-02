@@ -2,14 +2,14 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
-source-wordcount: '8513'
+source-wordcount: '8512'
 ht-degree: 84%
 
 ---
 
-# Konfigurieren von Dispatcher {#configuring-dispatcher}
+# Konfigurieren des Dispatchers {#configuring-dispatcher}
 
 >[!NOTE]
 >
@@ -566,7 +566,7 @@ Der Abschnitt `/filter` besteht aus einer Reihe von Regeln, die den Zugriff auf 
 * Verweigern Sie zunächst den Zugriff auf alles.
 * Erlauben Sie den Zugriff auf die Inhalte nach Bedarf.
 
-### Definieren eines Filters   {#defining-a-filter}
+### Definieren eines Filters  {#defining-a-filter}
 
 Jedes Element im `/filter`-Abschnitt enthält einen Typ und ein Muster, die mit einem bestimmten Element der Anfragezeile oder mit der gesamten Anfragezeile abgeglichen werden. Jeder Filter kann die folgenden Elemente enthalten:
 
@@ -612,7 +612,7 @@ Verwenden Sie bei der Erstellung Ihrer Filterregeln doppelte Anführungszeichen 
 
 In Dispatcher-Versionen nach 4.2.0 können Sie POSIX-erweiterte reguläre Ausdrücke in Ihre Filtermuster aufnehmen.
 
-#### Problembehebung bei Filtern{#troubleshooting-filters}
+#### Problembehebung bei Filtern {#troubleshooting-filters}
 
 Falls Ihre Filter nicht so ausgelöst werden, wie Sie es erwarten, können Sie im Dispatcher die [Protokollierung](#trace-logging) aktivieren, damit Sie sehen, welcher Filter die Anforderung abfängt.
 
@@ -680,7 +680,7 @@ Dieser Filter ermöglicht mithilfe dieses regulären Ausdrucks (in einfachen Anf
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### Beispielfilter: Filtern zusätzlicher Elemente einer Anforderungs-URL   {#example-filter-filter-additional-elements-of-a-request-url}
+#### Beispielfilter: Filtern zusätzlicher Elemente einer Anforderungs-URL  {#example-filter-filter-additional-elements-of-a-request-url}
 
 Mit dem nachstehenden Regelbeispiel wird der Inhaltsabruf aus dem `/content`-Pfad und seinem Teilbaum mithilfe von Filtern für Pfad (path), Selektoren (selectors) und Erweiterungen (extensions) blockiert:
 
@@ -940,12 +940,12 @@ Der `/vanity_urls`-Abschnitt enthält die folgenden Eigenschaften:
 
 Führen Sie die folgenden Schritte aus, um den Zugriff auf Vanity-URLs zu aktivieren.
 
-1. Wenn Ihr Render-Dienst eine AEM-Instanz ist, installieren Sie das Paket &quot;com.adobe.granite.dispatcher.vanityurl.content&quot;auf der Veröffentlichungsinstanz (siehe Hinweis oben).
+1. Wenn Ihr Render-Dienst eine AEM-Instanz ist, installieren Sie das Paket `com.adobe.granite.dispatcher.vanityurl.content` auf der Veröffentlichungsinstanz (siehe Hinweis oben).
 1. Stellen Sie für jede Vanity-URL, die Sie für eine AEM- oder CQ-Seite konfiguriert haben, sicher, dass die [`/filter`](#configuring-access-to-content-filter)-Konfiguration die URL verweigert. Fügen Sie ggf. einen Filter hinzu, durch den die URL verweigert wird.
 1. Ergänzen Sie den `/vanity_urls`-Abschnitt, der sich unter `/farms` befindet.
 1. Starten Sie den Apache-Webserver neu.
 
-## Weiterleiten von Syndizierungsanforderungen – /propagateSyndPost   {#forwarding-syndication-requests-propagatesyndpost}
+## Weiterleiten von Syndizierungsanforderungen – /propagateSyndPost  {#forwarding-syndication-requests-propagatesyndpost}
 
 Syndizierungsanforderungen sind normalerweise nur für den Dispatcher bestimmt, sodass sie standardmäßig nicht an den Renderer (z. B. eine AEM-Instanz) gesendet werden
 
@@ -996,7 +996,7 @@ Ein Cacheabschnitt kann beispielsweise wie folgt aussehen:
 >
 >Informationen zum berechtigungsbezogenen Zwischenspeichern finden Sie unter [Zwischenspeichern von geschütztem Inhalt](permissions-cache.md).
 
-### Festlegen des Cacheordners   {#specifying-the-cache-directory}
+### Festlegen des Cacheordners  {#specifying-the-cache-directory}
 
 Die `/docroot`-Eigenschaft identifiziert den Ordner, in dem die Cachedateien gespeichert werden.
 
@@ -1043,7 +1043,7 @@ Wenn Ihre Anforderungen jedoch das Zwischenspeichern authentifizierter Dokumente
 
 ### Festlegen der Dokumente, die zwischengespeichert werden sollen {#specifying-the-documents-to-cache}
 
-Die `/rules`-Eigenschaft steuert anhand des Dokumentenpfads, welche Dokumente zwischengespeichert werden. Unabhängig von der `/rules`-Eigenschaft werden in folgenden Fällen Dokumente nie zwischengespeichert:
+Die `/rules`-Eigenschaft steuert anhand des Dokumentenpfads, welche Dokumente zwischengespeichert werden sollen. Unabhängig von der `/rules`-Eigenschaft werden in folgenden Fällen Dokumente nie zwischengespeichert:
 
 * Der Anfrage-URI enthält ein Fragezeichen (`?`).
    * Hierdurch wird normalerweise eine dynamische Seite angegeben (z. B. ein Suchergebnis), die nicht zwischengespeichert werden muss.
@@ -1216,7 +1216,7 @@ Die AEM-Integration mit Adobe Analytics liefert Konfigurationsdaten in einer `an
 }
 ```
 
-### Verwenden von benutzerdefinierten Skripts zur Invalidierung   {#using-custom-invalidation-scripts}
+### Verwenden von benutzerdefinierten Skripts zur Invalidierung  {#using-custom-invalidation-scripts}
 
 Mit der Eigenschaft `/invalidateHandler` können Sie ein Skript definieren, das für jede vom Dispatcher empfangene Invalidierungsanforderung aufgerufen wird.
 
@@ -1234,7 +1234,7 @@ Beim Beispielskript unten wird jede Anforderung für die Invalidierung in einer 
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
 ```
 
-#### Beispielskript für Invalidierung   {#sample-invalidation-handler-script}
+#### Beispielskript für Invalidierung  {#sample-invalidation-handler-script}
 
 ```shell
 #!/bin/bash
@@ -1267,7 +1267,7 @@ Weitere Informationen zu glob-Eigenschaften finden Sie unter [Entwerfen von Must
 >
 >Tun Sie dies nicht, kann jeder Client einen Aufruf zum Leeren des Caches ausgeben. Wenn dies wiederholt geschieht, kann dadurch die Site-Leistung stark beeinträchtigt werden.
 
-### Ignorieren von URL-Parametern   {#ignoring-url-parameters}
+### Ignorieren von URL-Parametern  {#ignoring-url-parameters}
 
 Im `ignoreUrlParams`-Abschnitt wird definiert, welche URL-Parameter bei der Prüfung, ob eine Seite zwischengespeichert wird oder aus dem Cache geliefert wird, ignoriert werden sollen:
 
@@ -1408,7 +1408,7 @@ Die Bewertung für eine Renderer-Kategorie basiert auf vorherigen Antwortzeiten 
 >
 >Wenn Sie keinen Lastenausgleich verwenden, können Sie diesen Abschnitt überspringen.
 
-### Definieren von Statistikkategorien   {#defining-statistics-categories}
+### Definieren von Statistikkategorien  {#defining-statistics-categories}
 
 Definieren einer Kategorie für jeden Dokumenttyp, für den Sie Statistiken für die Renderer-Auswahl erheben möchten. Der Abschnitt `/statistics` enthält einen Abschnitt `/categories` . Um eine Kategorie zu definieren, fügen Sie unter dem Abschnitt `/categories` eine Zeile mit folgendem Format hinzu:
 
@@ -1517,7 +1517,7 @@ Der Dispatcher verwendet den Wert `"1"`, wenn `/retryDelay` nicht explizit defin
 /retryDelay "1"
 ```
 
-### Konfigurieren der Wiederholungsanzahl   {#configuring-the-number-of-retries}
+### Konfigurieren der Wiederholungsanzahl  {#configuring-the-number-of-retries}
 
 Mit der `/numberOfRetries`-Eigenschaft wird die maximale Anzahl der Runden an Verbindungsversuchen festgelegt, die der Dispatcher für die Renderer durchführt. Wenn der Dispatcher nach diesen Wiederholungen keine erfolgreiche Verbindung zu einem Renderer herstellen konnte, gibt er einen Fehler zurück.
 
@@ -1548,7 +1548,7 @@ Um das Failover zu aktivieren, fügen Sie der Farm (oder Website) folgende Zeile
 >
 >Um HTTP-Anfragen zu wiederholen, die einen Text enthalten, sendet der Dispatcher den Anfrageheader `Expect: 100-continue` an den Renderer, bevor die tatsächlichen Inhalte gespoolt werden. CQ 5.5 mit CQSE antwortet dann umgehend mit 100 (CONTINUE) oder einem Fehlercode. Andere Servlet-Container sollten dies ebenfalls unterstützen.
 
-## Ignorieren von Netzwerkunterbrechungsfehlern – /ignoreEINTR   {#ignoring-interruption-errors-ignoreeintr}
+## Ignorieren von Netzwerkunterbrechungsfehlern – /ignoreEINTR  {#ignoring-interruption-errors-ignoreeintr}
 
 >[!CAUTION]
 >
@@ -1714,7 +1714,7 @@ Lesen Sie die Apache-Webserverdokumentation, um weitere Informationen zum Rotier
 >
 >Dies erfordert allerdings zusätzliche Ressourcen. Wenn der Dispatcher also *gemäß Ihren Anforderungen reibungslos funktioniert*, können (sollten) Sie daher die Protokollierungsebene reduzieren.
 
-### Trace-Protokollierung  {#trace-logging}
+### Trace-Protokollierung {#trace-logging}
 
 Neben weiteren Verbesserungen beim Dispatcher wird mit der Version 4.2.0 auch die Ablaufprotokollierung eingeführt.
 
@@ -1747,7 +1747,7 @@ Das protokollierte Ereignis, wenn eine Datei angefordert wird, die einer blockie
 [Thu Mar 03 14:42:45 2016] [T] [11831] 'GET /content.infinity.json HTTP/1.1' was blocked because of /0082
 ```
 
-## Bestätigen der normalen Funktionsweise   {#confirming-basic-operation}
+## Bestätigen der normalen Funktionsweise  {#confirming-basic-operation}
 
 Um die normale Funktionsweise und Interaktion des Webservers, des Dispatchers und der AEM-Instanz zu prüfen, können Sie folgende Schritte ausführen:
 
@@ -1770,7 +1770,7 @@ Um die normale Funktionsweise und Interaktion des Webservers, des Dispatchers un
 1. Aktivieren Sie eine Seite, um zu überprüfen, ob der Cache ordnungsgemäß geleert wird.
 1. Wenn alles ordnungsgemäß funktioniert, können Sie das `loglevel` auf `0` verringern.
 
-## Verwenden mehrerer Dispatcher {#using-multiple-dispatchers}
+## Verwenden mehrerer Dispatcher  {#using-multiple-dispatchers}
 
 In komplexen Umgebungen können Sie mehrere Dispatcher verwenden. Folgende Szenarien sind möglich:
 
