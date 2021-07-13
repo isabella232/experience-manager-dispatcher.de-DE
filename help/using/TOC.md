@@ -9,8 +9,8 @@ user-guide-description: Erfahren Sie, wie Sie Dispatcher für die Zwischenspeich
 feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
-role: Administrator
-source-git-commit: da6af93fa3dec8e3b2f146e9c8c6183a3185199b
+role: Admin
+source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
 workflow-type: tm+mt
 source-wordcount: '89'
 ht-degree: 100%
@@ -20,7 +20,7 @@ ht-degree: 100%
 
 # AEM Dispatcher-Hilfe {#using}
 
-+ [Überblick](dispatcher.md)
++ [Übersicht](dispatcher.md)
 + Erste Schritte {#getting-started}
    + [Installieren des Dispatchers](dispatcher-install.md)
    + [Die Dispatcher-Sicherheitscheckliste](security-checklist.md)
