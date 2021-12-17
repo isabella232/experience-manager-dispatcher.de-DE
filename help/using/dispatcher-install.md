@@ -1,8 +1,8 @@
 ---
 title: Installieren des Dispatchers
-seo-title: Installieren von AEM Dispatchers
+seo-title: Installing AEM Dispatcher
 description: Erfahren Sie, wie Sie das Dispatcher-Modul auf Microsoft Internet Information Server, Apache Web Server und Sun Java Web Server-iplanet installieren.
-seo-description: Erfahren Sie, wie Sie das AEM Dispatcher-Modul auf Microsoft Internet Information Server, Apache Web Server und Sun Java Web Server-iplanet installieren.
+seo-description: Learn how to install the AEM Dispatcher module on Microsoft Internet Information Server, Apache Web Server and Sun Java Web Server-iPlanet.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: User
 converted: true
@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
+source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
 workflow-type: tm+mt
-source-wordcount: '3684'
-ht-degree: 98%
+source-wordcount: '3693'
+ht-degree: 97%
 
 ---
 
@@ -50,6 +50,10 @@ In der folgenden Tabelle ist die Webserverkennung aufgeführt, die in den Datein
 >[!CAUTION]
 >
 >Sie sollten die neueste Dispatcher-Version installieren, die für Ihre Plattform verfügbar ist. Darüber hinaus sollten Sie Ihre Dispatcher-Instanz jährlich auf die neueste Version aktualisieren, um von Produktverbesserungen zu profitieren.
+
+>[!NOTE]
+>
+>Kunden, die ein spezifisches Upgrade von Version 4.3.3 auf Version 4.3.4 durchführen, werden feststellen, dass beim Festlegen von Zwischenspeicherkopfzeilen für nicht erreichbare Inhalte ein anderes Verhalten auftritt. Weitere Informationen zu dieser Änderung finden Sie unter [Versionshinweise](/help/using/release-notes.md#nov) Seite.
 
 Jedes Archiv enthält die folgenden Dateien:
 
@@ -283,7 +287,7 @@ Weitere Informationen zum Installieren eines Apache-Webservers finden Sie im ent
 >
 >Weitere Informationen finden Sie im Installationshandbuch für Apache-Webserver.
 
-Weitere Informationen finden Sie unter Apache HTTP Server [Sicherheitstipps](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Sicherheitsberichte](https://httpd.apache.org/security_report.html).
+Weitere Informationen finden Sie unter Apache HTTP Server . [Sicherheitstipps](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Sicherheitsberichte](https://httpd.apache.org/security_report.html).
 
 ### Apache-Webserver – Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
 
@@ -430,7 +434,7 @@ Die einzelnen Konfigurationsparameter lauten:
 >
 >`ServerTokens Prod`
 >
->Weitere Informationen finden Sie in der [Apache-Dokumentation zur ServerTokens-Direktive (z. B. für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) .
+>Siehe [Apache-Dokumentation zur ServerTokens-Direktive (z. B. für Apache 2.4)](https://httpd.apache.org/docs/2.4/mod/core.html) für weitere Informationen.
 
 **SetHandler**
 

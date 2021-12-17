@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 4f37bc2571c3272beeb1764ca0bf0347e086cc07
+source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
 workflow-type: tm+mt
-source-wordcount: '852'
-ht-degree: 64%
+source-wordcount: '941'
+ht-degree: 58%
 
 ---
 
@@ -48,9 +48,9 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 * DISP-833 - X-Forwarded-Host-Header können eine Liste mit kommagetrennten Hostnamen enthalten
 * DISP-835 - DispatcherUseForwardedHost verschlingt Host-Header, wenn er zuletzt kommt
 
-
 **Verbesserungen**:
 
+* DISP-874 - Erstellt eine Dispatcher-Konfiguration, um die Implementierung von DISP-818 über eine Markierung entweder ein- oder aus zu schalten `DispatcherRestrictUncacheableContent`. Der Standardwert ist „Aus“. Wenn diese Option deaktiviert ist, werden alle durch &quot;mod&quot;festgelegten Zwischenspeicherkopfzeilen entfernt, um nicht speicherbaren Inhalt zu erhalten. Dies unterscheidet sich vom Verhalten in Version 4.3.3 (entspricht jedoch den Versionen vor 4.3.3). Keeping `DispatcherRestrictUncacheableContent`Der Standardwert Aus ist der empfohlene Ansatz, sodass der Browser-Cache flexibler ist. Wenn Sie beim Upgrade von Version 4.3.3 auf 4.3.4 dasselbe Verhalten wie in Version 4.3.3 beibehalten möchten, müssen Sie explizit festlegen `DispatcherRestrictUncacheableContent` auf &quot;An&quot;.
 * DISP-841 - Dispatcher respektiert /serverStaleOnError für 504-Antwortcode nicht
 * DISP-874 - Erstellen einer Dispatcher-Konfiguration, um die Implementierung von DISP-818 zu aktivieren oder zu deaktivieren
 * DISP-883 - Verfolgen der URL-Anforderungsdekomposition im Dispatcher
