@@ -1,8 +1,8 @@
 ---
 title: Optimierung von Websites für die Cache-Leistung
-seo-title: Optimierung von Websites für die Cache-Leistung
+seo-title: Optimizing a Website for Cache Performance
 description: Sie erfahren, wie Sie Ihre Website einrichten, um die Vorteile der Zwischenspeicherung zu maximieren.
-seo-description: Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Leistung optimieren können. Sie erfahren, wie Sie Ihre Website einrichten, um die Vorteile der Zwischenspeicherung zu maximieren.
+seo-description: Dispatcher offers a number of built-in mechanisms that you can use to optimize performance. Learn how to design your web site to maximize the benefits of caching.
 uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -13,9 +13,9 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
+source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
 workflow-type: tm+mt
-source-wordcount: '1167'
+source-wordcount: '1134'
 ht-degree: 100%
 
 ---
@@ -45,6 +45,7 @@ Der Dispatcher bietet verschiedene integrierte Mechanismen, mit denen Sie die Le
 >
 >* alle Daten zwischenspeichern können, die als Seite gespeichert und mit einer URL abgerufen werden können
 >* keine anderen Daten speichern können, z. B. HTTP-Header, Cookies, Sitzungsdaten und Formulardaten
+
 >
 >Allgemein müssen für viele Caching-Strategien geeignete URLs ausgewählt werden, damit diese zusätzlichen Daten nicht benötigt werden.
 
@@ -77,7 +78,7 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 >
 >Diese URL ruft dieselbe Seite und Vorlage auf wie „gallery.html“. In der Vorlagendefinition können Sie angeben, welches Skript die Seite rendern soll, oder Sie können ein Skript für alle Seiten verwenden.
 
-## Anpassen nach URL   {#customize-by-url}
+## Anpassen nach URL  {#customize-by-url}
 
 Wenn Sie Benutzern die Möglichkeit geben, die Schriftgröße zu ändern (oder andere Layoutanpassungen vorzunehmen), stellen Sie sicher, dass die verschiedenen Anpassungen in der URL repräsentiert werden.
 
@@ -99,7 +100,7 @@ www.myCompany.com/news/main.large.html
 >
 >Unter Verwendung des Skript-Globbings der Vorlagendefinition können Sie ein anderes Skript festlegen, das die Seiten für das Drucken anzeigt.
 
-## Invalidierung von als Titel verwendeten Bilddateien   {#invalidating-image-files-used-as-titles}
+## Invalidierung von als Titel verwendeten Bilddateien  {#invalidating-image-files-used-as-titles}
 
 Wenn Sie Seitentitel oder anderen Text als Grafik rendern, sollten Sie die Dateien speichern, damit sie nach einer Inhaltsaktualisierung auf der Seite gelöscht werden:
 
@@ -114,7 +115,7 @@ Beispielsweise können Sie den Titel der Seite „myPage.html“ in der Datei �
 >
 >Die Bilddatei ist nicht unbedingt tatsächlich in der AEM-Instanz vorhanden. Sie können ein Skript verwenden, das die Bilddatei dynamisch erstellt. Der Dispatcher speichert die Datei dann auf dem Webserver.
 
-## Invalidierung von Bilddateien für die Navigation   {#invalidating-image-files-used-for-navigation}
+## Invalidierung von Bilddateien für die Navigation  {#invalidating-image-files-used-for-navigation}
 
 Wenn Sie Bilder als Navigationseinträge verwenden, gehen Sie im Prinzip wie bei Titeln vor, das Verfahren ist nur etwas komplexer. Speichern Sie alle Navigationsgrafiken mit den Zielseiten. Wenn Sie zwei Bilder für den normalen und aktiven Status verwenden, können Sie die folgenden Skripts verwenden:
 
@@ -141,15 +142,15 @@ Der Dispatcher kann keine personalisierten Daten zwischenspeichern. Sie sollten 
 >
 >* Sie können die Seite mit iFrames aufteilen in einen Teil, der für alle Benutzer gleich ist, und einen Teil, der bei allen Seiten eines Benutzers gleich ist. Diese beiden Teile können dann zwischengespeichert werden.
 >* Sie können mit clientseitigem JavaScript personalisierte Informationen anzeigen. Sie müssen jedoch sicherstellen, dass die Seite weiterhin richtig angezeigt wird, wenn ein Benutzer JavaScript deaktiviert.
+
 >
 
 
-
-## Sticky-Verbindungen   {#sticky-connections}
+## Sticky-Verbindungen  {#sticky-connections}
 
 [Sticky-Verbindungen](dispatcher.md#TheBenefitsofLoadBalancing) stellen sicher, dass alle Dokumente für einen Benutzer auf demselben Server erstellt werden. Wenn ein Benutzer dieses Verzeichnis verlässt und später zurückkehrt, bleibt die Verbindung erhalten. Definieren Sie einen Ordner für alle Dokumente, die Sticky-Verbindungen für die Website benötigen. Speichern Sie möglichst keine anderen Dokumente in diesem Ordner. Dies wirkt sich auf den Lastenausgleich aus, wenn Sie personalisierte Seiten und Sitzungsdaten verwenden.
 
-## MIME-Typen   {#mime-types}
+## MIME-Typen  {#mime-types}
 
 Es gibt zwei Möglichkeiten, wie ein Browser den Typ einer Datei bestimmen kann:
 
