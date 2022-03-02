@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
+source-git-commit: d19a27256c44ec00fd440b2f8a2fe408a4a4b7c8
 workflow-type: tm+mt
 source-wordcount: '3693'
-ht-degree: 97%
+ht-degree: 96%
 
 ---
 
@@ -153,7 +153,7 @@ In der folgenden Tabelle werden die einzelnen Eigenschaften beschrieben.
 | configpath | Der Speicherort von `dispatcher.any` im lokalen Dateisystem (absoluter Pfad). |
 | logfile | Der Speicherort der `dispatcher.log`-Datei. Wenn dieser nicht festgelegt ist, werden Protokollmeldungen im Windows-Ereignisprotokoll gespeichert. |
 | loglevel | Definiert die Protokollebene, die verwendet wird, um Meldungen im Ereignisprotokoll auszugeben. Die folgenden Werte können angegeben werden:Protokollebene für die Protokolldatei: <br/>0 – nur Fehlermeldungen. <br/>1 – Fehlermeldungen und Warnungen. <br/>2 – Fehler, Warnungen und Informationsmeldungen <br/>3 – Fehler, Warnungen, Informations- und Problembehebungsnachrichten. <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zu setzen. |
-| replaceauthorization | Legt fest, wie Autorisierungsheader in der HTTP-Anforderung bearbeitet werden. Die folgenden Werte sind gültig:<br/>0 – Autorisierungsheader werden nicht geändert. <br/>1 – ersetzt alle Header mit dem Namen „Authorization“ mit Ausnahme von „Basic“ durch die `Basic <IIS:LOGON\_USER>`-Entsprechung.<br/> |
+| replaceauthorization | Legt fest, wie Autorisierungsheader in der HTTP-Anforderung bearbeitet werden. Die folgenden Werte sind gültig:<br/>0 - Autorisierungskopfzeilen werden nicht geändert. <br/>1 – ersetzt alle Header mit dem Namen „Authorization“ mit Ausnahme von „Basic“ durch die `Basic <IIS:LOGON\_USER>`-Entsprechung.<br/> |
 | servervariables | Definiert, wie Servervariablen verarbeitet werden.<br/>0 – IIS-Servervariablen werden weder an den Dispatcher noch an AEM gesendet. <br/>1 – Alle IIS-Servervariablen (wie `LOGON\_USER, QUERY\_STRING, ...`) werden zusammen mit den Anforderungsheadern an den Dispatcher gesendet (und an die AEM-Instanz, wenn keine Zwischenspeicherung erfolgt).  <br/>Zu den Servervariablen gehören `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` und viele andere. In der IIS-Dokumentation finden Sie eine umfassende Liste der Variablen mit detaillierten Informationen. |
 | enable_chunked_transfer | Definiert, ob die Blockübertragung für die Clientantwort aktiviert (1) oder deaktiviert (0) werden soll. Der Standardwert ist 0. |
 
@@ -390,7 +390,7 @@ Die Dispatcher-spezifischen Konfigurationseinträge werden nach dem Eintrag „L
 
 ```
 ...
-<fModule disp_apache2.c>
+<IfModule disp_apache2.c>
 DispatcherConfig conf/dispatcher.any
 DispatcherLog logs/dispatcher.log DispatcherLogLevel 3
 DispatcherNoServerHeader 0 DispatcherDeclineRoot 0
