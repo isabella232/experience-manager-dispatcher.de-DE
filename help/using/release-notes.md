@@ -9,7 +9,7 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 69aa52221e997e0b68c89bf383d36fdb7093ac4d
+source-git-commit: 4661a71aa4e5fc99a0e4de26d5740a1dc0258bb0
 workflow-type: tm+mt
 source-wordcount: '977'
 ht-degree: 54%
@@ -20,10 +20,9 @@ ht-degree: 54%
 
 ## Versionshinweise {#release-information}
 
-|  |  |
 |--- |--- |
 | Produkte | Adobe Experience Manager (AEM) Dispatcher |
-| Version | 4.3.5 |
+| Version | 4,3,5 |
 | Typ | Nebenversion |
 | Datum | 04. April 2022 |
 | Download-URL | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services (IIS)](release-notes.md#iis)</li></ul> |
@@ -45,23 +44,23 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 
 **Verbesserungen**:
 
-* DISP-954 - Support invalidation even if expiration has not passed
-* DISP-949 - Dispatcher returns 200 instead of 404 even if POST request is blocked by filter
+* DISP-954 - Invalidierung unterstützen, auch wenn das Ablaufdatum nicht überschritten wurde
+* DISP-949 - Dispatcher gibt 200 anstelle von 404 zurück, selbst wenn die POST-Anforderung durch den Filter blockiert wird
 
 ### Version 4.3.4 (2021-29. November) {#nov}
 
 **Fehlerbehebungen**:
 
-* DISP-833 - X-Forwarded-Host headers may contain a list of comma separated hostnames
+* DISP-833 - X-Forwarded-Host-Header können eine Liste mit kommagetrennten Hostnamen enthalten
 * DISP-835 - DispatcherUseForwardedHost verschlingt Host-Header, wenn er zuletzt kommt
 
 **Verbesserungen**:
 
 * DISP-874 - Erstellt eine Dispatcher-Konfiguration, um die Implementierung von DISP-818 über eine Markierung entweder ein- oder aus zu schalten `DispatcherRestrictUncacheableContent`. Der Standardwert ist „Aus“. Wenn &quot;Ein&quot;aktiviert ist, werden alle durch &quot;mod&quot;festgelegten Zwischenspeicherkopfzeilen für nicht speicherbare Inhalte entfernt. Dies unterscheidet sich vom Verhalten in Version 4.3.3 (wo die Standardeinstellung &quot;Ein&quot;war), aber vom Verhalten in früheren Versionen als 4.3.3 (wo die Standardeinstellung &quot;Aus&quot;war). Keeping `DispatcherRestrictUncacheableContent`Der Standardwert Aus ist der empfohlene Ansatz, sodass der Browser-Cache flexibler ist. Wenn Sie beim Upgrade von Version 4.3.3 auf 4.3.4 dasselbe Verhalten wie in Version 4.3.3 beibehalten möchten, müssen Sie explizit festlegen `DispatcherRestrictUncacheableContent` auf &quot;An&quot;.
-* DISP-841 - Dispatcher doesn&#39;t respect /serverStaleOnError for 504 response code
+* DISP-841 - Dispatcher respektiert /serverStaleOnError für 504-Antwortcode nicht
 * DISP-874 - Erstellen einer Dispatcher-Konfiguration, um die Implementierung von DISP-818 zu aktivieren oder zu deaktivieren
 * DISP-883 - Verfolgen der URL-Anforderungsdekomposition im Dispatcher
-* DISP-944 - pre load vanity urls
+* DISP-944 - Vanity-URLs vor dem Laden
 
 ### Version 4.3.3 (18. Oktober 2019) {#october}
 
@@ -79,11 +78,11 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 * DISP-822 - Dispatcher sollte &quot;ppoll&quot;anstelle von &quot;pselect&quot;verwenden
 * DISP-824 - Secure DispatcherUseForwardedHost
 * DISP-825 - Meldung protokollieren, wenn kein Speicherplatz mehr auf der Festplatte vorhanden ist
-* DISP-826 - Support refetch URIs with a query string
+* DISP-826 - Unterstützung von Refzierungs-URIs mit einer Abfragezeichenfolge
 
 **Neue Funktionen**:
 
-* DISP-703 - Farm Specific Cache Hit Ratio
+* DISP-703 - Farm-spezifisches Cache-Trefferverhältnis
 * DISP-827 - Lokaler Server zum Testen
 * DISP-828 - Erstellen eines Testdocker-Bildes für Dispatcher
 
