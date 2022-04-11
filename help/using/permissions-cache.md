@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 753f9fc35968996ee83d5947585fd52f2b981632
+source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
 workflow-type: tm+mt
-source-wordcount: '827'
+source-wordcount: '829'
 ht-degree: 85%
 
 ---
@@ -46,7 +46,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 
 1. Der Dispatcher ermittelt, dass der Inhalt nicht zwischengespeichert wurde oder aktualisiert werden muss.
 1. Der Dispatcher leitet die ursprüngliche Anforderung an den Renderer weiter.
-1. Der Renderer ruft das AEM Autorisierungs-Servlet (dies ist nicht das Dispatcher-AuthChcker-Servlet) auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
+1. Der Renderer ruft das Servlet AEM Autorisierer (dies ist nicht das Dispatcher-AuthChcker-Servlet) auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
 1. Der Dispatcher leitet die Antwort an den Browser weiter. Der Dispatcher fügt den Text der Antwortnachricht des Renderers zum Cache hinzu.
 
 ## Der Benutzer ist nicht autorisiert  {#user-is-not-authorized}
@@ -57,7 +57,7 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Dispatcher sendet eine Anfragenachricht an den Renderer, die alle Kopfzeilen der Browseranforderung enthält.
 1. Der Renderer ruft das Auth-Checker-Servlet auf, um eine Sicherheitsprüfung durchzuführen, die fehlschlägt, und der Renderer leitet die ursprüngliche Anforderung an den Dispatcher weiter.
 1. Der Dispatcher leitet die ursprüngliche Anforderung an den Renderer weiter.
-1. Der Renderer ruft das AEM Autorisierungs-Servlet (dies ist nicht das Dispatcher-AuthChcker-Servlet) auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
+1. Der Renderer ruft das Servlet AEM Autorisierer (dies ist nicht das Dispatcher-AuthChcker-Servlet) auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
 1. Der Dispatcher leitet die Antwort an den Browser weiter. Der Dispatcher fügt den Text der Antwortnachricht des Renderers zum Cache hinzu.
 
 
