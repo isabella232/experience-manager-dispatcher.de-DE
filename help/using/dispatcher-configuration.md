@@ -2,7 +2,7 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
+source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
 workflow-type: tm+mt
 source-wordcount: '8528'
 ht-degree: 84%
@@ -435,7 +435,7 @@ Der Ordner, in dem die Sitzungsinformationen gespeichert werden. Wenn der Ordner
 
 **/encode** (optional)
 
-Gibt an, wie die Sitzungsinformationen kodiert werden. Verwendung `md5` zur Verschlüsselung mit dem Md5-Algorithmus oder `hex` für die Hexadezimalkodierung. Wenn Sie die Sitzungsdaten verschlüsseln, kann auch ein Benutzer mit Zugriff auf das Dateisystem den Sitzungsinhalt nicht lesen. Der Standardwert lautet `md5`.
+Gibt an, wie die Sitzungsinformationen kodiert werden. Verwendung `md5` zur Verschlüsselung mit dem Md5-Algorithmus oder `hex` für die Hexadezimalkodierung. Wenn Sie die Sitzungsdaten verschlüsseln, kann auch ein Benutzer mit Zugriff auf das Dateisystem den Sitzungsinhalt nicht lesen. Der Standardwert ist `md5`.
 
 **/header** (optional)
 
@@ -559,7 +559,7 @@ Verwenden Sie den `/filter`-Abschnitt, um die HTTP-Anfragen anzugeben, die der D
 
 >[!CAUTION]
 >
->In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Lesen Sie auch den Abschnitt [AEM Sicherheitscheckliste](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security) für zusätzliche Sicherheitsdetails bezüglich Ihrer AEM Installation.
+>In der [Dispatcher-Sicherheits-Checkliste](security-checklist.md) finden Sie weitere Aspekte, wenn der Zugriff unter Verwendung des Dispatchers eingeschränkt ist. Lesen Sie auch den Abschnitt [AEM Sicherheitscheckliste](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=de#security) für zusätzliche Sicherheitsdetails bezüglich Ihrer AEM Installation.
 
 Die `/filter` -Abschnitt besteht aus einer Reihe von Regeln, die den Zugriff auf Inhalte gemäß den Mustern im Anforderungszeilen-Teil der HTTP-Anforderung verweigern oder zulassen. Sie sollten eine Zulassungsliste-Strategie für Ihre `/filter` Abschnitt:
 
@@ -840,7 +840,7 @@ Ein einzelner Eintrag kann `glob` oder eine Kombination aus `method`, `url`, `qu
 
 ### Testen der Dispatcher-Sicherheit {#testing-dispatcher-security}
 
-Dispatcher-Filter sollten den Zugriff auf folgende Seiten und Skripts auf AEM-Veröffentlichungsinstanzen nicht zulassen. Öffnen Sie diese Seiten in einem Webbrowser, als wären Sie ein Besucher, und stellen Sie sicher, dass der Code 404 zurückgegeben wird. Passen Sie die Filter an, wenn ein anderes Ergebnis angezeigt wird.
+Dispatcher-Filter sollten den Zugriff auf folgende Seiten und Skripts auf AEM-Veröffentlichungsinstanzen nicht zulassen. Öffnen Sie diese Seiten in einem Webbrowser, als wären Sie ein Besucher, und stellen Sie sicher, dass der Code 403 zurückgegeben wird. Passen Sie die Filter an, wenn ein anderes Ergebnis angezeigt wird.
 
 Beachten Sie, dass das normale Seiten-Rendering für `/content/add_valid_page.html?debug=layout`.
 
@@ -1343,7 +1343,6 @@ Im Folgenden ein Beispiel aus der Standardkonfiguration:
 >
 >* Fügen Sie den Headernamen in den `/cache/headers`-Abschnitt ein.
 >* Fügen Sie Folgendes hinzu: [Apache-Richtlinie](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) im Dispatcher-Abschnitt:
-
 >
 >```xml
 >FileETag none
