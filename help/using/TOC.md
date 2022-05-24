@@ -1,7 +1,7 @@
 ---
 cloud: Experience Cloud
 product: experience manager
-sub-product: Experience Manager Dispatcher
+sub-product: experience manager dispatcher
 archetype: Administrator
 user-guide-title: Experience Manager Dispatcher Help
 breadcrumb-title: Dispatcher-Anleitung
@@ -10,9 +10,9 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
+source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
 workflow-type: tm+mt
-source-wordcount: '89'
+source-wordcount: '84'
 ht-degree: 100%
 
 ---
@@ -28,7 +28,7 @@ ht-degree: 100%
 + Konfiguration {#configuring}
    + [Konfigurieren des Dispatchers](dispatcher-configuration.md)
    + [Invalidierung zwischengespeicherter Seiten aus AEM](page-invalidate.md)
-   + [Optimierung von Websites für die Cache-Leistung](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [Optimierung von Websites für die Cache-Leistung](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configuring-performance.html)
    + [Zwischenspeichern von geschützten Inhalten](permissions-cache.md)
    + [Verwenden des Dispatchers mit mehreren Domänen ](dispatcher-domains.md)
    + [Verwenden von SSL mit dem Dispatcher](dispatcher-ssl.md)

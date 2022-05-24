@@ -1,8 +1,8 @@
 ---
 title: Die Dispatcher-Sicherheitscheckliste
-seo-title: Die Dispatcher-Sicherheitscheckliste
+seo-title: The Dispatcher Security Checklist
 description: Eine Sicherheitscheckliste, die vor der Produktion geprüft werden sollte.
-seo-description: Eine Sicherheitscheckliste, die vor der Produktion geprüft werden sollte.
+seo-description: A security checklist that should be completed before going on production.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -14,10 +14,10 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
 workflow-type: tm+mt
-source-wordcount: '653'
-ht-degree: 86%
+source-wordcount: '638'
+ht-degree: 85%
 
 ---
 
@@ -38,7 +38,7 @@ Adobe empfiehlt, vor dem Einsatz in einer Produktionsumgebung unbedingt die folg
 
 >[!CAUTION]
 >
->Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-3/sites/administring/using/security-checklist.html).
+>Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-5/sites/administring/using/security-checklist.html).
 
 ## Verwenden der neuesten Version des Dispatchers {#use-the-latest-version-of-dispatcher}
 
@@ -87,7 +87,7 @@ Stellen Sie sicher, dass Sie Filter verwenden, um den externen Zugriff auf sämt
 
 Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dispatcher-security) finden Sie eine Liste der URLs, die blockiert werden müssen.
 
-## Verwenden Sie Zulassungslisten anstelle von Auf die Blockierungsliste setz {#use-allowlists-instead-of-blocklists}
+## Verwenden von Zulassungslisten anstelle von Blockierungslisten {#use-allowlists-instead-of-blocklists}
 
 Zulassungslisten sind eine bessere Möglichkeit zur Zugangssteuerung, da sie grundsätzlich davon ausgehen, dass alle Zugriffsanfragen verweigert werden sollten, es sei denn, sie sind ausdrücklich Teil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
@@ -100,7 +100,7 @@ Außerdem müssen IIS-Benutzer ihre Website wie folgt konfigurieren:
 1. Wählen Sie in den Einstellungen für den physischen Pfad für Ihre Website die Option zum Verbinden als bestimmter Benutzer ****.
 1. Legen Sie den Benutzer fest.
 
-## Vermeiden von Denial-of-Service-Angriffen   {#prevent-denial-of-service-dos-attacks}
+## Vermeiden von Denial-of-Service-Angriffen  {#prevent-denial-of-service-dos-attacks}
 
 Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Benutzer unzugänglich zu machen.
 
