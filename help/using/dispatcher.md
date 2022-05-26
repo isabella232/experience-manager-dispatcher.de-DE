@@ -9,7 +9,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
+source-git-commit: 85a7f38ecb5f5fe620ff51a7cdbe29f546559288
 workflow-type: tm+mt
 source-wordcount: '3190'
 ht-degree: 93%
@@ -27,7 +27,7 @@ Der Dispatcher ist das Tool zum Zwischenspeichern und/oder Lastenausgleich von A
 Der Prozess für die Bereitstellung des Dispatchers ist unabhängig vom Webserver und der gewählten Betriebssystemplattform:
 
 1. Weitere Informationen zum Dispatcher (diese Seite). Weitere Informationen finden Sie außerdem in den [häufig gestellten Fragen zum Dispatcher](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
-1. Installieren Sie eine [unterstützter Webserver](https://helpx.adobe.com/de/experience-manager/6-3/sites/deploying/using/technical-requirements.html) entsprechend der Webserver-Dokumentation.
+1. Installieren Sie eine [unterstützter Webserver](https://helpx.adobe.com/de/experience-manager/6-5/sites/deploying/using/technical-requirements.html) entsprechend der Webserver-Dokumentation.
 1. [Installieren Sie das Dispatcher-Modul](dispatcher-install.md) auf Ihrem Webserver und konfigurieren Sie den Webserver dementsprechend.
 1. [Konfigurieren Sie den Dispatcher](dispatcher-configuration.md) (Datei „dispatcher.any“).
 1. [Konfigurieren Sie AEM](page-invalidate.md), sodass der Cache durch Inhaltsaktualisierungen invalidiert wird.
