@@ -11,7 +11,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
+source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
 workflow-type: tm+mt
 source-wordcount: '2965'
 ht-degree: 99%
@@ -62,9 +62,11 @@ Wenn Dispatcher Flush-Replikationsagenten anfordern, dass der Dispatcher zwische
 
 ![](assets/chlimage_1-9.png)
 
-1. Eine Seite wird auf der AEM-Autoreninstanz aktiviert und der Inhalt wird an die Veröffentlichungsinstanz repliziert.
-1. Der Dispatcher Flush-Agent ruft den Dispatcher zur Invalidierung des Caches für den replizierten Inhalt auf.
-1. Der Dispatcher nimmt nicht inhaltsverändernde Bearbeitungen an einer oder mehreren STAT-Dateien vor, um die zwischengespeicherten Dateien ungültig zu machen.
+<ol type="a">
+  <li>Eine Seite wird auf der AEM-Autoreninstanz aktiviert und der Inhalt wird an die Veröffentlichungsinstanz repliziert.</li>
+  <li>Der Dispatcher Flush-Agent ruft den Dispatcher zur Invalidierung des Caches für den replizierten Inhalt auf.</li>
+  <li>Der Dispatcher nimmt nicht inhaltsverändernde Bearbeitungen an einer oder mehreren STAT-Dateien vor, um die zwischengespeicherten Dateien ungültig zu machen.</li>
+</ol>
 
 Um den Dispatcher mit mehreren Domänen zu verwenden, müssen Sie AEM, den Dispatcher und Ihren Webserver konfigurieren. Bei den auf dieser Seite beschriebenen Lösungen handelt es sich um allgemeine Lösungen, die sich für die meisten Umgebungen eignen. Aufgrund der Komplexität einiger AEM-Topologien erfordert Ihre Lösung möglicherweise weitere benutzerdefinierte Konfigurationen, um bestimmte Probleme zu beheben. Sie müssen die Beispiele ggf. gemäß den Anforderungen Ihrer vorhandenen IT-Infrastruktur und Verwaltungsrichtlinien anpassen.
 
