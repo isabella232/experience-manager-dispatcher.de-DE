@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
+source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
 workflow-type: tm+mt
-source-wordcount: '638'
+source-wordcount: '639'
 ht-degree: 85%
 
 ---
@@ -161,7 +161,7 @@ AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/
 
 Um Clickjacking zu verhindern, sollten Sie Ihren Webserver so konfigurieren, dass er die HTTP-Kopfzeile `X-FRAME-OPTIONS` bereitstellt, die auf `SAMEORIGIN` festgelegt ist.
 
-Weitere [Informationen zum Thema Clickjacking finden Sie auf der OWASP-Website](https://www.owasp.org/index.php/Clickjacking).
+Weitere [Informationen zum Thema Clickjacking finden Sie auf der OWASP-Website](https://owasp.org/www-community/attacks/Clickjacking).
 
 ## Durchführen eines Penetrationstests {#perform-a-penetration-test}
 
