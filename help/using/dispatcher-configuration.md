@@ -1,11 +1,11 @@
 ---
 title: Konfigurieren des Dispatchers
-description: Erfahren Sie, wie der Dispatcher konfiguriert wird.
+description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
+source-git-commit: aed3c791a308b37ac493a78e918da3a4db1c8a64
 workflow-type: tm+mt
-source-wordcount: '8528'
-ht-degree: 84%
+source-wordcount: '8549'
+ht-degree: 83%
 
 ---
 
@@ -435,7 +435,7 @@ Der Ordner, in dem die Sitzungsinformationen gespeichert werden. Wenn der Ordner
 
 **/encode** (optional)
 
-Gibt an, wie die Sitzungsinformationen kodiert werden. Verwendung `md5` zur Verschlüsselung mit dem Md5-Algorithmus oder `hex` für die Hexadezimalkodierung. Wenn Sie die Sitzungsdaten verschlüsseln, kann auch ein Benutzer mit Zugriff auf das Dateisystem den Sitzungsinhalt nicht lesen. Der Standardwert ist `md5`.
+Gibt an, wie die Sitzungsinformationen kodiert werden. Verwendung `md5` zur Verschlüsselung mit dem Md5-Algorithmus oder `hex` für die Hexadezimalkodierung. Wenn Sie die Sitzungsdaten verschlüsseln, kann auch ein Benutzer mit Zugriff auf das Dateisystem den Sitzungsinhalt nicht lesen. Der Standardwert lautet `md5`.
 
 **/header** (optional)
 
