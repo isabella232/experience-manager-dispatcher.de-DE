@@ -2,9 +2,9 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: aed3c791a308b37ac493a78e918da3a4db1c8a64
+source-git-commit: 385495c76cd770409e9a002c685e8d375b159207
 workflow-type: tm+mt
-source-wordcount: '8549'
+source-wordcount: '8573'
 ht-degree: 83%
 
 ---
@@ -1374,7 +1374,11 @@ Weitere Informationen finden Sie auch in den Abschnitten `/invalidate` und `/sta
 
 ### Konfigurieren der zeitbasierten Cache-Invalidierung – /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Mit der `/enableTTL`-Eigenschaft werden die Antwortheader aus dem Backend ausgewertet und wenn sie ein maximales Alter vom Typ `Cache-Control` oder ein Datum vom Typ `Expires` enthalten, wird eine leere Hilfsdatei neben der Cachedatei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
+Wenn auf 1 gesetzt (/enableTTL &quot;1&quot;), wird die `/enableTTL` -Eigenschaft wertet die Antwortheader aus dem Backend aus und ob sie eine `Cache-Control` max-age oder `Expires` Datum, wird eine leere Hilfsdatei neben der Cachedatei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
+
+>[!NOTE]
+>
+>Beachten Sie, dass TTL-basiertes Caching eine Obermenge von Header-Caching ist und als solche die `/headers` -Eigenschaft richtig konfiguriert werden.
 
 >[!NOTE]
 >
