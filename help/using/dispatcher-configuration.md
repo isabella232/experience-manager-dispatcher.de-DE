@@ -2,10 +2,10 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
+source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
 workflow-type: tm+mt
-source-wordcount: '8561'
-ht-degree: 83%
+source-wordcount: '8636'
+ht-degree: 81%
 
 ---
 
@@ -1280,31 +1280,38 @@ Im `ignoreUrlParams`-Abschnitt wird definiert, welche URL-Parameter bei der Prü
 
 Wenn ein Parameter für eine Seite ignoriert wird, wird die Seite zwischengespeichert, wenn sie zum ersten Mal angefordert wird. Bei nachfolgenden Anforderungen der Seite wird die zwischengespeicherte Seite geliefert, unabhängig vom Wert des Parameters in der Anforderung.
 
+>[!NOTE]
+>
+>Es wird empfohlen, die `ignoreUrlParams` auf eine Zulassungsliste festzulegen. Daher werden alle Abfrageparameter ignoriert und nur bekannte oder erwartete Abfrageparameter werden von der Ignorierung ausgeschlossen (&quot;verweigert&quot;). Weitere Informationen und Beispiele finden Sie unter [diese Seite](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+
 Um festzulegen, welche Parameter ignoriert werden, fügen Sie glob-Regeln zu der `ignoreUrlParams`-Eigenschaft hinzu:
 
-* Um einen Parameter zu ignorieren, erstellen Sie eine glob-Eigenschaft, die den Parameter zulässt.
-* Damit die Seite nicht zwischengespeichert wird, erstellen Sie eine glob-Eigenschaft, die den Parameter verweigert.
+* Um eine Seite zwischenzuspeichern, obwohl die Anfrage einen URL-Parameter enthält, erstellen Sie eine glob-Eigenschaft, die den Parameter ermöglicht (zu ignorieren).
+* Um zu verhindern, dass die Seite zwischengespeichert wird, erstellen Sie eine glob-Eigenschaft, die den Parameter verweigert (zu ignorieren).
 
-Im folgenden Beispiel ignoriert der Dispatcher die `q` -Parameter, sodass Anforderungs-URLs, die den Parameter q enthalten, zwischengespeichert werden:
+Im folgenden Beispiel ignoriert der Dispatcher alle Parameter mit Ausnahme der `nocache` Parameter. Anforderungs-URLs, die die Variable `nocache` -Parameter werden vom Dispatcher nie zwischengespeichert:
 
 ```xml
 /ignoreUrlParams
 {
-    /0001 { /glob "*" /type "deny" }
-    /0002 { /glob "q" /type "allow" }
+    # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
+    /0001 { /glob "nocache" /type "deny" }
+    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
+    /0002 { /glob "*" /type "allow" }
 }
 ```
 
-Beim Beispielwert `ignoreUrlParams` bewirkt die folgende HTTP-Anforderung, dass die Seite zwischengespeichert wird, da der Parameter `q` ignoriert wird:
+Im Kontext der `ignoreUrlParams` Konfigurationsbeispiel oben bewirkt die folgende HTTP-Anforderung, dass die Seite zwischengespeichert wird, da die `willbecached` -Parameter wird ignoriert:
 
 ```xml
-GET /mypage.html?q=5
+GET /mypage.html?willbecached=true
 ```
 
-Beim Beispielwert `ignoreUrlParams` bewirkt die folgende HTTP-Anforderung, dass die Seite **nicht** zwischengespeichert wird, da der Parameter `p` nicht ignoriert wird:
+Im Kontext der `ignoreUrlParams` Konfigurationsbeispiel: Die folgende HTTP-Anforderung bewirkt, dass die Seite **not** zwischengespeichert werden, da die `nocache` -Parameter wird nicht ignoriert:
 
 ```xml
-GET /mypage.html?q=5&p=4
+GET /mypage.html?nocache=true
+GET /mypage.html?nocache=true&willbecached=true
 ```
 
 Weitere Informationen zu glob-Eigenschaften finden Sie unter [Entwerfen von Mustern für glob-Eigenschaften](#designing-patterns-for-glob-properties).
