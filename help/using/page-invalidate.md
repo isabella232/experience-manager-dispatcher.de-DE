@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: f447ff9b3785248a4906c1c9abdcbd18576aa36d
+source-git-commit: f255701f23a628ba0d8b6cd91228462e1b552ffa
 workflow-type: tm+mt
-source-wordcount: '1404'
-ht-degree: 97%
+source-wordcount: '1421'
+ht-degree: 95%
 
 ---
 
@@ -114,6 +114,7 @@ Das Leeren des Dispatchers wird von einem Replikationsagenten gesteuert, der auf
    **Hinweis:** Bei Dispatcher Flush-Agenten wird die URI-Eigenschaft nur verwendet, wenn Sie pfadbasierte virtualhost-Einträge verwenden, um zwischen den Farmen zu unterscheiden. Sie verwenden dieses Feld zum Bestimmen der Farm, die invalidiert werden soll. Beispiel: Farm 1 hat den virtuellen Host `www.mysite.com/path1/*` und Farm 2 den virtuellen Host `www.mysite.com/path2/*`. Mit der URL `/path1/invalidate.cache` können Sie die erste Farm und mit `/path2/invalidate.cache` die zweite Farm bestimmen. Weitere Informationen finden Sie unter [Verwenden des Dispatchers mit mehreren Domänen](dispatcher-domains.md).
 
 1. Konfigurieren Sie ggf. weitere Parameter. 
+1. Melden Sie sich bei der Veröffentlichungsinstanz an und validieren Sie die Konfiguration des Flush-Agenten. Stellen Sie außerdem sicher, dass sie aktiviert ist.
 1. Wiederholen Sie den Vorgang für jede betreffende Veröffentlichungsinstanz.
 
 Wenn Sie nach dem Konfigurieren eine Seite aktivieren und so in der Autorenumgebung erstellte Inhalte in der Veröffentlichungsumgebung verfügbar machen, initiiert dieser Agent eine Standardreplikation. Das Protokoll enthält Meldungen, die auf Anforderungen von Ihrem Publish-Server hinweisen und wie folgt aussehen:
