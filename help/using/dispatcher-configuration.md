@@ -2,9 +2,9 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
+source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
 workflow-type: tm+mt
-source-wordcount: '8636'
+source-wordcount: '8675'
 ht-degree: 81%
 
 ---
@@ -406,7 +406,7 @@ In der folgenden Tabelle sind die virtuellen Hosts aufgeführt, die für die HTT
 
 >[!CAUTION]
 >
->`/allowAuthorized` **muss** im `/cache`-Abschnitt auf `"0"` eingestellt sein, damit diese Funktion aktiviert wird.
+>`/allowAuthorized` **muss** im `"0"`-Abschnitt auf `/cache` eingestellt sein, damit diese Funktion aktiviert wird. Wie im Abschnitt [Zwischenspeicherung bei Verwendung der Authentifizierung](#caching-when-authentication-is-used) Abschnitt, wenn Sie `/allowAuthorized 0 ` Anforderungen, die Authentifizierungsinformationen enthalten **not** zwischengespeichert. Wenn die Zwischenspeicherung unter Berücksichtigung von Berechtigungen erforderlich ist, lesen Sie den Abschnitt [Zwischenspeichern von geschützten Inhalten](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html?lang=de) Seite.
 
 Erstellen Sie eine sichere Sitzung für den Zugriff auf die Renderer-Farm, sodass Benutzer nur nach Anmeldung Zugriff auf Seiten in der Farm erhalten. Nach Anmeldung können sie dann auf Seiten in der Farm zugreifen. Weitere Informationen zur Verwendung dieser Funktion mit geschlossenen Benutzergruppen finden Sie unter [Erstellen einer geschlossenen Benutzergruppe. ](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=en#creating-the-user-group-to-be-used) Lesen Sie vor der Live-Schaltung auch die [Sicherheits-Checkliste](/help/using/security-checklist.md) für den Dispatcher.
 
