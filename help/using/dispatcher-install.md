@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: d19a27256c44ec00fd440b2f8a2fe408a4a4b7c8
+source-git-commit: 63dc6184b502b517238c60ef6223b39bd7594306
 workflow-type: tm+mt
 source-wordcount: '3693'
 ht-degree: 96%
@@ -177,7 +177,7 @@ Der standardmäßige Flush-Replikationsagent auf der Autoreninstanz ist so konfi
 
 Wenn Ihre Website eine Authentifizierungsmethode anwendet, muss der Flush-Replikationsagent entsprechend konfiguriert werden.
 
-1. Öffnen Sie den IIS-Manager und wählen Sie die Website, die Sie als Dispatcher-Cache verwenden.
+1. Öffnen Sie IIS Manager und wählen Sie die Website aus, die Sie als Dispatcher-Cache verwenden.
 1. Doppelklicken Sie im Ansichtsmodus „Features“ im Abschnitt „IIS“ auf „Authentifizierung“.
 1. Wenn die anonyme Authentifizierung nicht aktiviert ist, wählen Sie „Anonyme Authentifizierung“ und klicken Sie im Bereich „Aktionen“ auf „Aktivieren“.
 
@@ -190,7 +190,7 @@ Führen Sie die folgenden Schritte aus, um das ISAPI-Modul des Dispatchers zu II
 1. Doppelklicken Sie im Ansichtsmodus „Features“ im Abschnitt „IIS“ auf „Handlerzuordnungen“.
 1. Klicken Sie auf der Seite „Handlerzuordnungen“ im Bereich „Aktionen“ auf „Skriptzuordnung mit Platzhalter hinzufügen“, fügen Sie die folgenden Eigenschaftenwerte hinzu und klicken Sie dann auf „OK“:
 
-   * Anforderungspfad: *
+   * Anforderungspfad: &#42;
    * Ausführbare Datei: der absolute Pfad der Datei „disp_iis.dll“, beispielsweise `C:\inetpub\Scripts\disp_iis.dll`.
    * Name: ein beschreibender Name für die Handlerzuordnung, beispielsweise `Dispatcher`.
 
