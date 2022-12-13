@@ -2,7 +2,7 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0debee043078b869d0af3258075bd83bf0312c8f
+source-git-commit: 9ee19d28b9d18f2ffd4f45129e48b5431beacc77
 workflow-type: tm+mt
 source-wordcount: '8675'
 ht-degree: 81%
@@ -625,7 +625,7 @@ Falls Ihre Filter nicht so ausgelöst werden, wie Sie es erwarten, können Sie i
 Bei dem folgendem Beispiel Filterabschnitt verweigert der Dispatcher Anforderungen für alle Dateien. Sie können zunächst den Zugriff auf alle Dateien verweigern und dann den Zugriff auf bestimmte Bereiche zulassen.
 
 ```xml
-  /0001  { /glob "*" /type "deny" }
+/0001  { /type "deny" /url "*"  }
 ```
 
 Anforderungen für explizit verweigerte Bereiche führen zur Rückgabe des Fehlercodes 404 (Seite nicht gefunden).
@@ -692,8 +692,8 @@ Mit dem nachstehenden Regelbeispiel wird der Inhaltsabruf aus dem `/content`-Pfa
 /006 {
         /type "deny"
         /path "/content/*"
-        /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy)'
-        /extension '(json|xml|html)'
+        /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|jcr:content|_jcr_content|search|childrenlist|ext|assets|assetsearch|[0-9-]+)'
+        /extension '(json|xml|html|feed))'
         }
 ```
 
@@ -729,7 +729,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
   /filter
       {
       # Deny everything first and then allow specific entries
-      /0001 { /type "deny" /glob "*" }
+      /0001  { /type "deny" /url "*"  }
 
       # Open consoles
 #     /0011 { /type "allow" /url "/admin/*"  }  # allow servlet engine admin
@@ -1831,7 +1831,7 @@ Nachfolgend finden Sie eine Liste mit den Antwortheadern, die von `X-Dispatcher-
 Die Zieldatei ist im Cache enthalten, wird aber durch eine neuere stat-Datei invalidiert. Der Dispatcher löscht die Zieldatei, erstellt sie aus der Ausgabe neu und gibt sie aus.
 * **Nicht zwischenspeicherbar: kein Basisverzeichnis**
 Die Konfiguration der Farm enthält kein Basisverzeichnis (Konfigurationselement 
-`cache.docroot`).
+`cache.docroot`) angezeigt.
 * **Nicht zwischenspeicherbar: Cache-Dateipfad zu lang**\
    Die Zieldatei – die Verknüpfung von Basisverzeichnis und URL-Datei – überschreitet den längsten möglichen Dateinamen im System.
 * **Nicht zwischenspeicherbar: temporärer Dateipfad zu lang**\
