@@ -2,9 +2,9 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 51be516f90587ceda19180f13727c8372a794261
+source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
 workflow-type: tm+mt
-source-wordcount: '8675'
+source-wordcount: '8710'
 ht-degree: 81%
 
 ---
@@ -1284,6 +1284,11 @@ Um festzulegen, welche Parameter ignoriert werden, fügen Sie glob-Regeln zu der
 
 * Um eine Seite zwischenzuspeichern, obwohl die Anfrage einen URL-Parameter enthält, erstellen Sie eine glob-Eigenschaft, die den Parameter ermöglicht (zu ignorieren).
 * Um zu verhindern, dass die Seite zwischengespeichert wird, erstellen Sie eine glob-Eigenschaft, die den Parameter verweigert (zu ignorieren).
+
+>[!NOTE]
+>
+>Beachten Sie beim Konfigurieren der glob-Eigenschaft, dass sie mit dem Parameternamen der Abfrage übereinstimmen sollte. Wenn Sie beispielsweise den Parameter &quot;p1&quot;über die folgende URL ignorieren möchten `http://example.com/path/test.html?p1=test&p2=v2`festgelegt ist, sollte die glob-Eigenschaft wie folgt lauten:
+> `/0002 { /glob "p1" /type "allow" }`
 
 Im folgenden Beispiel ignoriert der Dispatcher alle Parameter mit Ausnahme der `nocache` Parameter. Anforderungs-URLs, die die Variable `nocache` -Parameter werden vom Dispatcher nie zwischengespeichert:
 
