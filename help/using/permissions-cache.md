@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
+source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
 workflow-type: tm+mt
-source-wordcount: '856'
-ht-degree: 80%
+source-wordcount: '918'
+ht-degree: 75%
 
 ---
 
@@ -60,7 +60,6 @@ Die folgenden Abbildungen zeigen die Abfolge der Ereignisse, die auftreten, wenn
 1. Der Renderer ruft das Servlet AEM Autorisierer (dies ist nicht das Dispatcher-AuthChcker-Servlet) auf, um eine Sicherheitsprüfung durchzuführen. Wenn der Benutzer autorisiert ist, schließt der Renderer die gerenderte Seite im Text der Antwortnachricht ein.
 1. Der Dispatcher leitet die Antwort an den Browser weiter. Der Dispatcher fügt den Text der Antwortnachricht des Renderers zum Cache hinzu.
 
-
 ## Implementieren von berechtigungssensitiver Zwischenspeicherung {#implementing-permission-sensitive-caching}
 
 Wenn Sie die Zwischenspeicherung unter Berücksichtigung von Berechtigungen implementieren möchten, führen Sie die folgenden Schritte aus:
@@ -71,6 +70,11 @@ Wenn Sie die Zwischenspeicherung unter Berücksichtigung von Berechtigungen impl
 >[!NOTE]
 >
 >In der Regel werden sichere Ressourcen in einem anderen Ordner als nicht sichere Dateien gespeichert. Beispiel: /content/secure/
+
+>[!NOTE]
+>
+>Wenn sich ein CDN (oder ein anderer Cache) vor dem Dispatcher befindet, sollten Sie die Zwischenspeicherkopfzeilen entsprechend festlegen, damit das CDN den privaten Inhalt nicht zwischenspeichert. Beispiel: `Header always set Cache-Control private`.
+>Für AEM as a Cloud Service siehe [Zwischenspeicherung](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) Seite finden Sie weitere Informationen zum Festlegen privater Zwischenspeicherkopfzeilen.
 
 ## Erstellen des Auth-Checker-Servlets {#create-the-auth-checker-servlet}
 
