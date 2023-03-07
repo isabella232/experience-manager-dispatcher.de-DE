@@ -2,10 +2,10 @@
 title: Konfigurieren des Dispatchers
 description: Erfahren Sie, wie der Dispatcher konfiguriert wird. Erfahren Sie mehr über die Unterstützung für IPv4 und IPv6, Konfigurationsdateien, Umgebungsvariablen, Benennen der Instanz, Definieren von Farmen, Identifizieren von virtuellen Hosts und mehr.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
+source-git-commit: 0ac7c1cf3fc9330665b7a758cea38410c1958f1c
 workflow-type: tm+mt
-source-wordcount: '8710'
-ht-degree: 81%
+source-wordcount: '8984'
+ht-degree: 78%
 
 ---
 
@@ -1383,7 +1383,31 @@ Weitere Informationen finden Sie auch in den Abschnitten `/invalidate` und `/sta
 
 ### Konfigurieren der zeitbasierten Cache-Invalidierung – /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-Wenn auf 1 gesetzt (`/enableTTL "1"`), die `/enableTTL` -Eigenschaft wertet die Antwortheader aus dem Backend aus und ob sie eine `Cache-Control` max-age oder `Expires` Datum, wird eine leere Hilfsdatei neben der Cachedatei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
+Die zeitbasierte Cache-Invalidierung hängt von der `/enableTTL` -Eigenschaft und das Vorhandensein regulärer Ablaufkopfzeilen aus dem HTTP-Standard. Wenn Sie die Eigenschaft auf 1 festlegen (`/enableTTL "1"`), werden die Antwortheader aus dem Backend ausgewertet und wenn die Header einen `Cache-Control`, `max-age` oder `Expires` -Datum wird eine leere Hilfsdatei neben der zwischengespeicherten Datei erstellt, deren Änderungszeitpunkt dem Ablaufdatum entspricht. Wenn die zwischengespeicherte Datei nach dem Änderungszeitpunkt angefordert wird, wird sie automatisch erneut aus dem Backend angefordert.
+
+Vor der Dispatcher-Version 4.3.5 basierte die TTL-Invalidierungslogik nur auf dem konfigurierten TTL-Wert. Mit Dispatcher-Version 4.3.5, beidem der Satz TTL **und** die Invalidierungsregeln für den Dispatcher-Cache werden berücksichtigt. Daher gilt für eine zwischengespeicherte Datei Folgendes:
+
+1. Wenn `/enableTTL` auf 1 gesetzt ist, wird der Dateiablauf aktiviert. Wenn die Datei gemäß der festgelegten TTL abgelaufen ist, werden keine weiteren Prüfungen durchgeführt und die zwischengespeicherte Datei wird erneut vom Backend angefordert.
+2. Wenn die Datei entweder nicht abgelaufen ist oder `/enableTTL` nicht konfiguriert ist, werden die standardmäßigen Cache-Invalidierungsregeln wie die von [/statfileslevel](#invalidating-files-by-folder-level) und [/invalidate](#automatically-invalidating-cached-files). Das bedeutet, dass der Dispatcher Dateien ungültig machen kann, für die die TTL noch nicht abgelaufen ist.
+
+Diese neue Implementierung unterstützt Anwendungsfälle, in denen Dateien eine längere TTL aufweisen (z. B. im CDN), aber dennoch invalidiert werden können, selbst wenn die TTL noch nicht abgelaufen ist. Sie bevorzugt die Inhaltsaktualisierung gegenüber dem Cache-Trefferverhältnis auf dem Dispatcher.
+
+Umgekehrt, falls Sie **only** Die auf eine Datei angewendete Ablauflogik wird dann festgelegt `/enableTTL` auf 1 gesetzt und schließen Sie diese Datei aus dem standardmäßigen Cache-Invalidierungsmechanismus aus. Sie können beispielsweise:
+
+* Konfigurieren Sie die [Invalidierungsregeln](#automatically-invalidating-cached-files) im Cache-Abschnitt, um die Datei zu ignorieren. Im unten stehenden Codefragment enden alle Dateien in `.example.html` werden ignoriert und laufen nur ab, wenn die festgelegte TTL übergeben wurde.
+
+```xml
+  /invalidate
+  {
+   /0000  { /glob "*" /type "deny" }
+   /0001  { /glob "*.html" /type "allow" }
+   /0002  { /glob "*.example.html" /type "deny" }
+  }
+```
+
+* Entwerfen Sie die Inhaltsstruktur so, dass Sie einen hohen [/statfilelevel](#invalidating-files-by-folder-level) sodass die Datei nicht automatisch invalidiert wird.
+
+Dadurch wird sichergestellt, dass `.stat` -Dateiinvalidierung nicht verwendet wird und nur der TTL-Ablauf für die angegebenen Dateien aktiv ist.
 
 >[!NOTE]
 >
