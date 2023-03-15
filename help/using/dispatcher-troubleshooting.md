@@ -1,8 +1,8 @@
 ---
 title: Beheben von Problemen beim Dispatcher
-seo-title: Beheben von Problemen bei AEM Dispatcher
+seo-title: Troubleshooting AEM Dispatcher Problems
 description: Erfahren Sie mehr zur Fehlerbehebung bei Dispatcher-Problemen.
-seo-description: Erfahren Sie mehr zur Fehlerbehebung bei AEM Dispatcher-Problemen.
+seo-description: Learn to troubleshoot AEM Dispatcher issues.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
 workflow-type: tm+mt
-source-wordcount: '553'
-ht-degree: 90%
+source-wordcount: '560'
+ht-degree: 43%
 
 ---
 
@@ -30,14 +30,14 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Weitere Informationen finden Sie auch in der [Dispatcher-Wissensdatenbank](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Fehlerbehebung für Probleme beim Leeren des Dispatchers](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) und in den [Häufig gestellten Fragen zum Dispatcher](dispatcher-faq.md).
+>Überprüfen Sie die [Dispatcher-Wissensdatenbank](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [Beheben von Problemen beim Leeren des Dispatchers](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]) und [Häufig gestellte Fragen zu Dispatcher - Häufige Probleme](dispatcher-faq.md) für weitere Informationen.
 
 ## Überprüfen der Basiskonfiguration {#check-the-basic-configuration}
 
 Wie immer müssen zunächst die Grundlagen überprüft werden:
 
 * [Sicherstellen der grundlegenden Funktion](/help/using/dispatcher-configuration.md#confirming-basic-operation)
-* Überprüfen Sie alle Protokolldateien für den Webserver und den Dispatcher. Erhöhen Sie ggf. die `loglevel` für die Dispatcher-[Protokollierung](/help/using/dispatcher-configuration.md#logging).
+* Überprüfen Sie alle Protokolldateien für Ihren Webserver und Dispatcher. Erhöhen Sie bei Bedarf die `loglevel` wird für den Dispatcher verwendet [Protokollierung](/help/using/dispatcher-configuration.md#logging).
 
 * [Überprüfen der Konfiguration](/help/using/dispatcher-configuration.md):
 
@@ -46,7 +46,7 @@ Wie immer müssen zunächst die Grundlagen überprüft werden:
       * Haben Sie ermittelt, welcher Dispatcher die Website/Seite verarbeitet, die Sie prüfen?
    * Haben Sie Filter implementiert?
 
-      * Haben diese Auswirkungen auf den Aspekt, den Sie prüfen?
+      * Beeinflusst diese Filter die Angelegenheit, die Sie untersuchen?
 
 
 ## IIS-Diagnosewerkzeuge  {#iis-diagnostic-tools}
@@ -56,16 +56,16 @@ IIS bietet verschiedene Werkzeuge für die Ablaufverfolgung, abhängig von der j
 * IIS 6: Die IIS-Diagnosewerkzeuge können heruntergeladen und konfiguriert werden.
 * IIS 7: Die Ablaufverfolgung ist vollständig integriert.
 
-Hiermit können Sie die Aktivität überwachen.
+Mithilfe dieser Tools können Sie Aktivitäten überwachen.
 
-## IIS und 404 (Nicht gefunden)   {#iis-and-not-found}
+## IIS und 404 (Nicht gefunden)  {#iis-and-not-found}
 
-Wenn Sie IIS verwenden, wird möglicherweise in verschiedenen Situationen `404 Not Found` zurückgegeben. Wenn dies der Fall ist, finden Sie weitere Informationen in den folgenden Knowledge Base-Artikeln. 
+Bei Verwendung von IIS kann es vorkommen, dass `404 Not Found` in verschiedenen Szenarien zurückgegeben werden. Wenn dies der Fall ist, finden Sie weitere Informationen in den folgenden Knowledge Base-Artikeln. 
 
-* [IIS 6/7: POST-Methode gibt 404 zurück](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: Anfragen an URLs, die den Basispfad enthalten,  `/bin` geben zurück  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST-Methode gibt 404 zurück](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6: Anforderungen an URLs, die den Basispfad enthalten `/bin` eine `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-Sie sollten überprüfen, ob der Cache-Stammordner des Dispatchers und der IIS-Dokumentenstamm auf denselben Ordner festgelegt wurden.
+Überprüfen Sie außerdem, ob der Cache-Stammordner des Dispatchers und der IIS-Dokumentenstamm auf denselben Ordner festgelegt sind.
 
 ## Probleme beim Löschen von Workflow-Modellen {#problems-deleting-workflow-models}
 
@@ -75,13 +75,13 @@ Beim Löschen von Workflow-Modellen beim Zugriff auf eine AEM-Autoreninstanz dur
 
 **Zu reproduzierende Schritte:**
 
-1. Melden Sie sich bei der Autoreninstanz an (um zu bestätigen, dass Anfragen über den Dispatcher weitergeleitet werden).
-1. Erstellen Sie einen neuen Workflow, z. B. mit dem Titel „workflowToDelete“.
+1. Melden Sie sich bei Ihrer Autoreninstanz an (überprüfen Sie, ob Anforderungen über den Dispatcher weitergeleitet werden).
+1. Workflow erstellen; z. B. mit dem Titel auf workflowToDelete festgelegt ist.
 1. Vergewissern Sie sich, dass der Workflow erfolgreich erstellt wurde.
-1. Wählen Sie den Workflow aus, klicken Sie mit der rechten Maustaste darauf und klicken Sie dann auf **Löschen**.
+1. Wählen Sie den Workflow aus, klicken Sie mit der rechten Maustaste darauf und klicken Sie auf **Löschen**.
 
 1. Klicken Sie zur Bestätigung auf **Ja**.
-1. Es wird ein Fehlermeldungsfeld angezeigt:\
+1. Es wird ein Fehlermeldungsfeld mit folgenden Informationen angezeigt:\
    &quot; `ERROR 'Could not delete workflow model!!`&quot;.
 
 **Problemlösung**
@@ -104,27 +104,27 @@ Fügen Sie die folgenden Header im Abschnitt `/clientheaders` der Datei `dispatc
 
 ## Wechselwirkung mit „mod_dir“ (Apache) {#interference-with-mod-dir-apache}
 
-Im Folgenden wird beschrieben, wie der Dispatcher mit `mod_dir` im Apache-Webserver interagiert, da dies zu verschiedenen, möglicherweise unerwarteten Auswirkungen führen kann:
+Dieser Vorgang beschreibt, wie der Dispatcher mit `mod_dir` innerhalb des Apache-Webservers, da dies zu verschiedenen, möglicherweise unerwarteten Auswirkungen führen kann:
 
 ### Apache 1.3 {#apache}
 
-In Apache 1.3 verarbeitet `mod_dir` alle Anforderungen, bei denen die URL auf einen Ordner im Dateisystem verweist.
+In Apache 1.3 `mod_dir` verarbeitet alle Anfragen, bei denen die URL einem Ordner im Dateisystem zugeordnet ist.
 
 Es wird eine der folgenden Aktionen ausgeführt:
 
 * Die Anfrage wird an eine vorhandene `index.html`-Datei weitergeleitet.
 * Es wird eine Verzeichnisliste erstellt.
 
-Wenn der Dispatcher aktiviert ist, verarbeitet er solche Anforderungen, indem er sich selbst als Handler für den Inhaltstyp `httpd/unix-directory` registriert.
+Wenn der Dispatcher aktiviert ist, verarbeitet er solche Anforderungen, indem er sich selbst als Handler für den Inhaltstyp registriert `httpd/unix-directory`.
 
 ### Apache 2.x {#apache-x}
 
-In Apache 2.x unterscheiden sich die Abläufe. Ein Modul kann die verschiedenen Phasen der Anfrage behandeln, z. B. URL-Korrekturen. `mod_dir` verarbeitet diese Phase, indem eine Anfrage (wenn die URL einem Ordner zugeordnet ist) an die URL mit angefügtem `/` weitergeleitet wird.
+In Apache 2.x sind die Dinge anders. Ein Modul kann die verschiedenen Phasen der Anfrage behandeln, z. B. URL-Korrekturen. Die `mod_dir` verarbeitet diese Phase, indem eine Anforderung (wenn die URL einem Verzeichnis zugeordnet ist) an die URL mit einer `/` angefügt.
 
-Der Dispatcher fängt die `mod_dir`-Korrektur nicht ab, sondern behandelt die Anfrage an die umgeleitete URL (d. h. mit angehängtem `/`) vollständig. Dies kann ein Problem darstellen, wenn der Remoteserver (z. B. AEM) Anfragen an `/a_path` anders als Anfragen an `/a_path/` behandelt (wenn `/a_path` einem vorhandenen Ordner zugeordnet ist).
+Der Dispatcher fängt die `mod_dir` Korrektur, aber die Anfrage an die umgeleitete URL vollständig verarbeitet (d. h. mit `/` angehängt). Dieser Prozess kann ein Problem darstellen, wenn der Remote-Server (z. B. AEM) Anfragen an `/a_path` anders als Anforderungen an `/a_path/` (when `/a_path` in ein vorhandenes Verzeichnis verweist).
 
-Wenn dies der Fall ist, müssen Sie einen der beiden folgenden Schritte ausführen:
+In diesem Fall müssen Sie entweder:
 
-* Deaktivieren Sie `mod_dir` für die Unterstruktur `Directory` oder `Location`, die vom Dispatcher bearbeitet wird.
+* disable `mod_dir` für `Directory` oder `Location` vom Dispatcher verarbeitete Unterstruktur
 
 * Verwenden Sie `DirectorySlash Off`, um `mod_dir` so zu konfigurieren, dass `/` nicht angefügt wird.

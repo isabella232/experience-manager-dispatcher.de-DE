@@ -1,13 +1,13 @@
 ---
 title: Häufige Probleme beim Dispatcher
-seo-title: Häufige Probleme bei AEM Dispatcher
+seo-title: Top issues for AEM Dispatcher
 description: Häufige Probleme bei AEM Dispatcher
-seo-description: Häufige Probleme bei Adobe AEM Dispatcher
+seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
 workflow-type: tm+mt
-source-wordcount: '1644'
-ht-degree: 95%
+source-wordcount: '1578'
+ht-degree: 71%
 
 ---
 
@@ -19,23 +19,23 @@ ht-degree: 95%
 
 ### Was genau ist der Dispatcher?
 
-Der Dispatcher ist das Caching- bzw. Lastenausgleichstool von Adobe Experience Manager, das für eine schnelle und dynamische Web-Authoring-Umgebung sorgt. Der Dispatcher übernimmt Caching-Aufgaben als Teil eines HTTP-Servers wie etwa Apache mit dem Ziel, so viel statische Website-Inhalte wie möglich zu speichern (oder zu „cachen“) und so selten wie möglich auf die Layout-Engine der Website zuzugreifen. Beim Lastenausgleich verteilt der Dispatcher Benutzeranforderungen (Lasten) auf verschiedene AEM-Instanzen (Renderings).
+Der Dispatcher ist das Caching- und/oder Lastenausgleichstool von Adobe Experience Manager, mit dem eine schnelle und dynamische Web-Authoring-Umgebung realisiert werden kann. Zum Zwischenspeichern funktioniert der Dispatcher als Teil eines HTTP-Servers, z. B. Apache. Das Ziel besteht darin, so viele statische Website-Inhalte wie möglich zu speichern (oder &quot;zwischenspeichern&quot;) und so selten wie möglich auf die Layout-Engine der Website zuzugreifen. In einer Lastenausgleichsrolle verteilt der Dispatcher Benutzeranforderungen (Ladevorgänge) auf verschiedene AEM Instanzen (Renderer).
 
 Zum Caching nutzt das Dispatcher-Modul die Fähigkeit des Webservers, statische Inhalte bereitzustellen. Der Dispatcher legt die zwischengespeicherten Dokumente im Basisverzeichnis des Webservers ab.
 
 ### Wie führt der Dispatcher das Caching durch?
 
-Das Dispatcher-Modul nutzt die Fähigkeit des Webservers, statische Inhalte bereitzustellen. Der Dispatcher legt die zwischengespeicherten Dokumente im Basisverzeichnis des Webservers ab. Der Dispatcher verwendet zwei Hauptverfahren zum Aktualisieren des zwischengespeicherten Inhalts, wenn Änderungen an der Website vorgenommen werden.
+Das Dispatcher-Modul nutzt die Fähigkeit des Webservers, statische Inhalte bereitzustellen. Der Dispatcher speichert zwischengespeicherte Dokumente im Basisverzeichnis des Webservers. Der Dispatcher verwendet zwei Hauptverfahren zum Aktualisieren des zwischengespeicherten Inhalts, wenn Änderungen an der Website vorgenommen werden.
 
-* **Inhaltsaktualisierungen** entfernen die geänderten Seiten sowie die Dateien, die sich direkt auf sie beziehen.
+* **Inhaltsaktualisierungen** die geänderten Seiten und die Dateien entfernen, die ihnen direkt zugeordnet sind.
 * **Automatische Invalidierung** macht automatisch jene Teile des Caches ungültig, die nach einer Aktualisierung möglicherweise veraltet sind. Dies bedeutet beispielsweise, dass entsprechende Seiten als veraltet markiert werden, ohne dass diese gelöscht werden.
 
 ### Welche Vorteile hat der Lastenausgleich?
 
-Der Lastenausgleich verteilt Benutzeranforderungen (Lasten) auf mehrere AEM-Instanzen. In der folgenden Liste werden die Vorteile des Lastenausgleichs beschrieben:
+Lastenausgleich verteilt Benutzeranforderungen (Last) auf mehrere AEM Instanzen. In der folgenden Liste werden die Vorteile des Lastenausgleichs beschrieben:
 
-* **Verbesserte Verarbeitungsleistung**: In der Praxis bedeutet dies, dass der Dispatcher Dokumentenanfragen zwischen mehreren Instanzen von AEM aufteilt. Da jede Instanz weniger Dokumente zu verarbeiten hat, sind die Reaktionszeiten kürzer. Der Dispatcher führt interne Statistiken für jede Dokumentenkategorie, sodass die Anforderungen geschätzt und die Abfragen effizient aufgeteilt werden können.
-* **Verbesserte Fail-Safe-Abdeckung**: Wenn der Dispatcher keine Antwort von einer Instanz empfängt, werden Anforderungen automatisch an eine der anderen Instanzen weitergeleitet. Wenn eine Instanz nicht verfügbar ist, ist die einzige Auswirkung daher eine Verlangsamung der Site, proportional zur verloren gegangenen Rechenleistung.
+* **Erhöhte Verarbeitungsleistung**: In der Praxis bedeutet diese Methode, dass der Dispatcher Dokumentanforderungen zwischen mehreren Instanzen von AEM aufteilt. Da jede Instanz weniger Dokumente zu verarbeiten hat, sind die Reaktionszeiten kürzer. Der Dispatcher führt interne Statistiken für jede Dokumentenkategorie, sodass die Anforderungen geschätzt und die Abfragen effizient aufgeteilt werden können.
+* **Verbesserte Ausfallsicherheit**: Wenn der Dispatcher keine Antworten von einer Instanz erhält, werden Anforderungen automatisch an eine der anderen Instanzen weitergeleitet. Wenn eine Instanz nicht verfügbar ist, ist die einzige Auswirkung daher eine Verlangsamung der Site, proportional zur verloren gegangenen Rechenleistung.
 
 >[!NOTE]
 >
@@ -105,7 +105,8 @@ Content-Length: 0
 
 Der Dispatcher leert (löscht) die zwischengespeicherten Dateien und Ordner mit Namen, die dem Wert des Headers des CQ-Handles entsprechen. Beispielsweise entspricht der CQ-Handle mit dem Wert `/content/geomtrixx-outdoors/en`:
 
-Allen Dateien (mit einer beliebigen Dateierweiterung) mit dem Namen „en“ im Verzeichnis geometrixx-outdoors. Allen Verzeichnissen mit dem Namen `_jcr_content` unter dem Verzeichnis „en“ (das, falls vorhanden, zwischengespeicherte Renderings von Unterknoten der Seite enthält). Das Verzeichnis „en“ wird nur gelöscht, wenn `CQ-Action` `Delete` oder `Deactivate` entspricht.
+Alle Dateien (mit beliebiger Dateierweiterung) mit dem Namen &quot;en&quot;im Verzeichnis &quot;geometrixx-outdoors&quot;. Alle Verzeichnisse mit `_jcr_content` unterhalb des Verzeichnisses &quot;en&quot;(das, sofern vorhanden, zwischengespeicherte Renderings von Unterknoten der Seite enthält).
+Der Ordner `en` wird nur gelöscht, wenn die `CQ-Action` is `Delete` oder `Deactivate`.
 
 Weitere Einzelheiten zu diesem Thema finden Sie unter [Manuelle Invalidierung des Dispatcher-Caches](page-invalidate.md).
 
@@ -115,13 +116,13 @@ Lesen Sie hierzu [Zwischenspeichern sicherer Inhalte](permissions-cache.md).
 
 ### Wie sichere ich die Kommunikation zwischen den Dispatcher- und CQ-Instanzen?
 
-Siehe die Seiten [Dispatcher-Sicherheits-Checkliste](security-checklist.md) und [AEM Sicherheitscheckliste](https://helpx.adobe.com/experience-manager/6-4/sites/administring/using/security-checklist.html) .
+Siehe [Dispatcher-Sicherheitscheckliste](security-checklist.md) und [AEM Sicherheitscheckliste](https://experienceleague.adobe.com/docs/experience-manager-64/administering/security/security-checklist.html?lang=de) Seiten.
 
 ### Dispatcher-Problem `jcr:content` geändert in `jcr%3acontent`
 
-**Frage**: In letzter Zeit trat ein Problem auf Dispatcher-Ebene auf, bei dem einer der Ajax-Aufrufe, die Daten aus dem CQ-Repository abrufen, `jcr:content` enthielt. Dies wurde codiert als `jcr%3acontent`, was zu einem falschen Ergebnis führte.
+**Frage**: Das Unternehmen hat sich kürzlich auf Dispatcher-Ebene mit einem Problem konfrontiert. Einer der AJAX-Aufrufe, bei dem einige Daten aus dem CQ-Repository abgerufen wurden, hatte `jcr:content` enthalten. Das wurde kodiert in `jcr%3acontent` zu diesem falschen Ergebnissatz führte.
 
-**Antwort**: Verwenden Sie die Methode `ResourceResolver.map()`, um eine URL abzurufen, von der Anfragen entsprechend abgerufen bzw. ausgegeben werden, und um das Caching-Problem mit dem Dispatcher zu lösen. Die Methode „map()“ codiert den Doppelpunkt `:` zu Unterstrichen, die Methode „resolve()“ decodiert sie zurück in das von SLING JCR lesbare Format. Generieren Sie die im Ajax-Aufruf verwendete URL mittels „map()“.
+**Antwort**: Verwendung `ResourceResolver.map()` -Methode verwenden, um eine &quot;freundliche&quot;URL zu erhalten, von der Anfragen abgerufen bzw. ausgegeben werden, und um das Caching-Problem mit dem Dispatcher zu lösen. Die Methode map() kodiert die `:` Doppelpunkt zu Unterstrichen und die Methode resolve() dekodiert sie zurück in das SLING JCR-lesbare Format. Verwenden Sie die Methode map() , um die URL zu generieren, die im Ajax-Aufruf verwendet wird.
 
 Weitere Informationen: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
@@ -129,26 +130,22 @@ Weitere Informationen: [https://sling.apache.org/documentation/the-sling-engine/
 
 ### Wie konfiguriere ich Dispatcher-Flush-Agenten auf einer Veröffentlichungsinstanz?
 
-Siehe die Seite [Replikation](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents) .
+Siehe [Replikation](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) Seite.
 
 ### Wie kann ich Dispatcher-Bereinigungsprobleme beheben?
 
-[In diesem Artikel zur Fehlerbehebung finden Sie ](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) Antworten auf die folgenden Fragen:
+[Siehe diese Artikel zur Fehlerbehebung](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
 
-* Wie kann ich eine Situation lösen, in der kein Inhalt im Dispatcher-Cache gespeichert wird?
-* Wie kann ich ein Problem beheben, bei dem Cachedateien nicht aktualisiert werden?
-* Wie kann ich eine Situation lösen, in der das Dispatcher-Flushing überhaupt nicht funktioniert?
-
-Wenn der Dispatcher durch Löschvorgänge geleert wird, können Sie das Problem [wie in diesem Community-Blog-Beitrag von Sensei Martin beschrieben](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html) umgehen.
+Wenn der Dispatcher durch Löschvorgänge geleert wird, können Sie das Problem [wie in diesem Community-Blog-Beitrag von Sensei Martin beschrieben](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html) umgehen.
 
 ### Wie lösche ich DAM-Assets aus dem Dispatcher-Cache?
 
-Mithilfe der Funktion „chain replication“.  Ist diese Funktion aktiviert, sendet der Dispatcher-Flush-Agent eine Flush-Anforderung bei Empfang einer Replikation vom Autor.
+Mithilfe der Funktion „chain replication“. Wenn diese Funktion aktiviert ist, sendet der Dispatcher-Flush-Agent eine Flush-Anfrage, wenn eine Replikation vom Autor empfangen wird.
 
 So aktivieren Sie ihn:
 
 1. Folgen Sie [diesen Schritten](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) zur Erstellung von Flushing-Agenten beim Veröffentlichen.
-1. Wechseln Sie zu den Konfigurationen des Agenten und markieren Sie auf der Registerkarte **Auslöser** das Feld **Bei Empfang**.
+1. Navigieren Sie zur Konfiguration der einzelnen Agenten und rufen Sie die **Trigger** Registerkarte, überprüfen Sie die **Bei Erhalt** ankreuzen.
 
 ## Sonstiges
 
@@ -164,11 +161,11 @@ Sie können über die [Dispatcher-Konfigurationsdatei](dispatcher-configuration.
 
 Die `/rules`-Eigenschaft steuert anhand des Dokumentenpfads, welche Dokumente zwischengespeichert werden sollen. Unabhängig von der `/rules`-Eigenschaft werden in folgenden Fällen Dokumente nie zwischengespeichert:
 
-* Der Anfrage-URI enthält ein Fragezeichen `(?)`.
-* Hierdurch wird normalerweise eine dynamische Seite angegeben (z. B. ein Suchergebnis), die nicht zwischengespeichert werden muss.
+* Der Anfrage-URI enthält eine `(?)` Fragezeichen.
+* Er zeigt eine dynamische Seite an, z. B. ein Suchergebnis, das nicht zwischengespeichert werden muss.
 * Die Dateierweiterung fehlt.
 * Der Webserver benötigt die Erweiterung, um den Dokumenttyp (den MIME-Typ) zu bestimmen.
-* Der Authentifizierungsheader wurde festgelegt (dies kann konfiguriert werden).
+* Der Authentifizierungs-Header ist festgelegt (konfigurierbar).
 * Die AEM-Instanz antwortet mit folgenden Headern:
    * no-cache
    * no-store
