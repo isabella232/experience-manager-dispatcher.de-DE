@@ -4,10 +4,10 @@ seo-title: Top issues for AEM Dispatcher
 description: Häufige Probleme bei AEM Dispatcher
 seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
+source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
 workflow-type: tm+mt
 source-wordcount: '1578'
-ht-degree: 71%
+ht-degree: 66%
 
 ---
 
@@ -130,7 +130,7 @@ Weitere Informationen: [https://sling.apache.org/documentation/the-sling-engine/
 
 ### Wie konfiguriere ich Dispatcher-Flush-Agenten auf einer Veröffentlichungsinstanz?
 
-Siehe [Replikation](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) Seite.
+Siehe [Replikation](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) Seite.
 
 ### Wie kann ich Dispatcher-Bereinigungsprobleme beheben?
 
@@ -153,11 +153,11 @@ Wie erkennt der Dispatcher, ob ein Dokument aktuell ist?
 Um zu bestimmen, ob ein Dokument aktuell ist, führt der Dispatcher diese Aktionen durch:
 
 Es wird geprüft, ob für das Dokument die automatische Invalidierung ausgeführt wird. Ist dies nicht der Fall, wird das Dokument als aktuell betrachtet.
-Wenn das Dokument für die automatische Invalidierung konfiguriert wurde, überprüft der Dispatcher, ob es älter oder neuer als die letzte verfügbare Änderung ist. Wenn es älter ist, ruft der Dispatcher die aktuelle Version von der AEM-Instanz ab und ersetzt die Version im Cache.
+Wenn das Dokument für die automatische Invalidierung konfiguriert ist, prüft der Dispatcher, ob es älter oder neuer als die letzte verfügbare Änderung ist. Wenn sie älter ist, fordert der Dispatcher die aktuelle Version von der AEM-Instanz an und ersetzt die Version im Cache.
 
 ### Wie werden die Dispatcher-Rückgabedokumente zurückgegeben?
 
-Sie können über die [Dispatcher-Konfigurationsdatei](dispatcher-configuration.md) `dispatcher.any` festlegen, ob der Dispatcher ein Dokument zwischenspeichert. Der Dispatcher überprüft die Anforderung anhand der Liste der Dokumente, die zwischengespeichert werden können. Wenn das Dokument nicht in dieser Liste enthalten ist, fragt der Dispatcher das Dokument in der AEM-Instanz ab.
+Sie können über die [Dispatcher-Konfigurationsdatei](dispatcher-configuration.md) `dispatcher.any` festlegen, ob der Dispatcher ein Dokument zwischenspeichert. Der Dispatcher überprüft die Anforderung anhand der Liste der zwischenspeicherbaren Dokumente. Wenn das Dokument nicht in dieser Liste enthalten ist, fordert der Dispatcher das Dokument von der AEM-Instanz an.
 
 Die `/rules`-Eigenschaft steuert anhand des Dokumentenpfads, welche Dokumente zwischengespeichert werden sollen. Unabhängig von der `/rules`-Eigenschaft werden in folgenden Fällen Dokumente nie zwischengespeichert:
 
