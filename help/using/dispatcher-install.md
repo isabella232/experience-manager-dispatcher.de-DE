@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3bb9cb81ac98147bf12e9370d02002dd91ee374e
+source-git-commit: 570eafa7889ff4db820f80eccd529046464d9cfb
 workflow-type: tm+mt
-source-wordcount: '3726'
-ht-degree: 60%
+source-wordcount: '3797'
+ht-degree: 48%
 
 ---
 
@@ -134,7 +134,7 @@ Führen Sie die folgenden Schritte aus, um die Dispatcher-Dateien an den richtig
       * Autoreninstanz: `author_dispatcher.any`
       * Veröffentlichungsinstanz: `dispatcher.any`
 
-## Microsoft IIS – Konfigurieren der INI-Datei des Dispatchers {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft IIS - Konfigurieren der INI-Datei des Dispatchers {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 Bearbeiten Sie die Datei `disp_iis.ini`, um die Dispatcher-Installation zu konfigurieren. Das Standardformat der `.ini`-Datei lautet wie folgt:
 
@@ -152,7 +152,7 @@ In der folgenden Tabelle werden die einzelnen Eigenschaften beschrieben.
 |--- |--- |
 | configpath | Der Speicherort von `dispatcher.any` im lokalen Dateisystem (absoluter Pfad). |
 | logfile | Der Speicherort der `dispatcher.log`-Datei. Wenn dieser nicht festgelegt ist, werden Protokollmeldungen im Windows-Ereignisprotokoll gespeichert. |
-| loglevel | Definiert die Protokollebene, die zum Ausgeben von Nachrichten in das Ereignisprotokoll verwendet wird. Die folgenden Werte können angegeben werden:Protokollebene für die Protokolldatei: <br/>0 - nur Fehlermeldungen. <br/>1 – Fehlermeldungen und Warnungen. <br/>2 – Fehler, Warnungen und Informationsmeldungen <br/>3 – Fehler, Warnungen, Informations- und Problembehebungsnachrichten. <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zu setzen. |
+| loglevel | Definiert die Protokollebene, die zum Ausgeben von Nachrichten in das Ereignisprotokoll verwendet wird. Die folgenden Werte können angegeben werden:Protokollebene für die Protokolldatei: <br/>0 - nur Fehlermeldungen. <br/>1 – Fehlermeldungen und Warnungen. <br/>2 – Fehler, Warnungen und Informationsmeldungen <br/>3 – Fehler, Warnungen, Informations- und Problembehebungsnachrichten. <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und dann bei Ausführung in einer Produktionsumgebung auf 0 zu setzen. |
 | Ersatzgenehmigung | Gibt an, wie Autorisierungskopfzeilen in der HTTP-Anforderung verarbeitet werden. Die folgenden Werte sind gültig:<br/>0 - Autorisierungskopfzeilen werden nicht geändert. <br/>1 – ersetzt alle Header mit dem Namen „Authorization“ mit Ausnahme von „Basic“ durch die `Basic <IIS:LOGON\_USER>`-Entsprechung.<br/> |
 | servervariables | Definiert, wie Servervariablen verarbeitet werden.<br/>0 – IIS-Servervariablen werden weder an den Dispatcher noch an AEM gesendet. <br/>1 – Alle IIS-Servervariablen (wie `LOGON\_USER, QUERY\_STRING, ...`) werden zusammen mit den Anforderungsheadern an den Dispatcher gesendet (und an die AEM-Instanz, wenn keine Zwischenspeicherung erfolgt).  <br/>Zu den Servervariablen gehören `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` und viele andere. In der IIS-Dokumentation finden Sie eine umfassende Liste der Variablen mit detaillierten Informationen. |
 | enable_chunked_transfer | Definiert, ob die Blockübertragung für die Clientantwort aktiviert (1) oder deaktiviert (0) werden soll. Der Standardwert ist 0. |
@@ -171,7 +171,7 @@ replaceauthorization=0
 
 Konfigurieren Sie IIS, um das ISAPI-Modul des Dispatchers zu integrieren. In IIS verwenden Sie die Zuordnung von Wildcard-Anwendungen.
 
-### Anonymen Zugriff konfigurieren – IIS 8.5 und 10 {#configuring-anonymous-access-iis-and}
+### Anonymen Zugriff konfigurieren - IIS 8.5 und 10 {#configuring-anonymous-access-iis-and}
 
 Der standardmäßige Flush-Replikationsagent auf der -Autoreninstanz ist so konfiguriert, dass keine Sicherheitsberechtigungen mit Flush-Anfragen gesendet werden. Daher muss die Website, die Sie mit einem Dispatcher-Cache verwenden, einen anonymen Zugriff zulassen.
 
@@ -181,7 +181,7 @@ Wenn Ihre Website eine Authentifizierungsmethode verwendet, muss der Flush-Repli
 1. Doppelklicken Sie im Ansichtsmodus &quot;Funktionen&quot;im Abschnitt &quot;IIS&quot;auf &quot;Authentifizierung&quot;.
 1. Wenn die anonyme Authentifizierung nicht aktiviert ist, wählen Sie Anonyme Authentifizierung und klicken Sie im Bereich &quot;Aktionen&quot;auf Aktivieren.
 
-### Integrieren des ISAPI-Moduls des Dispatchers – IIS 8.5 und 10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### Integrieren des ISAPI-Moduls des Dispatchers - IIS 8.5 und 10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
 Gehen Sie wie folgt vor, um das ISAPI-Modul des Dispatchers zu IIS hinzuzufügen.
 
@@ -203,7 +203,7 @@ Gehen Sie wie folgt vor, um das ISAPI-Modul des Dispatchers zu IIS hinzuzufügen
 1. (IIS 8.0) Um sicherzustellen, dass der Handler für Dateien und Ordner verwendet wird, die noch nicht im Cache zwischengespeichert sind, deaktivieren Sie das Kontrollkästchen „Handler nur bei folgender Zuordnung aufrufen“ und klicken Sie auf „OK“.
 1. (IIS 8.0) Klicken Sie im Dialogfeld „Skriptzuordnung bearbeiten“ auf „OK“.
 
-### Konfigurieren des Zugriffs auf den Cache – IIS 8.5 und 10 {#configuring-access-to-the-cache-iis-and}
+### Konfigurieren des Zugriffs auf den Cache - IIS 8.5 und 10 {#configuring-access-to-the-cache-iis-and}
 
 Geben Sie den standardmäßigen Anwendungspoolbenutzer mit Schreibzugriff auf den Ordner an, der als Dispatcher-Cache verwendet werden soll.
 
@@ -221,7 +221,7 @@ Geben Sie den standardmäßigen Anwendungspoolbenutzer mit Schreibzugriff auf de
 1. Klicken Sie auf die Schaltfläche Namen überprüfen . Wenn Windows das Benutzerkonto auflöst, klicken Sie auf OK.
 1. Wählen Sie im Dialogfeld „Berechtigungen“ für den Ordner „Dispatcher“ das Konto, das Sie gerade hinzugefügt haben, aktivieren Sie alle Berechtigungen für das Konto **außer Vollzugriff** und klicken Sie auf „OK“. Klicken Sie auf „OK“, um das Dialogfeld „Eigenschaften“ zu schließen.
 
-### Registrieren des JSON-MIME-Typs – IIS 8.5 und 10 {#registering-the-json-mime-type-iis-and}
+### Registrieren des JSON Mime-Typs - IIS 8.5 und 10 {#registering-the-json-mime-type-iis-and}
 
 Führen Sie das folgende Verfahren aus, um den JSON-MIME-Typ zu registrieren, wenn der Dispatcher JSON-Aufrufe zulassen soll.
 
@@ -231,14 +231,14 @@ Führen Sie das folgende Verfahren aus, um den JSON-MIME-Typ zu registrieren, we
    * Dateinamenerweiterung: `.json`
    * MIME Type: `application/json`
 
-### Entfernen des ausgeblendeten Segments „bin“ – IIS 8.5 und 10 {#removing-the-bin-hidden-segment-iis-and}
+### Entfernen des ausgeblendeten Segments &quot;bin&quot;- IIS 8.5 und 10 {#removing-the-bin-hidden-segment-iis-and}
 
 Führen Sie die folgenden Schritte aus, um das ausgeblendete Segment `bin` zu entfernen. Nicht neue Websites können dieses ausgeblendete Segment enthalten.
 
 1. Wählen Sie im IIS-Manager Ihre Website aus und doppelklicken Sie in der Ansicht &quot;Features&quot;auf &quot;Request Filtering&quot;.
 1. Wählen Sie das Segment `bin`, klicken Sie auf „Entfernen“ und klicken Sie im Bestätigungsdialogfeld auf „Ja“.
 
-### Protokollieren von IIS-Meldungen in einer Datei – IIS 8.5 und 10 {#logging-iis-messages-to-a-file-iis-and}
+### Protokollieren von IIS-Meldungen in einer Datei - IIS 8.5 und 10 {#logging-iis-messages-to-a-file-iis-and}
 
 Führen Sie die folgenden Schritte aus, um Dispatcher-Protokollmeldungen in eine Protokolldatei statt in das Windows-Ereignisprotokoll zu schreiben. Sie müssen den Dispatcher für die Verwendung der Protokolldatei konfigurieren und IIS Schreibzugriff auf die Datei gewähren.
 
@@ -289,7 +289,7 @@ Informationen zum Installieren eines Apache-Webservers finden Sie im Installatio
 
 Weitere Informationen finden Sie unter Apache HTTP Server [Sicherheitstipps](https://httpd.apache.org/docs/2.4/misc/security_tips.html) und [Sicherheitsberichte](https://httpd.apache.org/security_report.html).
 
-### Apache-Webserver – Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
+### Apache-Webserver - Hinzufügen des Dispatcher-Moduls {#apache-web-server-add-the-dispatcher-module}
 
 Der Dispatcher umfasst Folgendes:
 
@@ -334,7 +334,7 @@ Dies ist wahrscheinlich auf eine aktivierte SELinux-Sicherheit zurückzuführen.
 * Aktivieren Sie HTTPD-Skripte und -Module, um Netzwerkverbindungen herzustellen.
 * Konfigurieren des SELinux-Kontextes des Dokumentenstamms, in dem die zwischengespeicherten Dateien gespeichert sind 
 
-Geben Sie in einem Terminalfenster die folgenden Befehle ein und ersetzen Sie `[path to the dispatcher.so file]` durch den Pfad zum Dispatcher-Modul, das Sie auf dem Apache-Webserver installiert haben, und *`path to the docroot`* durch den Pfad zum Basisverzeichnis (z. B. `/opt/cq/cache`):
+Geben Sie die folgenden Befehle in ein Terminal-Fenster ein und ersetzen Sie `[path to the dispatcher.so file]` mit dem Pfad zum Dispatcher-Modul, das Sie auf dem Apache-Webserver installiert haben, und *`path to the docroot`* mit dem Pfad, in dem sich das Basisverzeichnis befindet (z. B. `/opt/cq/cache`):
 
 ```shell
 semanage fcontext -a -t httpd_modules_t [path to the dispatcher.so file]
@@ -343,7 +343,7 @@ chcon -R --type httpd_sys_rw_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 ```
 
-### Apache-Webserver – Konfigurieren eines Apache-Webservers für den Dispatcher {#apache-web-server-configure-apache-web-server-for-dispatcher}
+### Apache-Webserver - Konfigurieren des Apache-Webservers für den Dispatcher {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
 Der Apache-Webserver muss mithilfe von `httpd.conf` konfiguriert werden. Im Dispatcher Installation Kit finden Sie eine Beispielskonfigurationsdatei mit dem Namen `httpd.conf.disp<x>`.
 
@@ -411,11 +411,11 @@ Die einzelnen Konfigurationsparameter lauten:
 |--- |--- |
 | DispatcherConfig | Speicherort und Name der Dispatcher-Konfigurationsdatei. <br/>Wenn sich diese Eigenschaft in der Hauptserverkonfiguration befindet, übernehmen alle virtuellen Hosts den Eigenschaftenwert. Allerdings können virtuelle Hosts die Eigenschaft DispatcherConfig einschließen, um die Hauptserverkonfiguration zu überschreiben. |
 | DispatcherLog | Speicherort und Name der Protokolldatei. |
-| DispatcherLogLevel | Protokollebene für die Protokolldatei: <br/>0 – Fehlermeldungen <br/>1 – Warnungen <br/>2 – Informationen <br/>3 – Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
-| DispatcherNoServerHeader | *Dieser Parameter wird veraltet und hat keine Auswirkung mehr.*<br/><br/> Definiert den zu verwendenden Serverheader: <br/><ul><li>nicht definiert oder 0 – der HTTP-Server-Header enthält die AEM-Version. </li><li>1 – der Apache-Serverheader wird verwendet.</li></ul> |
-| DispatcherDeclineRoot | Definiert, ob Anforderungen an den Stamm „/“ abgelehnt werden sollen: <br/>**0** – Anforderungen an / werden angenommen <br/>**1** – Anforderungen an / werden nicht vom Dispatcher verarbeitet. Verwenden Sie „mod_alias“ für die korrekte Zuordnung. |
-| DispatcherUseProcessedURL | Legt fest, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen:<br/>**0** – die an den Webserver übergebene ursprüngliche URL wird verwendet. <br/>**1** – Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`), anstelle der ursprünglichen URL, die an den Webserver übergeben wurde.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT&#39; (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
-| DispatcherPassError | Definiert, wie Fehlercodes für die ErrorDocument-Verarbeitung unterstützt werden: <br/>**0** – Der Dispatcher spoolt alle Fehlerantworten an den Client. <br/>**1** – Der Dispatcher spoolt keine Fehlerantwort an den Client (wobei der Statuscode größer oder gleich 400 ist), übergibt aber den Statuscode an Apache, was es beispielsweise einer ErrorDocument-Direktive ermöglicht, einen solchen Statuscode zu verarbeiten. <br/>**Codebereich** – Geben Sie eine Reihe von Fehlercodes an, für die die Antwort an Apache übergeben wird. Andere Fehlercodes werden an den Client übergeben. Beispielsweise übergibt die folgende Konfiguration Antworten für Fehler 412 an den Client und alle anderen Fehler werden an Apache übergeben: DispatcherPassError 400-411,413-417 |
+| DispatcherLogLevel | Protokollebene für die Protokolldatei: <br/>0 - Fehler <br/>1 - Warnungen <br/>2 - Infos <br/>3 - Debuggen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und dann bei Ausführung in einer Produktionsumgebung auf 0 zu setzen. |
+| DispatcherNoServerHeader | *Dieser Parameter wird veraltet und hat keine Auswirkung mehr.*<br/><br/> Definiert den zu verwendenden Server-Header: <br/><ul><li>nicht definiert oder 0 – der HTTP-Server-Header enthält die AEM-Version. </li><li>1 – der Apache-Serverheader wird verwendet.</li></ul> |
+| DispatcherDeclineRoot | Definiert, ob Anforderungen an den Stamm &quot;/&quot;abgelehnt werden sollen: <br/>**0** - Anforderungen akzeptieren an / <br/>**1** - Anfragen an / werden vom Dispatcher nicht verarbeitet. Verwenden Sie mod_alias für die korrekte Zuordnung. |
+| DispatcherUseProcessedURL | Definiert, ob vorverarbeitete URLs für die weitere Verarbeitung durch den Dispatcher verwendet werden sollen: <br/>**0** - die ursprüngliche URL verwenden, die an den Webserver übergeben wurde. <br/>**1** - Der Dispatcher verwendet die URL, die bereits von den Handlern verarbeitet wurde, die dem Dispatcher vorangehen (d. h. `mod_rewrite`) anstelle der ursprünglichen URL, die an den Webserver übergeben wird.  Beispielsweise wird entweder die ursprüngliche oder verarbeitete URL mit den Dispatcher-Filtern abgeglichen. Die URL wird auch als Grundlage für die Cachedateistruktur verwendet.   Weitere Informationen zu „mod_rewrite“ finden Sie in der Dokumentation auf der Apache-Website, z. B. Apache 2.4. Bei Verwendung von „mod_rewrite“ wird empfohlen, die Markierung „passthrough“ zu verwenden | PT&#39; (Weiterleiten an den nächsten Handler), um die Rewrite-Engine zum Festlegen des URI-Felds der internen Struktur auf den Wert des Dateinamenfelds zu zwingen. |
+| DispatcherPassError | Definiert, wie Fehlercodes für die Verarbeitung von ErrorDocument unterstützt werden: <br/>**0** - Der Dispatcher spoolt alle Fehlerantworten an den Client. <br/>**1** - Der Dispatcher spoolt keine Fehlerantwort an den Client (wenn der Statuscode größer oder gleich 400 ist), übergibt jedoch den Statuscode an Apache, was es beispielsweise einer ErrorDocument-Direktive ermöglicht, einen solchen Statuscode zu verarbeiten. <br/>**Codebereich** - Geben Sie eine Reihe von Fehlercodes an, für die die Antwort an Apache übergeben wird. Andere Fehlercodes werden an den Client übergeben. Beispielsweise übergibt die folgende Konfiguration Antworten für Fehler 412 an den Client und alle anderen Fehler werden an Apache übergeben: DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 | DispatcherNoCanonURL | Wenn Sie diesen Parameter auf „Ein“ setzen, wird die unformatierte URL anstelle der kanonisierten URL an das Backend übergeben und die Einstellungen von DispatcherUseProcessedURL überschrieben. Der Standardwert ist „Aus“. <br/>**Hinweis**: Die Filterregeln in der Dispatcher-Konfiguration werden immer anhand der bereinigten URL und nicht anhand der unformatierten URL ausgewertet. |
 
@@ -434,7 +434,7 @@ Die einzelnen Konfigurationsparameter lauten:
 >
 >`DispatcherNoServerHeader 0`
 >
->Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen im Header deaktivieren möchten, können Sie Folgendes festlegen:
+>Dies zeigt die AEM-Version (statistische Zwecke). Wenn Sie diese Informationen in der Kopfzeile deaktivieren möchten, können Sie Folgendes festlegen:
 >
 >`ServerTokens Prod`
 >
@@ -449,7 +449,7 @@ Nach diesen Einträgen müssen Sie die Anweisung **SetHandler** zum Kontext Ihre
 ```
 ...  
 <Directory />  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
   
@@ -469,7 +469,7 @@ Im folgenden Beispiel wird der Dispatcher zur Bearbeitung von Anforderungen für
 ServerName www.mycompany.com  
 DocumentRoot _\[cache-path\]_\\docs  
 <Directory _\[cache-path\]_\\docs>  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
 AllowOverride None  
@@ -486,7 +486,7 @@ AllowOverride None
 ServerName www.mycompany.com  
 DocumentRoot /usr/apachecache/docs  
 <Directory /usr/apachecache/docs>  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 </IfModule>  
 AllowOverride None  
@@ -526,7 +526,7 @@ Das folgende Beispiel aktiviert **ModMimeUsePathInfo**:
 ```
 ...  
 <Directory />  
-<IfModule disp\_apache2.c>  
+<IfModule disp_apache2.c>  
 SetHandler dispatcher-handler  
 ModMimeUsePathInfo On  
 </IfModule>  
@@ -556,7 +556,7 @@ Der Dispatcher verwendet OpenSSL, um sichere Kommunikation über HTTP zu impleme
 
 >[!NOTE]
 >
->Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und der Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/) / kompiliert wurden.
+>Wenn Sie eine angepasste Version von Apache verwenden, stellen Sie sicher, dass Apache und Dispatcher mit derselben Version von [OpenSSL](https://www.openssl.org/source/).
 
 ### Nächste Schritte {#next-steps-1}
 
@@ -603,7 +603,7 @@ Führen Sie die folgenden Schritte aus, um den Dispatcher Ihrem Webserver hinzuz
 
 1. Platzieren Sie die Dispatcher-Datei im Verzeichnis `plugin` des Webservers:
 
-### Sun Java System Web Server/iPlanet – Konfigurieren für den Dispatcher {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
+### Sun Java System Web Server/iPlanet - Konfigurieren für den Dispatcher {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
 
 Der Webserver muss mithilfe von `obj.conf` konfiguriert werden. Im Dispatcher Installation Kit finden Sie eine Beispielskonfigurationsdatei mit dem Namen `obj.conf.disp`.
 
@@ -647,7 +647,7 @@ Hierbei gilt:
 |--- |--- |
 | config | Speicherort und Name der Konfigurationsdatei `dispatcher.any.` |
 | logfile | Speicherort und Name der Protokolldatei. |
-| loglevel | Protokollebene für die Protokolldatei: <br/>**0** Fehlermeldungen <br/>**1** Warnungen <br/>**2** Informationen <br/>**3** Debugmeldungen <br/>**Hinweis**: Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und anschließend zur Ausführung in der Produktionsumgebung wieder auf 0 zurückzusetzen. |
+| loglevel | Protokollebene für beim Schreiben von Nachrichten in die Protokolldatei: <br/>**0** Fehler <br/>**1** Warnungen <br/>**2** Informationen <br/>**3** Debuggen <br/>**Hinweis:** Es wird empfohlen, die Protokollebene während der Installation und Tests auf 3 festzulegen und während der Ausführung in einer Produktionsumgebung auf 0 zu setzen. |
 | keepalivetimeout | Gibt den Keep-Alive-Timeout in Sekunden an. Ab Dispatcher-Version 4.2.0 beträgt der Standardwert für die Keep-Alive-Funktion 60. Wenn der Wert 0 lautet, wird der Keep-Alive-Timeout deaktiviert. |
 
 Je nach Ihren Anforderungen können Sie den Dispatcher als Dienst für Ihre Objekte definieren. Um den Dispatcher für die gesamte Website zu konfigurieren, ändern Sie das Standardobjekt:
