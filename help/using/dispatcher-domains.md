@@ -1,5 +1,5 @@
 ---
-title: 'Verwenden des Dispatchers mit mehreren Domänen '
+title: Verwenden des Dispatchers mit mehreren Domains
 seo-title: Using Dispatcher with Multiple Domains
 description: Erfahren Sie, wie Sie mit dem Dispatcher Seitenanfragen in mehreren Webdomänen verarbeiten.
 seo-description: Learn how to use Dispatcher to process page requests in multiple web domains.
@@ -12,21 +12,21 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: c7af1a042b0106fa0a559448398a8dd636d920c2
-workflow-type: tm+mt
-source-wordcount: '2968'
-ht-degree: 97%
+workflow-type: ht
+source-wordcount: '2967'
+ht-degree: 100%
 
 ---
 
-# Verwenden des Dispatchers mit mehreren Domänen {#using-dispatcher-with-multiple-domains}
+# Verwenden des Dispatchers mit mehreren Domains {#using-dispatcher-with-multiple-domains}
 
 >[!NOTE]
 >
->Dispatcher-Versionen sind unabhängig von AEM. Möglicherweise wurden Sie von der Dokumentation zu AEM oder CQ zu dieser Seite weitergeleitet.
+>Dispatcher-Versionen sind unabhängig von AEM. Sie wurden möglicherweise zu dieser Seite umgeleitet, wenn Sie einem Link zur Dispatcher-Dokumentation gefolgt sind, der in der AEM- oder CQ-Dokumentation eingebettet ist.
 
-Verwenden Sie den Dispatcher, um Seitenanforderungen in mehreren Webdomänen zu verarbeiten und gleichzeitig die folgenden Bedingungen zu erfüllen:
+Verwenden Sie den Dispatcher, um Seitenanfragen in mehreren Web-Domains zu verarbeiten und gleichzeitig die folgenden Bedingungen zu erfüllen:
 
-* Webinhalt für beide Domänen wird in einem einzelnen AEM-Repository gespeichert.
+* Der Web-Inhalt für beide Domains wird in einem einzelnen AEM-Repository gespeichert.
 * Die Dateien im Dispatcher-Cache können getrennt für jede Domäne ungültig gemacht werden.
 
 Beispiel: Ein Unternehmen veröffentlicht Websites für zwei seiner Marken – Marke A (Brand A) und Marke B (Brand B). Der Inhalt für die Seiten der Websites wird in AEM erstellt und im selben Repository-Arbeitsbereich gespeichert:
@@ -46,36 +46,36 @@ Bei Verwendung des Dispatchers zum Speichern von Inhalt im Cache müssen Zuordnu
 
 ## Clientanforderungen
 
-Wenn Clients HTTP-Anforderungen an den Webserver senden, muss die URL der angeforderten Seite zum Inhalt im Dispatcher-Cache und schließlich zum Inhalt im Repository aufgelöst werden.
+Wenn Clients HTTP-Anfragen an den Webserver senden, muss die URL der angeforderten Seite zum Inhalt im Dispatcher-Cache und schließlich zum Inhalt im Repository aufgelöst werden.
 
 ![](assets/chlimage_1-8.png)
 
-1. Das Domain Name System erkennt die IP-Adresse des Webservers, der für den Domänennamen in der HTTP-Anforderung registriert ist.
-1. Die HTTP-Anforderung wird an den Webserver gesendet.
+1. Das Domain-Namenssystem erkennt die IP-Adresse des Webservers, der für den Domain-Namen in der HTTP-Anfrage registriert ist.
+1. Die HTTP-Anfrage wird an den Webserver gesendet.
 1. Die HTTP-Anforderung wird an den Dispatcher übergeben.
-1. Der Dispatcher ermittelt, ob die Cachedateien gültig sind. Wenn sie gültig sind, werden die zwischengespeicherten Dateien für den Client bereitgestellt.
+1. Der Dispatcher ermittelt, ob die zwischengespeicherten Dateien gültig sind. Wenn sie gültig sind, werden die zwischengespeicherten Dateien für den Client bereitgestellt.
 1. Falls die zwischengespeicherten Dateien nicht gültig sind, fordert der Dispatcher neu gerenderte Seiten von der AEM-Veröffentlichungsinstanz an.
 
 ## Cache-Invalidierung
 
-Wenn Dispatcher Flush-Replikationsagenten anfordern, dass der Dispatcher zwischengespeicherte Dateien ungültig macht, muss der Pfad des Inhalts im Repository zum Inhalt im Cache aufgelöst werden.
+Wenn Flush-Replikationsagenten eines Dispatchers anfordern, dass der Dispatcher zwischengespeicherte Dateien invalidiert, muss der Pfad des Inhalts im Repository zum Inhalt im Cache aufgelöst werden.
 
 ![](assets/chlimage_1-9.png)
 
-* a - Eine Seite wird in der AEM-Autoreninstanz aktiviert und der Inhalt wird in die Veröffentlichungsinstanz repliziert.
-* b - Der Dispatcher Flush Agent ruft den Dispatcher auf, um den Cache für den replizierten Inhalt ungültig zu machen.
-* c - Der Dispatcher berührt eine oder mehrere STAT-Dateien, um die zwischengespeicherten Dateien ungültig zu machen.
+* A: Eine Seite wird in der AEM-Autoreninstanz aktiviert und der Inhalt wird in die Veröffentlichungsinstanz repliziert.
+* B: Der Flush-Agent des Dispatchers ruft den Dispatcher zur Invalidierung des Caches für den replizierten Inhalt auf.
+* C: Der Dispatcher nimmt Bearbeitungen an einer oder mehreren STAT-Dateien vor, um die zwischengespeicherten Dateien zu invalidieren.
 
-Um den Dispatcher mit mehreren Domänen zu verwenden, müssen Sie AEM, den Dispatcher und Ihren Webserver konfigurieren. Bei den auf dieser Seite beschriebenen Lösungen handelt es sich um allgemeine Lösungen, die sich für die meisten Umgebungen eignen. Aufgrund der Komplexität einiger AEM-Topologien erfordert Ihre Lösung möglicherweise weitere benutzerdefinierte Konfigurationen, um bestimmte Probleme zu beheben. Sie müssen die Beispiele ggf. gemäß den Anforderungen Ihrer vorhandenen IT-Infrastruktur und Verwaltungsrichtlinien anpassen.
+Um den Dispatcher mit mehreren Domains zu verwenden, müssen Sie AEM, den Dispatcher und Ihren Webserver konfigurieren. Bei den auf dieser Seite beschriebenen Lösungen handelt es sich um allgemeine Lösungen, die sich für die meisten Umgebungen eignen. Aufgrund der Komplexität einiger AEM-Topologien erfordert Ihre Lösung möglicherweise weitere benutzerdefinierte Konfigurationen, um bestimmte Probleme zu beheben. Sie müssen die Beispiele ggf. gemäß den Anforderungen Ihrer vorhandenen IT-Infrastruktur und Verwaltungsrichtlinien anpassen.
 
 ## URL-Zuordnung {#url-mapping}
 
-Um für Domänen-URLs und Inhaltspfade die Auflösung zu zwischengespeicherten Dateien zu ermöglichen, muss an einem Punkt während des Prozesses ein Dateipfad oder eine Seiten-URL übersetzt werden. Es werden Beschreibungen der folgenden allgemeinen Strategien bereitgestellt, bei denen Pfad- oder URL-Übersetzungen an unterschiedlichen Punkten während des Prozesses erfolgen:
+Um für Domain-URLs und Inhaltspfade die Auflösung zu zwischengespeicherten Dateien zu ermöglichen, muss an einem Punkt während des Prozesses ein Dateipfad oder eine Seiten-URL übersetzt werden. Es werden Beschreibungen der folgenden allgemeinen Strategien bereitgestellt, bei denen Pfad- oder URL-Übersetzungen an unterschiedlichen Punkten im Prozess erfolgen:
 
-* (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung zur Implementierung von Regeln zum Neuschreiben interner URLs. Domänen-URLs werden in Inhaltsrepositorypfade übersetzt. Siehe [AEM schreibt eingehende URLs neu](#aem-rewrites-incoming-urls).
-* Der Webserver verwendet Regeln zum Neuschreiben interner URLs, die Domänen-URLs in Cachepfade übersetzen. Siehe [Der Webserver schreibt eingehende URLs neu](#the-web-server-rewrites-incoming-urls).
+* (Empfohlen) Die AEM-Veröffentlichungsinstanz verwendet die Sling-Zuordnung für die Ressourcenauflösung, um Regeln zum Neuschreiben interner URLs zu implementieren. Domain-URLs werden in Content-Repository-Pfade übersetzt. Siehe [AEM schreibt eingehende URLs neu](#aem-rewrites-incoming-urls).
+* Der Webserver verwendet interne Regeln zum Neuschreiben von URLs, die Domain-URLs in Cachepfade übersetzen. Siehe [Der Webserver schreibt eingehende URLs neu](#the-web-server-rewrites-incoming-urls).
 
-Es empfiehlt sich, kurze URLs für Webseiten zu verwenden. Üblicherweise spiegeln Seiten-URLs die Struktur der Repositoryordner wider, die den Webinhalt enthalten. Allerdings zeigen die URLs nicht die höchsten Repositoryknoten, beispielsweise `/content`. Dem Client ist die Struktur des AEM-Repositorys nicht notwendigerweise bekannt.
+Im Allgemeinen ist es wünschenswert, kurze URLs für Web-Seiten zu verwenden. Üblicherweise spiegeln Seiten-URLs die Struktur der Repository-Ordner wider, die den Web-Inhalt enthalten. Allerdings zeigen die URLs nicht die höchsten Repositoryknoten, beispielsweise `/content`. Dem Client ist die Struktur des AEM-Repositorys nicht notwendigerweise bekannt.
 
 ## Allgemeine Anforderungen {#general-requirements}
 
@@ -83,8 +83,8 @@ In Ihrer Umgebung müssen die folgenden Konfigurationen implementiert werden, um
 
 * Der Inhalt für jede Domäne befindet sich in getrennten Verzweigungen des Repositorys (siehe die im Folgenden aufgeführte Beispielumgebung).
 * Der Dispatcher Flush-Replikationsagent wird auf der AEM-Veröffentlichungsinstanz konfiguriert. (Siehe [Invalidierung des Dispatcher-Caches von einer Veröffentlichungsinstanz ](page-invalidate.md))
-* Das Domänennamensystem löst die Domänennamen zu der IP-Adresse des Webservers auf.
-* Der Dispatcher-Cache spiegelt die Verzeichnisstruktur des AEM-Inhaltsrepository wider. Die Dateipfade unter dem Dokumentenstamm des Webservers stimmen mit den Pfaden der Dateien im Repository überein.
+* Das Domain-Namenssystem löst die Domain-Namen zu der IP-Adresse des Webservers auf.
+* Der Dispatcher-Cache spiegelt die Verzeichnisstruktur des AEM-Content-Repositorys wider. Die Dateipfade unter dem Basisverzeichnis des Webservers stimmen mit den Pfaden der Dateien im Repository überein.
 
 ## Umgebung für die aufgeführten Beispiele  {#environment-for-the-provided-examples}
 
@@ -94,7 +94,7 @@ Die aufgeführten Beispiellösungen gelten für Umgebungen mit den folgenden Eig
 * Apache HTTPD ist der auf einem Linux-System bereitgestellte Webserver.
 * Das AEM-Inhaltsrepository und das Basisverzeichnis des Webservers verwenden die folgenden Dateistrukturen (das Basisverzeichnis des Apache-Webservers lautet /`usr/lib/apache/httpd-2.4.3/htdocs)`):
 
-   **Repository**
+  **Repository**
 
 ```
   | - /content  
@@ -121,9 +121,9 @@ Die aufgeführten Beispiellösungen gelten für Umgebungen mit den folgenden Eig
 
 ## AEM schreibt eingehende URLs neu {#aem-rewrites-incoming-urls}
 
-Die Sling-Zuordnung für die Ressourcenauflösung ermöglicht es Ihnen, eingehende URLs AEM-Inhaltspfaden zuzuordnen. Erstellen Sie Zuordnungen auf der AEM-Veröffentlichungsinstanz, sodass Renderanforderungen des Dispatchers zum richtigen Inhalt im Repository aufgelöst werden.
+Die Sling-Zuordnung für die Ressourcenauflösung ermöglicht es Ihnen, eingehende URLs AEM-Inhaltspfaden zuzuordnen. Erstellen Sie Zuordnungen in der AEM-Veröffentlichungsinstanz, sodass Render-Anfragen des Dispatchers zum richtigen Inhalt im Repository aufgelöst werden.
 
-Dispatcher-Anforderungen für das Rendern von Seiten identifizieren die Seite mithilfe der URL, die vom Webserver übergeben wurde. Wenn die URL einen Domänennamen enthält, lösen Sling-Zuordnungen die URL zum Inhalt auf. Die folgende Abbildung zeigt die Zuordnung der `branda.com/en.html`-URL zum `/content/sitea/en`-Knoten.
+Dispatcher-Anfragen für das Rendern von Seiten identifizieren die Seite mithilfe der vom Webserver übergebenen URL. Wenn die URL einen Domänennamen enthält, lösen Sling-Zuordnungen die URL zum Inhalt auf. Die folgende Abbildung zeigt die Zuordnung der `branda.com/en.html`-URL zum `/content/sitea/en`-Knoten.
 
 ![](assets/chlimage_1-10.png)
 
@@ -133,16 +133,16 @@ Der Dispatcher-Cache spiegelt die Repositoryknotenstruktur wider. Aus diesem Gru
 
 ## Definieren virtueller Hosts auf dem Webserver {#define-virtual-hosts-on-the-web-server}
 
-Definieren Sie virtuelle Hosts auf dem Webserver, sodass jeder Webdomäne ein anderer Dokumentenstamm zugewiesen werden kann:
+Definieren Sie virtuelle Hosts auf dem Webserver, sodass jeder Webdomain ein anderes Basisverzeichnis zugewiesen werden kann:
 
-* Der Webserver muss eine virtuelle Domäne für jede Ihrer Webdomänen definieren.
+* Der Webserver muss eine virtuelle Domain für jede Ihrer Webdomains definieren.
 * Konfigurieren Sie für jede Domäne das Basisverzeichnis zum Ordner im Repository mit dem Webinhalt der Domäne.
 * Jede virtuelle Domäne muss außerdem Dispatcher-bezogene Konfigurationen umfassen, wie auf der Seite [Installieren des Dispatchers](dispatcher-install.md) beschrieben.
 
 Die folgende Beispieldatei `httpd.conf` konfiguriert zwei virtuelle Domänen für einen Apache-Webserver:
 
-* Die Servernamen (die mit den Domänennamen übereinstimmen) lauten „branda.com“ (Zeile 16) und „brandB.com“ (Zeile 30).
-* Der Dokumentenstamm der einzelnen virtuellen Domänen ist das Verzeichnis im Dispatcher-Cache, das die Seiten der Website enthält. (Zeile 17 und 31)
+* Die Server-Namen (die mit den Domain-Namen übereinstimmen) lauten „branda.com“ (Zeile 16) und „brandB.com“ (Zeile 30).
+* Das Basisverzeichnis jeder einzelnen virtuellen Domain ist das Verzeichnis im Dispatcher-Cache, das die Seiten der Site enthält. (Zeilen 17 und 31).
 
 Mit dieser Konfiguration führt der Webserver die folgenden Aktionen durch, wenn er eine Anforderung für `https://branda.com/en/products.html` erhält:
 
@@ -198,14 +198,14 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-Beachten Sie, dass virtuelle Hosts den Eigenschaftswert [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) erben, der im Hauptabschnitt für den Server konfiguriert ist. Virtuelle Hosts können eine eigene Eigenschaft „DispatcherConfig“ umfassen, um die Hauptserverkonfiguration zu überschreiben.
+Virtuelle Hosts übernehmen den Eigenschaftswert [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7), der im Hauptabschnitt für den Server konfiguriert ist. Virtuelle Hosts können eine eigene Eigenschaft „DispatcherConfig“ umfassen, um die Haupt-Server-Konfiguration zu überschreiben.
 
 ### Konfigurieren des Dispatchers zur Verarbeitung mehrerer Domänen  {#configure-dispatcher-to-handle-multiple-domains}
 
-Um URLs zu unterstützen, die Domänennamen und ihre entsprechenden virtuellen Hosts umfassen, definieren Sie die folgenden Dispatcher-Farmen:
+Um URLs zu unterstützen, die Domain-Namen und ihre entsprechenden virtuellen Hosts umfassen, definieren Sie die folgenden Dispatcher-Farmen:
 
 * Konfigurieren Sie eine Dispatcher-Farm für jeden virtuellen Host. Diese Farmen verarbeiten Anforderungen vom Webserver für jede Domäne, überprüfen auf zwischengespeicherte Dateien und fordern Seiten von den Renderknoten an.
-* Konfigurieren Sie eine Dispatcher-Farm, die zur Invalidierung von Inhalt im Cache verwendet wird, und zwar unabhängig davon, zu welcher Domäne der Inhalt gehört. Diese Farm verarbeitet Anforderungen zur Invalidierung von Dateien von Flush Dispatcher-Replikationsagenten.
+* Konfigurieren Sie eine Dispatcher-Farm, die zur Invalidierung von Inhalt im Cache verwendet wird, und zwar unabhängig davon, zu welcher Domain der Inhalt gehört. Diese Farm verarbeitet Anfragen von Flush-Dispatcher-Replikationsagenten zur Invalidierung von Dateien.
 
 ### Erstellen von Dispatcher-Farmen für virtuelle Hosts
 
@@ -216,7 +216,7 @@ Farmen für virtuelle Hosts müssen die folgenden Konfigurationen aufweisen, sod
 
 * Der Wert der Eigenschaft `/docroot` ist auf den Pfad des Basisverzeichnisses des Domäneninhalts im Dispatcher-Cache festgelegt. Dieser Pfad wird als Präfix für die verkettete URL von der ursprünglichen Anforderung verwendet. Beispielsweise wird durch den Basisverzeichnis-Prozess `/usr/lib/apache/httpd-2.4.3/htdocs/sitea` die Anfrage `https://branda.com/en.html` an die Datei `/usr/lib/apache/httpd-2.4.3/htdocs/sitea/en.html` aufgelöst.
 
-Darüber hinaus muss die AEM-Veröffentlichungsinstanz als Renderknoten für den virtuellen Host festgelegt werden. Konfigurieren Sie nach Bedarf weitere Farmeigenschaften. Beim folgenden Code handelt es sich um eine abgekürzte Farmkonfiguration für die Domäne „branda.com“:
+Darüber hinaus muss die AEM-Veröffentlichungsinstanz als Render-Knoten für den virtuellen Host festgelegt werden. Konfigurieren Sie nach Bedarf weitere Farm-Eigenschaften. Beim folgenden Code handelt es sich um eine abgekürzte Farm-Konfiguration für die Domain „branda.com“:
 
 ```xml
 /farm_sitea  {     
@@ -240,16 +240,16 @@ Darüber hinaus muss die AEM-Veröffentlichungsinstanz als Renderknoten für den
 
 ### Erstellen einer Dispatcher-Farm zur Cache-Invalidierung
 
-Eine Dispatcher-Farm ist für die Verarbeitung von Anforderungen zur Invalidierung zwischengespeicherter Dateien erforderlich. Diese Farm muss auf die STAT-Dateien in den Dokumentenstammverzeichnissen jedes einzelnen virtuellen Hosts zugreifen können.
+Eine Dispatcher-Farm ist für die Verarbeitung von Anfragen zur Invalidierung zwischengespeicherter Dateien erforderlich. Diese Farm muss auf die STAT-Dateien in den Basisverzeichnissen jedes einzelnen virtuellen Hosts zugreifen können.
 
-Die folgenden Eigenschaftenkonfigurationen ermöglichen dem Dispatcher die Auflösung von Dateien im AEM-Inhaltsrepository aus Dateien im Cache:
+Die folgenden Eigenschaftenkonfigurationen ermöglichen es dem Dispatcher, Dateien im AEM-Content-Repository aus Dateien im Cache aufzulösen:
 
 * Der Wert der Eigenschaft `/docroot` ist auf das Standard-Basisverzeichnis des Webservers festgelegt. Üblicherweise handelt es sich hierbei um das Verzeichnis, in dem der Ordner `/content` erstellt wird. Ein Beispielwert für Apache unter Linux ist `/usr/lib/apache/httpd-2.4.3/htdocs`.
 * Die Eigenschaft `/filter` ermöglicht den Zugriff auf Dateien unter dem Verzeichnis `/content`.
 
 Der Wert der Eigenschaft `/statfileslevel` muss groß genug sein, sodass STAT-Dateien im Basisverzeichnis jedes einzelnen virtuellen Hosts erstellt werden. Diese Eigenschaft ermöglicht es, den Cache für jede Domäne einzeln ungültig zu machen. Für das Beispiel-Setup erstellt ein `/statfileslevel`-Wert von `2` .stat-Dateien im Verzeichnis `*docroot*/content/sitea` und im Verzeichnis `*docroot*/content/siteb`.
 
-Darüber hinaus muss die Veröffentlichungsinstanz als Renderknoten für den virtuellen Host festgelegt werden. Konfigurieren Sie nach Bedarf weitere Farmeigenschaften. Beim folgenden Code handelt es sich um eine abgekürzte Konfiguration für die Farm, die zur Cacheinvalidierung verwendet wird:
+Darüber hinaus muss die Veröffentlichungsinstanz als Render-Knoten für den virtuellen Host festgelegt werden. Konfigurieren Sie nach Bedarf weitere Farm-Eigenschaften. Beim folgenden Code handelt es sich um eine abgekürzte Konfiguration für die Farm, die zur Cache-Invalidierung verwendet wird:
 
 ```xml
 /farm_flush {  
@@ -272,7 +272,7 @@ Darüber hinaus muss die Veröffentlichungsinstanz als Renderknoten für den vir
 }
 ```
 
-Wenn Sie den Webserver starten, weist das Dispatcher-Protokoll (im Debugmodus) auf die Initialisierung aller Farmen hin:
+Wenn Sie den Webserver starten, weist das Dispatcher-Protokoll (im Debug-Modus) auf die Initialisierung aller Farmen hin:
 
 ```shell
 Dispatcher initializing (build 4.1.2)
@@ -284,9 +284,9 @@ Dispatcher initializing (build 4.1.2)
 
 ### Konfigurieren der Sling-Zuordnung für die Ressourcenauflösung  {#configure-sling-mapping-for-resource-resolution}
 
-Verwenden Sie die Sling-Zuordnung für die Ressourcenauflösung, sodass die domänenbasierten URLs zu Inhalt auf der AEM-Veröffentlichungsinstanz aufgelöst werden. Die Ressourcenzuordnung übersetzt die eingehenden URLs vom Dispatcher (ursprünglich von Client-HTTP-Anforderungen) in Inhaltsknoten.
+Verwenden Sie die Sling-Zuordnung für die Ressourcenauflösung, sodass die Domain-basierten URLs zu Inhalten in der AEM-Veröffentlichungsinstanz aufgelöst werden. Die Ressourcenzuordnung übersetzt die eingehenden URLs vom Dispatcher (ursprünglich aus Client-HTTP-Anfragen) in Inhaltsknoten.
 
-Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen zur Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
+Weitere Informationen zur Sling-Ressourcenzuordnung finden Sie unter [Zuordnungen für die Ressourcenauflösung](https://sling.apache.org/site/mappings-for-resource-resolution.html) in der Sling-Dokumentation.
 
 Üblicherweise sind Zuordnungen für die folgenden Ressourcen erforderlich, auch wenn möglicherweise zusätzliche Zuordnungen benötigt werden:
 
@@ -302,7 +302,7 @@ Nachdem Sie die Zuordnung für die Inhaltsseite erstellt haben, verwenden Sie zu
 
 >[!NOTE]
 >
->Der Transformator „linkchecker“ des standardmäßigen Sling Rewriter von Apache ändert automatisch Hyperlinks auf der Seite, um fehlerhafte Links zu vermeiden. Allerdings erfolgt das Neuschreiben von Links nur, wenn das Linkziel eine HTML- oder HTM-Datei ist. Um Links zu anderen Dateitypen zu aktualisieren, erstellen Sie eine Transformatorkomponente und fügen Sie sie zu einer HTML-Rewriter-Pipeline hinzu.
+>Der Transformator „linkchecker“ des standardmäßigen Apache Sling Rewriter ändert automatisch Hyperlinks auf der Seite, um fehlerhafte Links zu vermeiden. Allerdings erfolgt das Neuschreiben von Links nur, wenn das Link-Ziel eine HTML- oder HTM-Datei ist. Um Links zu anderen Dateitypen zu aktualisieren, erstellen Sie eine Transformatorkomponente und fügen Sie sie zu einer HTML-Rewriter-Pipeline hinzu.
 
 ### Beispielknoten für die Ressourcenzuordnung
 
@@ -316,9 +316,9 @@ In der folgenden Tabelle sind die Knoten aufgeführt, die die Ressourcenzuordnun
 | `/etc/map/http/branda.com/etc/designs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/designs |
 | `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | Name: sling:internalRedirect <br/>VTyp: String <br/>VWert: /etc/clientlibs |
 
-## Konfigurieren des Dispatcher Flush-Replikationsagenten {#configuring-the-dispatcher-flush-replication-agent}
+## Konfigurieren des Dispatcher Flush-Relikationsagenten {#configuring-the-dispatcher-flush-replication-agent}
 
-Der Dispatcher Flush-Replikationsagent auf der AEM-Veröffentlichungsinstanz muss Invalidierungsanforderungen an die richtige Dispatcher-Farm senden. Verwenden Sie zum Bestimmen einer Farm die URI-Eigenschaft des Dispatcher Flush-Replikationsagenten (auf der Registerkarte „Transport“). Binden Sie den Wert der Eigenschaft `/virtualhost` für die Dispatcher-Farm ein, die für die Cache-Invalidierung konfiguriert ist:
+Der Dispatcher Flush-Replikationsagent auf der AEM-Veröffentlichungsinstanz muss Invalidierungsanforderungen an die richtige Dispatcher-Farm senden. Verwenden Sie zum Bestimmen einer Farm die URI-Eigenschaft des Dispatcher-Flush-Replikationsagenten (auf der Registerkarte „Transport“). Binden Sie den Wert der Eigenschaft `/virtualhost` für die Dispatcher-Farm ein, die für die Cache-Invalidierung konfiguriert ist:
 
 `https://*webserver_name*:*port*/*virtual_host*/dispatcher/invalidate.cache`
 
@@ -336,11 +336,11 @@ Der Dispatcher-Cache spiegelt die Repositoryknotenstruktur wider. Aus diesem Gru
 
 ![](assets/chlimage_1-14.png)
 
-## Definieren virtueller Hosts und Neuschreiben von Regeln auf dem Webserver {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}
+## Definieren von virtuellen Hosts und Neuschreibungsregeln auf dem Webserver {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}
 
 Konfigurieren Sie die folgenden Aspekte auf dem Webserver:
 
-* Definieren Sie einen virtuellen Host für jede Ihrer Webdomänen.
+* Definieren Sie einen virtuellen Host für jede Ihrer Web-Domänen.
 * Konfigurieren Sie für jede Domäne das Basisverzeichnis zum Ordner im Repository mit dem Webinhalt der Domäne.
 * Erstellen Sie für jede virtuelle Domäne eine URL-Umbenennungsregel, die die eingehende URL in den Pfad der zwischengespeicherten Datei übersetzt.
 * Jede virtuelle Domäne muss außerdem Dispatcher-bezogene Konfigurationen umfassen, wie auf der Seite [Installieren des Dispatchers](dispatcher-install.md) beschrieben.
@@ -350,8 +350,8 @@ Die folgende Beispieldatei „httpd.conf“ konfiguriert zwei virtuelle Hosts f�
 
 * Die Servernamen (die mit den Domänennamen übereinstimmen) lauten `brandA.com` (Zeile 16) und `brandB.com` (Zeile 32).
 
-* Der Dokumentstamm der einzelnen virtuellen Domänen ist das Verzeichnis im Dispatcher-Cache, das die Seiten der Website enthält. (Zeile 20 und 33)
-* Die URL-Neuschreibungsregel für die einzelnen virtuellen Domänen ist ein regulärer Ausdruck, der dem Pfad der angeforderten Seite mit dem Pfad zu den Seiten im Cache vorangestellt ist. (Zeile 19 und 35)
+* Das Basisverzeichnis jeder einzelnen virtuellen Domain ist das Verzeichnis im Dispatcher-Cache, das die Seiten der Site enthält. (Zeilen 20 und 33).
+* Die URL-Neuschreibungsregel für die einzelnen virtuellen Domains ist ein regulärer Ausdruck, durch den der Pfad zu den Seiten im Cache dem Pfad der angeforderten Seite vorangestellt wird. (Zeilen 19 und 35).
 * Die Eigenschaft `DispatherUseProcessedURL` ist auf `1` festgelegt. (Zeile 10)
 
 Beispielsweise führt der Webserver die folgenden Aktionen durch, wenn er eine Anforderung mit der URL `https://brandA.com/en/products.html` erhält:
@@ -360,7 +360,7 @@ Beispielsweise führt der Webserver die folgenden Aktionen durch, wenn er eine A
 * Schreibt die URL neu, sodass sie `/content/sitea/en/products.html.` lautet.
 * Leitet die URL an den Dispatcher weiter.
 
-### httpd.conf {#httpd-conf-1}
+### httpd.conf  {#httpd-conf-1}
 
 ```xml
 # load the Dispatcher module
@@ -498,29 +498,29 @@ Wie üblich ist das Cache-Basisverzeichnis dasselbe wie das Basisverzeichnis des
 
 >[!NOTE]
 >
->Da eine einzelne Dispatcher-Farm definiert ist, erfordert der Dispatcher Flush-Replikationsagent auf der AEM-Veröffentlichungsinstanz keine speziellen Konfigurationen.
+>Da eine einzelne Dispatcher-Farm definiert ist, sind für den Dispatcher-Flush-Replikationsagenten in der AEM-Veröffentlichungsinstanz keine speziellen Konfigurationen erforderlich.
 
 ## Neuschreiben von Links zu Nicht-HTML-Dateien  {#rewriting-links-to-non-html-files}
 
 Um Verweise auf Dateien mit anderen Erweiterungen als „HTML“ oder „HTM“ neu zu schreiben, erstellen Sie eine Transformatorkomponente für Sling-Rewriter und fügen Sie sie zur standardmäßigen Rewriter-Pipeline hinzu.
 
-Schreiben Sie Verweise neu, wenn Ressourcenpfade nicht ordnungsgemäß im Webserverkontext aufgelöst werden. Beispielsweise ist ein Transformator erforderlich, wenn bildgenerierende Komponenten Links wie „/content/sitea/en/products.navimage.png“ erstellen. Die Komponente „topnav“ unter [Erstellen von Websites mit vollem Funktionsumfang](https://helpx.adobe.com/de/experience-manager/6-5/sites/developing/using/the-basics.html) erstellt solche Links.
+Schreiben Sie Verweise neu, wenn Ressourcenpfade nicht ordnungsgemäß im Webserver-Kontext aufgelöst werden. Beispielsweise ist ein Transformator erforderlich, wenn bildgenerierende Komponenten Links wie „/content/sitea/en/products.navimage.png“ erstellen. Die Komponente „topnav“ unter [Erstellen von Websites mit vollem Funktionsumfang](https://helpx.adobe.com/de/experience-manager/6-5/sites/developing/using/the-basics.html) erstellt solche Links.
 
-[Sling Rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) ist ein Modul, das die Sling-Ausgabe nachbearbeitet. SAX-Pipeline-Implementierungen von Rewriter bestehen aus einem Generator, einem oder mehreren Transformatoren und einem Serialisierungsprogramm:
+Der [Sling Rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) ist ein Modul, das die Sling-Ausgabe nachbearbeitet. SAX-Pipeline-Implementierungen von Rewriter bestehen aus einem Generator, einem oder mehreren Transformatoren und einem Serialisierungsprogramm:
 
 * **Generator:** Analysiert den Sling-Ausgabestream (HTML-Dokument) und generiert SAX-Ereignisse, wenn er bestimmte Elementtypen erkennt.
-* **Transformator:** Lauscht auf SAX-Ereignisse und ändert entsprechend das Ereignisziel (ein HTML-Element). Eine Rewriter-Pipeline enthält keine oder mehrere Transformatoren. Transformatoren werden nacheinander ausgeführt und übergeben dabei die SAX-Ereignisse an den jeweils nächsten Transformator.
+* **Transformator:** Lauscht auf SAX-Ereignisse und ändert entsprechend das Ereignisziel (ein HTML-Element). Eine Rewriter-Pipeline enthält null oder mehr Transformatoren. Transformatoren werden nacheinander ausgeführt und übergeben dabei die SAX-Ereignisse an den jeweils nächsten Transformator.
 * **Serialisierungsprogramm:** Serialisiert die Ausgabe, einschließlich der Änderungen durch die einzelnen Transformatoren.
 
 ![](assets/chlimage_1-15.png)
 
 ### Die standardmäßige AEM-Rewriter-Pipeline  {#the-aem-default-rewriter-pipeline}
 
-AEM verwendet standardmäßig eine Rewriter-Pipeline, die Dokumente des Typs „text/html“ verarbeitet:
+AEM verwendet eine standardmäßige Rewriter-Pipeline, die Dokumente vom Typ „text/html“ verarbeitet:
 
 * Der Generator analysiert HTML-Dokumente und generiert SAX-Ereignisse, wenn er die folgenden Elemente erkennt: „a“, „img“, „area“, „form“, „base“, „link“, „script“ und „body“. Der Generatoralias lautet `htmlparser`.
 * Die Pipeline enthält die folgenden Transformatoren: `linkchecker`, `mobile`, `mobiledebug`, `contentsync`. Der Transformator `linkchecker` externalisiert Pfade zu referenzierten HTML- oder HTM-Dateien, um fehlerhafte Links zu vermeiden.
-* Das Serialisierungsprogramm schreibt die HTML-Ausgabe. Der Serialisierungsprogrammalias lautet „htmlwriter“.
+* Das Serialisierungsprogramm schreibt die HTML-Ausgabe. Der Serialisierungsprogramm-Alias lautet „htmlwriter“.
 
 Der Knoten `/libs/cq/config/rewriter/default` definiert die Pipeline.
 
@@ -531,7 +531,7 @@ Führen Sie die folgenden Ausgaben aus, um eine Transformatorkomponente zu erste
 1. Implementieren Sie die Schnittstelle `org.apache.sling.rewriter.TransformerFactory`. Diese Klasse erstellt Instanzen Ihrer Transformatorklasse. Geben Sie die Werte für die Eigenschaft `transformer.type` (den Transformatoralias) an und konfigurieren Sie die Klasse als OSGi-Dienstkomponente.
 1. Implementieren Sie die Schnittstelle `org.apache.sling.rewriter.Transformer`. Um den damit verbundenen Aufwand zu verringern, können Sie die Klasse `org.apache.cocoon.xml.sax.AbstractSAXPipe` erweitern. Überschreiben Sie die Methode „startElement“, um das Neuschreibungsverhalten anzupassen. Diese Methode wird für jedes SAX-Ereignis aufgerufen, das an den Transformator übergeben wird.
 1. Bündeln Sie die Klassen und stellen Sie sie bereit.
-1. Fügen Sie einen Konfigurationsknoten zu Ihrer AEM-Anwendung hinzu, um den Transformator zur Pipeline hinzuzufügen.
+1. Fügen Sie Ihrer AEM-Anwendung einen Konfigurationsknoten hinzu, um den Transformator zur Pipeline hinzuzufügen.
 
 >[!TIP]
 >Sie können stattdessen „TransformerFactory“ so konfigurieren, dass der Transformator in jeden definierten Rewriter eingefügt wird. Folglich müssen Sie keine Pipeline konfigurieren:
@@ -540,17 +540,16 @@ Führen Sie die folgenden Ausgaben aus, um eine Transformatorkomponente zu erste
 >* Legen Sie den Wert der Eigenschaft `service.ranking` auf eine positive ganze Zahl fest.
 >* Nehmen Sie keine Eigenschaft des Typs `pipeline.type` auf.
 
-
 >[!NOTE]
 >
->Verwenden Sie den Archetyp [multimodule](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=de#how-to-install-documentation-package) des Content Package Maven-Plugins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
+>Verwenden Sie den Archetyp [multimodule](https://helpx.adobe.com/de/experience-manager/aem-previous-versions.html) des Inhaltspaket-Maven-Plug-ins, um ein Maven-Projekt zu erstellen. Die POMs erstellen und installieren automatisch ein Inhaltspaket.
 
 In den folgenden Beispielen wird ein Transformator implementiert, der Verweise auf Bilddateien neu schreibt.
 
 * Die Klasse „MyRewriterTransformerFactory“ instanziiert Objekte des Typs „MyRewriterTransformer“. Die Eigenschaft „pipeline.type“ legt den Transformatoralias auf „mytransformer“ fest. Um den Alias in eine Pipeline aufzunehmen, nimmt der Pipelinekonfigurationsknoten diesen Alias in die Liste der Transformatoren auf.
-* Die Klasse „MyRewriterTransformer“ überschreibt die Methode „startElement“ der Klasse „AbstractSAXTransformer“. Die Methode „startElement“ schreibt den Wert von Attributen des Typs „src“ für Elemente des Typs „img“ neu.
+* Die Klasse „MyRewriterTransformer“ überschreibt die Methode „startElement“ der Klasse „AbstractSAXTransformer“. Die Methode „startElement“ schreibt den Wert der Attribute vom Typ „src“ für Elemente vom Typ „img“ neu.
 
-Die Beispiele sind nicht fundiert und sollten nicht in einer Produktionsumgebung verwendet werden.
+Die Beispiele sind nicht stabil und sollten nicht in einer Produktionsumgebung verwendet werden.
 
 ### Beispiel für eine TransformerFactory-Implementierung  {#example-transformerfactory-implementation}
 
@@ -578,7 +577,7 @@ public class MyRewriterTransformerFactory implements TransformerFactory {
 }
 ```
 
-### Beispiel für eine Transformer-Implementierung {#example-transformer-implementation}
+### Beispiel für eine Transformator-Implementierung {#example-transformer-implementation}
 
 ```java
 package com.adobe.example;
@@ -648,7 +647,7 @@ public class MyRewriterTransformer extends AbstractSAXPipe implements Transforme
 
 ### Hinzufügen des Transformators zu einer Rewriter-Pipeline {#adding-the-transformer-to-a-rewriter-pipeline}
 
-Erstellen Sie einen JCR-Knoten, der eine Pipeline definiert, welche Ihren Transformator verwendet. Die folgende Knotendefinition erstellt eine Pipeline, die Dateien des Typs „text/html“ verarbeitet. Der standardmäßige AEM-Generator und -Parser für HTML werden verwendet.
+Erstellen Sie einen JCR-Knoten, der eine Pipeline definiert, die Ihren Transformator verwendet. Die folgende Knotendefinition erstellt eine Pipeline, die Dateien vom Typ „text/html“ verarbeitet. Der standardmäßige AEM-Generator und -Parser für HTML werden verwendet.
 
 >[!NOTE]
 >

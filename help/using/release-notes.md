@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: tm+mt
-source-wordcount: '1063'
-ht-degree: 50%
+workflow-type: ht
+source-wordcount: '1040'
+ht-degree: 100%
 
 ---
 
@@ -31,9 +31,9 @@ ht-degree: 50%
 
 ## Systemanforderungen und Voraussetzungen {#system-requirements-and-prerequisites}
 
-Siehe [Unterstützte Plattformen](https://helpx.adobe.com/de/experience-manager/6-4/sites/deploying/using/technical-requirements.html)für weitere Informationen zu Anforderungen und Voraussetzungen.
+Weitere Informationen zu Anforderungen und Voraussetzungen finden Sie auf der Seite [Unterstützte Plattformen](https://helpx.adobe.com/de/experience-manager/6-4/sites/deploying/using/technical-requirements.html).
 
-Adobe empfiehlt dringend, die neueste Version AEM Dispatcher zu verwenden, um von den neuesten Funktionen, Fehlerbehebungen und der bestmöglichen Leistung zu profitieren.
+Adobe rät ausdrücklich dazu, die neueste Version von AEM Dispatcher zu verwenden, um von den neuesten Funktionen, behobenen Fehlern und der bestmöglichen Leistung zu profitieren.
 
 ## Installationsanweisungen {#installation-instructions}
 
@@ -41,59 +41,59 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 
 ## Versionsverlauf {#release-history}
 
-### Version 4.3.6 (2023-25. Juli) {#jyly}
+### Version 4.3.6 (25. Juli 2023) {#jyly}
 
 **Verbesserungen**:
 
-* DISP-911 AEM-05 - X-Edge-Key kann in disp_apache2.c durchsickert werden
-* DISP-937 Protokollierung aller Selektoren
-* DISP-998, das Laden von Vanity-URLs beim Start konfigurierbar macht
+* DISP-911 AEM-05: X-Edge-Key kann in disp_apache2.c weitergeleitet werden.
+* DISP-937: Es werden alle Selektoren protokolliert.
+* DISP-998: Das Laden von Vanity-URLs kann beim Start konfiguriert werden.
 
-### Version 4.3.5 (2022-April-04) {#apr}
+### Version 4.3.5 (4. April 2022) {#apr}
 
 **Verbesserungen**:
 
-* DISP-954 - Invalidierung unterstützen, auch wenn das Ablaufdatum nicht überschritten wurde
-* DISP-949 - Dispatcher gibt 200 anstelle von 404 zurück, selbst wenn die POST-Anforderung durch den Filter blockiert wird
+* DISP-954: Die Invalidierung wird unterstützt, auch wenn das Ablaufdatum nicht überschritten wurde.
+* DISP-949: Der Dispatcher gibt den Code 200 statt 404 zurück, selbst wenn die POST-Anfrage durch einen Filter blockiert wird.
 
-### Version 4.3.4 (2021-29. November) {#nov}
+### Version 4.3.4 (29. November 2021) {#nov}
 
 **Fehlerbehebungen**:
 
-* DISP-833 - X-Forwarded-Host-Header können eine Liste mit kommagetrennten Hostnamen enthalten
-* DISP-835 - DispatcherUseForwardedHost verschlingt Host-Header, wenn er zuletzt kommt
+* DISP-833 – X-Forwarded-Host-Header können eine Liste mit kommagetrennten Host-Namen enthalten.
+* DISP-835 – DispatcherUseForwardedHost „schluckt“ den Host-Header, sofern dieser als Letztes kommt.
 
 **Verbesserungen**:
 
-* DISP-874 - Erstellt eine Dispatcher-Konfiguration, um die Implementierung von DISP-818 über eine Markierung entweder ein- oder aus zu schalten `DispatcherRestrictUncacheableContent`. Der Standardwert ist „Aus“. Wenn &quot;Ein&quot;aktiviert ist, werden alle durch &quot;mod&quot;festgelegten Zwischenspeicherkopfzeilen für nicht speicherbare Inhalte entfernt. Dies unterscheidet sich vom Verhalten in Version 4.3.3 (wo die Standardeinstellung &quot;Ein&quot;war), aber vom Verhalten in früheren Versionen als 4.3.3 (wo die Standardeinstellung &quot;Aus&quot;war). Keeping `DispatcherRestrictUncacheableContent`Der Standardwert Aus ist der empfohlene Ansatz, sodass der Browser-Cache flexibler ist. Wenn Sie beim Upgrade von Version 4.3.3 auf 4.3.4 dasselbe Verhalten wie in Version 4.3.3 beibehalten möchten, müssen Sie explizit festlegen `DispatcherRestrictUncacheableContent` auf &quot;An&quot;.
-* DISP-841 - Dispatcher respektiert /serverStaleOnError für 504-Antwortcode nicht
-* DISP-874 - Erstellen einer Dispatcher-Konfiguration, um die Implementierung von DISP-818 zu aktivieren oder zu deaktivieren
-* DISP-883 - Verfolgen der URL-Anforderungsdekomposition im Dispatcher
-* DISP-944 - Vanity-URLs vor dem Laden
+* DISP-874 – Erstellt eine Dispatcher-Konfiguration, um die Implementierung von DISP-818 über das Flag `DispatcherRestrictUncacheableContent` ein- oder auszuschalten. Der Standardwert ist „Off“. Wenn „On“ eingestellt ist, werden alle durch „mod_expires“ festgelegten Caching-Header für nicht zwischenspeicherbare Inhalte entfernt. Dies unterscheidet sich vom Verhalten in Version 4.3.3 (mit der Standardeinstellung „On“), entspricht aber dem Verhalten in früheren Versionen vor 4.3.3 (mit der Standardeinstellung „Off“). Es wird empfohlen, die Standardeinstellung „Off“ für `DispatcherRestrictUncacheableContent` zu belassen, damit der Browsercache flexibler ist. Wenn Sie beim Upgrade von Version 4.3.3 auf 4.3.4 das gleiche Verhalten wie in Version 4.3.3 beibehalten möchten, müssen Sie `DispatcherRestrictUncacheableContent` explizit auf „On“ festlegen.
+* DISP-841 – Dispatcher respektiert „/serverStaleOnError“ für den 504-Antwort-Code nicht.
+* DISP-874 – Erstellen einer Dispatcher-Konfiguration, um die Implementierung von DISP-818 ein- oder auszuschalten.
+* DISP-883 – Verfolgen der Dekomposition von URL-Anfragen im Dispatcher.
+* DISP-944 – Vorabladen von Vanity-URLs.
 
-### Version 4.3.3 (18. Oktober 2019) {#october}
+### Version 4.3.3 (16. Oktober 2019) {#october}
 
 **Fehlerbehebungen**:
 
-* DISP-739 - LogLevel Dispatcher: **level** funktioniert nicht
-* DISP-749 - Alpine Linux Dispatcher stürzt mit Trace Log Level ab
+* DISP-739 – LogLevel-Dispatcher: **level** funktioniert nicht.
+* DISP-749 – Alpine Linux-Dispatcher stürzt mit TRACE-Protokollebene ab.
 
 **Verbesserungen**:
 
-* DISP-813 - Unterstützung im Dispatcher für openssl 1.1.x
-* DISP-814 - Apache 40x-Fehler während Cache-Leeren
-* DISP-818 - mod_expires fügt Cache-Control-Header für nicht speicherbare Inhalte hinzu
-* DISP-821 - Protokollkontext nicht im Socket speichern
-* DISP-822 - Dispatcher sollte &quot;ppoll&quot;anstelle von &quot;pselect&quot;verwenden
-* DISP-824 - Secure DispatcherUseForwardedHost
-* DISP-825 - Meldung protokollieren, wenn kein Speicherplatz mehr auf der Festplatte vorhanden ist
-* DISP-826 - Unterstützung von Refzierungs-URIs mit einer Abfragezeichenfolge
+* DISP-813 – Unterstützung im Dispatcher für OpenSSL 1.1.x.
+* DISP-814 – Apache 40x-Fehler beim Cache-Leeren.
+* DISP-818 – „mod_expires“ fügt Cache-Control-Header für nicht zwischenspeicherbare Inhalte hinzu.
+* DISP-821 – Protokollkontext wird nicht im Socket gespeichert.
+* DISP-822 – Dispatcher sollte „ppoll“ statt „pselect“ verwenden.
+* DISP-824 – Sicherheit bei DispatcherUseForwardedHost.
+* DISP-825 – Protokollieren einer speziellen Meldung, wenn kein Speicherplatz mehr auf der Festplatte vorhanden ist.
+* DISP-826 – Erneutes Abrufen von URIs per Abfragezeichenfolge wird unterstützt.
 
 **Neue Funktionen**:
 
-* DISP-703 - Farm-spezifisches Cache-Trefferverhältnis
-* DISP-827 - Lokaler Server zum Testen
-* DISP-828 - Erstellen eines Testdocker-Bildes für Dispatcher
+* DISP-703 – Farm-spezifische Cache-Trefferquote.
+* DISP-827 – Lokaler Server zum Testen.
+* DISP-828 – Erstellen eines Test-Docker-Bilds für den Dispatcher.
 
 ### Version 4.3.2 (31. Januar 2019) {#jan}
 
@@ -165,7 +165,7 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 
 ## Hilfreiche Ressourcen {#helpful-resources}
 
-* [Übersicht über AEM Dispatcher](dispatcher.md)
+* [Überblick über AEM Dispatcher](dispatcher.md)
 
 ## Downloads {#downloads}
 
@@ -179,10 +179,10 @@ Detaillierte Anweisungen finden Sie unter [Installieren des Dispatchers](dispatc
 | Linux | x86_64 (64 Bit) | Ohne | [dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz) |
 | Linux | x86_64 (64 Bit) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz) |
 | Linux | x86_64 (64 Bit) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz) |
-| Linux | aarch64 (64 Bit) | Ohne | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
-| Linux | aarch64 (64 Bit) | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
-| Linux | aarch64 (64 Bit) | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
-| macOS | arm64 (64 Bit) | Ohne | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
+| Linux | aarch64 (64-Bit) | Ohne | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
+| Linux | aarch64 (64-Bit) | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
+| Linux | aarch64 (64-Bit) | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
+| macOS | arm64 (64-Bit) | Ohne | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
 | macOS | x86_64 (64 Bit) | Ohne | [dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz) |
 
 ### IIS {#iis}

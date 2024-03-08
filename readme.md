@@ -1,14 +1,13 @@
 ---
 source-git-commit: d83eb9ce10c2f324163ac629ea7c02d154dc387d
-workflow-type: tm+mt
-translation-type: tm+mt
+workflow-type: ht
 source-wordcount: '73'
-ht-degree: 79%
+ht-degree: 100%
 
 ---
-# Adobe Experience Manager Dispatcher-Dokumentation
+# Dokumentation zum Adobe Experience Manager-Dispatcher
 
-Dies ist das Repository für die Adobe Experience Manager Dispatcher-Dokumentation.
+Dies ist das Repository für die Dokumentation des Adobe Experience Manager-Dispatchers.
 
 Ihre Beiträge zur Dokumentation sind willkommen. Sehen Sie sich die folgenden Ressourcen an:
 

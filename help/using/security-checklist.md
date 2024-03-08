@@ -15,9 +15,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
-workflow-type: tm+mt
-source-wordcount: '639'
-ht-degree: 85%
+workflow-type: ht
+source-wordcount: '611'
+ht-degree: 100%
 
 ---
 
@@ -38,7 +38,7 @@ Adobe empfiehlt, vor dem Einsatz in einer Produktionsumgebung unbedingt die folg
 
 >[!CAUTION]
 >
->Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Weitere Informationen finden Sie in der entsprechenden [Adobe Experience Manager-Dokumentation](https://helpx.adobe.com/experience-manager/6-5/sites/administring/using/security-checklist.html).
+>Sie müssen vor dem Produktivstart auch die Sicherheitscheckliste für Ihre AEM-Version abarbeiten. Beachten Sie die entsprechende [Adobe Experience Manager-Dokumentation](https://experienceleague.adobe.com/docs/experience-manager-65/content/security/security-checklist.html?lang=de).
 
 ## Verwenden der neuesten Version des Dispatchers {#use-the-latest-version-of-dispatcher}
 
@@ -46,7 +46,7 @@ Sie sollten die neueste Version installieren, die für Ihre Plattform verfügbar
 
 >[!NOTE]
 >
->Die Version Ihrer Dispatcher-Installation können Sie der Dispatcher-Protokolldatei entnehmen.
+>Die Version Ihrer aktuellen Dispatcher-Installation können Sie der Dispatcher-Protokolldatei entnehmen.
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
@@ -77,9 +77,9 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
  -->
 
-## Restrict Access {#restrict-access}
+## Einschränken des Zugriffs {#restrict-access}
 
-Wenn Sie den Dispatcher konfigurieren, sollten Sie externe Zugriffe so weit wie möglich einschränken. Siehe [Abschnitt „Beispiel/Filter“](dispatcher-configuration.md#main-pars_184_1_title) in der Dispatcher-Dokumentation.
+Wenn Sie den Dispatcher konfigurieren, sollten Sie externe Zugriffe so weit wie möglich einschränken. Siehe das [Beispiel für einen Abschnitt /filter](dispatcher-configuration.md#main-pars_184_1_title) in der Dispatcher-Dokumentation.
 
 ## Verweigern des Zugriffs auf administrative URLs  {#make-sure-access-to-administrative-urls-is-denied}
 
@@ -89,27 +89,27 @@ Unter [Testen der Dispatcher-Sicherheit](dispatcher-configuration.md#testing-dis
 
 ## Verwenden von Zulassungslisten anstelle von Blockierungslisten {#use-allowlists-instead-of-blocklists}
 
-Zulassungslisten sind eine bessere Möglichkeit zur Zugangssteuerung, da sie grundsätzlich davon ausgehen, dass alle Zugriffsanfragen verweigert werden sollten, es sei denn, sie sind ausdrücklich Teil der Zulassungsliste. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anforderungen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
+Zulassungslisten eignen sich besser zur Zugriffskontrolle, da sie grundsätzlich voraussetzen, dass alle Zugriffsanfragen verweigert werden sollten, sofern sie nicht ausdrücklich Teil der Zulassungsliste sind. Dieses Modell ermöglicht eine strengere Kontrolle über neue Anfragen, die während einer Konfigurationsphase möglicherweise noch nicht überprüft oder in Betracht gezogen wurden.
 
-## Ausführen des Dispatchers mit einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
+## Ausführen des Dispatchers mit einer dedizierten Systembenutzerin bzw. einem dedizierten Systembenutzer {#run-dispatcher-with-a-dedicated-system-user}
 
-Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einem dedizierten Benutzer mit den geringsten Rechten ausgeführt wird. Es wird empfohlen, nur Schreibzugriff auf den Dispatcher-Cache-Ordner zu gewähren.
+Beim Konfigurieren des Dispatchers sollten Sie sicherstellen, dass der Webserver von einer dedizierten Person mit den geringsten Rechten ausgeführt wird. Es empfiehlt sich, für den Dispatcher-Cacheordner nur Schreibrechte zu erteilen.
 
-Außerdem müssen IIS-Benutzer ihre Website wie folgt konfigurieren:
+Darüber hinaus müssen IIS-Benutzende ihre Website folgendermaßen konfigurieren:
 
-1. Wählen Sie in den Einstellungen für den physischen Pfad für Ihre Website die Option zum Verbinden als bestimmter Benutzer ****.
-1. Legen Sie den Benutzer fest.
+1. Wählen Sie in den Einstellungen für den physischen Pfad für Ihre Website die Option zum **Verbinden als bestimmter Benutzer** aus.
+1. Legen Sie die Person fest.
 
 ## Vermeiden von Denial-of-Service-Angriffen  {#prevent-denial-of-service-dos-attacks}
 
-Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Benutzer unzugänglich zu machen.
+Ein Denial-of-Service-Angriff (DoS) zielt darauf ab, eine Computerressource für die vorgesehenen Personen unzugänglich zu machen.
 
-Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern:  [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filter))
+Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe zu verhindern: [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (Filter))
 
-* Verwenden Sie das mod_rewrite-Modul (beispielsweise [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)), um URL-Überprüfungen durchzuführen (sofern die Regeln für das URL-Muster nicht zu komplex sind).
+* Verwenden Sie das mod_rewrite-Modul (beispielsweise [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html), um URL-Überprüfungen durchzuführen (sofern die Regeln für das URL-Muster nicht zu komplex sind).
 
 * Hindern Sie den Dispatcher daran, URLs mit falschen Erweiterungen zwischenzuspeichern, indem Sie [Filter](dispatcher-configuration.md#configuring-access-to-conten-tfilter) verwenden.\
-   Ändern Sie beispielsweise die Cachingregeln, um die Zwischenspeicherung auf die erwarteten MIME-Typen zu begrenzen. Dazu zählen unter anderem:
+  Ändern Sie beispielsweise die Cachingregeln, um die Zwischenspeicherung auf die erwarteten MIME-Typen zu begrenzen. Dazu zählen unter anderem:
 
    * `.html`
    * `.jpg`
@@ -120,7 +120,7 @@ Auf Dispatcher-Ebene gibt es zwei Konfigurationsmöglichkeiten, um DoS-Angriffe 
    * `.pdf`
    * `.ppt`
 
-   Sie können eine Beispielkonfigurationsdatei zum [Einschränken des externen Zugriffs](#restrict-access) einsehen, diese beinhaltet die Einschränkungen für MIME-Typen. 
+  Sie können eine Beispielkonfigurationsdatei zum [Einschränken des externen Zugriffs](#restrict-access) einsehen, diese beinhaltet die Einschränkungen für MIME-Typen. 
 
 Um sicher den vollen Funktionsumfang für die Veröffentlichungsinstanzen zu aktivieren, konfigurieren Sie Filter, um den Zugriff auf die folgenden Knoten zu verhindern:
 
@@ -152,7 +152,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Konfigurieren des Dispatchers zum Verhindern von CSRF-Angriffen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM bietet ein [Framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu nutzen, müssen Sie die CSRF-Token-Unterstützung im Dispatcher in Zulassungsliste stellen. Gehen Sie dazu wie folgt vor:
+AEM bietet ein [Framework](https://helpx.adobe.com/de/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps), mit dem CSRF-Angriffe (Cross-Site Request Forgery) verhindert werden können. Um dieses Framework ordnungsgemäß zu verwenden, müssen Sie im Dispatcher die Unterstützung für CSRF-Token auf die Zulassungsliste setzen. Gehen Sie dazu wie folgt vor:
 
 1. Erstellen Sie einen Filter, um den Pfad `/libs/granite/csrf/token.json` zuzulassen.
 1. Fügen Sie die Kopfzeile `CSRF-Token` dem Abschnitt `clientheaders` der Dispatcher-Konfiguration hinzu.
@@ -165,4 +165,4 @@ Weitere [Informationen zum Thema Clickjacking finden Sie auf der OWASP-Website](
 
 ## Durchführen eines Penetrationstests {#perform-a-penetration-test}
 
-Adobe empfiehlt dringend, Ihre AEM-Infrastruktur vor dem Einsatz in einer Produktionsumgebung einem Penetrationstest zu unterziehen. 
+Adobe empfiehlt dringend, Ihre AEM-Infrastruktur vor dem Einsatz in einer Produktionsumgebung einem Penetrationstest zu unterziehen.
